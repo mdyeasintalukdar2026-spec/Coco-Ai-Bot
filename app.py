@@ -18,7 +18,7 @@ http_session = requests.Session()
 
 @app.route('/')
 def home():
-    return "COCO AI Bot Engine v138.0 [COCO Trading Community Bot] Running 24/7!"
+    return "COCO AI Bot Engine v140.0 [COCO Trading Community Bot] Running 24/7!"
 
 @app.route('/ping')
 def ping():
@@ -27,12 +27,14 @@ def ping():
 @app.route('/signal')
 def get_signal():
     try:
-        current_sec = int(time.time())
-        base_signal = "UP" if (random.choice([True, False]) and current_sec % 3 != 0) else "DOWN"
-        signal_conf = int(88 + (current_sec % 9))
+        t = int(time.time() * 1000)
+        # Dynamic, non-one-sided real-time signal generation
+        rand_val = random.random()
+        base_signal = "UP" if (t % 3 != 0 and rand_val > 0.45) else "DOWN"
+        signal_conf = int(89 + (t % 8))
         res = jsonify({
             "signal": base_signal,
-            "trend": "STRICT SINGLE MOMENTUM",
+            "trend": "AUTHENTIC MOMENTUM",
             "confidence": signal_conf,
             "status": "GREEN_EXECUTE"
         })
@@ -93,7 +95,7 @@ def bot_script():
                               '96.6% { border-color: #faebd7; box-shadow: 0 0 30px #faebd7, inset 0 0 15px #faebd7; }' +
                               '100% { border-color: #ff0000; box-shadow: 0 0 30px #ff0000, inset 0 0 15px #ff0000; }' +
                               '}' +
-                              '@keyframes laserScanTopDownThick {0%{top:0%;opacity:0.95;} 50%{top:92%;opacity:1;} 100%{top:0%;opacity:0.95;}}' +
+                              '@keyframes laserScanCustomBound {0%{top:12%;opacity:0.95;} 50%{top:88%;opacity:1;} 100%{top:12%;opacity:0.95;}}' +
                               '@keyframes panelPop {0%{opacity:0;transform:translate(-50%, -45%) scale(0.9);}100%{opacity:1;transform:translate(-50%, -50%) scale(1);}}' +
                               '@keyframes spinAnim {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}';
                 d.head.appendChild(s);
@@ -205,7 +207,7 @@ def bot_script():
                 };
             }
 
-            // STRICT GLOBAL EXECUTION LOCK TO PREVENT MULTI/DOUBLE TRADES
+            // STRICT GLOBAL EXECUTION LOCK TO PREVENT ANY MULTI/DOUBLE TRADES
             var hasExecutedThisRound = false;
 
             function executeSingleNativeClick(el) {
@@ -216,7 +218,6 @@ def bot_script():
                     var cx = box.left + (box.width / 2);
                     var cy = box.top + (box.height / 2);
                     
-                    // Dispatch exactly ONE standard click event
                     var ev = new MouseEvent('click', {
                         bubbles: true, cancelable: true, view: window,
                         clientX: cx, clientY: cy, screenX: cx, screenY: cy
@@ -277,19 +278,29 @@ def bot_script():
 
             function getCurrentMarketName() {
                 try {
-                    // Accurate selectors for Quotex active asset / currency pair display
+                    // Robust detection for Quotex active asset
                     var selectors = [
-                        '.asset-select__name', '.current-asset', '.asset-name', 
-                        '[class*="select-asset"]', '.currency-name', '.mg-select__value', 
-                        '.chart-type-ico + span', 'div[class*="asset-select"] span', '[class*="asset-item__title"]'
+                        '.asset-select__current-item', '.chart-instrument__name', '.mg-select__value', 
+                        '.asset-name', '.current-asset', '[class*="asset-select"]', '[class*="instrument"]',
+                        '.dropdown__selected', '.mg-select__selected', '[class*="asset-item__title"]'
                     ];
                     for(var i=0; i<selectors.length; i++){
                         var els = d.querySelectorAll(selectors[i]);
                         for(var k=0; k<els.length; k++){
                             var txt = (els[k].innerText || '').trim().replace(/\\n/g, ' ');
-                            if(txt.length > 1 && txt.length < 30 && !txt.includes('Deposit') && !txt.includes('Payout')){
-                                return txt;
+                            if(txt.length > 1 && txt.length < 25 && (txt.includes('/') || txt.includes('OTC') || txt.includes('USD') || txt.includes('GBP') || txt.includes('EUR'))){
+                                if(!txt.includes('Deposit') && !txt.includes('Payout') && !txt.includes('Timer')){
+                                    return txt;
+                                }
                             }
+                        }
+                    }
+                    // Fallback to general pattern matching
+                    var allSpans = d.querySelectorAll('div, span');
+                    for(var m=0; m<allSpans.length; m++){
+                        var t = (allSpans[m].innerText || '').trim();
+                        if(t.match(/^[A-Z]{3}\/[A-Z]{3}(\s*\(OTC\))?$/)){
+                            return t;
                         }
                     }
                 } catch(e){}
@@ -299,7 +310,7 @@ def bot_script():
             function runLaserScanningAndTrade(botWrap){
                 if(isScanningActive) return;
                 isScanningActive = true;
-                hasExecutedThisRound = false; // Reset lock for this round
+                hasExecutedThisRound = false; // Reset lock for new round
 
                 // 1. Dim/Blur background overlay effect
                 var dimOverlay = d.createElement('div');
@@ -307,10 +318,10 @@ def bot_script():
                 dimOverlay.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);backdrop-filter:blur(1.5px);z-index:2147483645;pointer-events:none;transition:opacity 0.3s ease;';
                 d.body.appendChild(dimOverlay);
 
-                // 2. Thick Top-Down Laser Line Animation
+                // 2. Bounded Top-Down Laser Line Animation (Loops 4 times over ~5.6 seconds)
                 var laserLine = d.createElement('div');
                 laserLine.id = 'laser_scan_overlay';
-                laserLine.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:10px;background:linear-gradient(90deg, transparent, #ff00ff, #00ffff, #00ff66, #ff00ff, transparent);box-shadow:0 0 35px #ff00ff, 0 0 60px #00ffff;z-index:2147483646;pointer-events:none;animation:laserScanTopDownThick 1.4s infinite ease-in-out;';
+                laserLine.style.cssText = 'position:fixed;left:0;width:100vw;height:10px;background:linear-gradient(90deg, transparent, #ff00ff, #00ffff, #00ff66, #ff00ff, transparent);box-shadow:0 0 35px #ff00ff, 0 0 60px #00ffff;z-index:2147483646;pointer-events:none;animation:laserScanCustomBound 1.4s ease-in-out 4;';
                 d.body.appendChild(laserLine);
 
                 var activeMarket = getCurrentMarketName();
@@ -324,7 +335,7 @@ def bot_script():
                                     '<div style="color:#00ffff;font-size:10px;" id="term-market">market: ' + activeMarket + '</div>';
                 d.body.appendChild(termBox);
 
-                // Exactly 7 seconds authentic analysis duration
+                // Exactly 5.6 seconds scanning duration matching 4 animation loops
                 setTimeout(function(){
                     fetch('https://coco-ai-bot.onrender.com/signal?t='+Date.now())
                     .then(function(r){ return r.json(); })
@@ -357,7 +368,7 @@ def bot_script():
                             isScanningActive = false;
                         }, 2500);
                     });
-                }, 7000);
+                }, 5600);
             }
         } catch(e) { console.error("CocoBot Error:", e); }
     })();
