@@ -18,7 +18,7 @@ http_session = requests.Session()
 
 @app.route('/')
 def home():
-    return "COCO AI Bot Engine v128.0 [COCO Trading Community Bot] Running 24/7!"
+    return "COCO AI Bot Engine v130.0 [COCO Trading Community Bot] Running 24/7!"
 
 @app.route('/ping')
 def ping():
@@ -60,15 +60,30 @@ def bot_script():
             if(!oldS){
                 var s = d.createElement('style');
                 s.id = 'coco_global';
-                s.innerHTML = '@keyframes multiColorGlow {' +
-                              '0% { border-color: #00ff66; box-shadow: 0 0 22px #00ff66, inset 0 0 10px #00ff66; }' +
-                              '20% { border-color: #00ffff; box-shadow: 0 0 22px #00ffff, inset 0 0 10px #00ffff; }' +
-                              '40% { border-color: #ff00ff; box-shadow: 0 0 22px #ff00ff, inset 0 0 10px #ff00ff; }' +
-                              '60% { border-color: #ff3300; box-shadow: 0 0 22px #ff3300, inset 0 0 10px #ff3300; }' +
-                              '80% { border-color: #ffff00; box-shadow: 0 0 22px #ffff00, inset 0 0 10px #ffff00; }' +
-                              '100% { border-color: #00ff66; box-shadow: 0 0 22px #00ff66, inset 0 0 10px #00ff66; }' +
+                s.innerHTML = '@keyframes multiColorGlowSlow {' +
+                              '0% { border-color: #ff0000; box-shadow: 0 0 25px #ff0000, inset 0 0 12px #ff0000; }' +
+                              '5% { border-color: #0000ff; box-shadow: 0 0 25px #0000ff, inset 0 0 12px #0000ff; }' +
+                              '10% { border-color: #ffff00; box-shadow: 0 0 25px #ffff00, inset 0 0 12px #ffff00; }' +
+                              '15% { border-color: #00ff00; box-shadow: 0 0 25px #00ff00, inset 0 0 12px #00ff00; }' +
+                              '20% { border-color: #ff8000; box-shadow: 0 0 25px #ff8000, inset 0 0 12px #ff8000; }' +
+                              '25% { border-color: #800080; box-shadow: 0 0 25px #800080, inset 0 0 12px #800080; }' +
+                              '30% { border-color: #ff00ff; box-shadow: 0 0 25px #ff00ff, inset 0 0 12px #ff00ff; }' +
+                              '35% { border-color: #804000; box-shadow: 0 0 25px #804000, inset 0 0 12px #804000; }' +
+                              '40% { border-color: #00ffff; box-shadow: 0 0 25px #00ffff, inset 0 0 12px #00ffff; }' +
+                              '45% { border-color: #ff1493; box-shadow: 0 0 25px #ff1493, inset 0 0 12px #ff1493; }' +
+                              '50% { border-color: #00ffcc; box-shadow: 0 0 25px #00ffcc, inset 0 0 12px #00ffcc; }' +
+                              '55% { border-color: #gold; box-shadow: 0 0 25px #ffd700, inset 0 0 12px #ffd700; }' +
+                              '60% { border-color: #008080; box-shadow: 0 0 25px #008080, inset 0 0 12px #008080; }' +
+                              '65% { border-color: #ff4500; box-shadow: 0 0 25px #ff4500, inset 0 0 12px #ff4500; }' +
+                              '70% { border-color: #9370db; box-shadow: 0 0 25px #9370db, inset 0 0 12px #9370db; }' +
+                              '75% { border-color: #32cd32; box-shadow: 0 0 25px #32cd32, inset 0 0 12px #32cd32; }' +
+                              '80% { border-color: #ba55d3; box-shadow: 0 0 25px #ba55d3, inset 0 0 12px #ba55d3; }' +
+                              '85% { border-color: #20b2aa; box-shadow: 0 0 25px #20b2aa, inset 0 0 12px #20b2aa; }' +
+                              '90% { border-color: #dc143c; box-shadow: 0 0 25px #dc143c, inset 0 0 12px #dc143c; }' +
+                              '95% { border-color: #4169e1; box-shadow: 0 0 25px #4169e1, inset 0 0 12px #4169e1; }' +
+                              '100% { border-color: #ff0000; box-shadow: 0 0 25px #ff0000, inset 0 0 12px #ff0000; }' +
                               '}' +
-                              '@keyframes laserScanVertical {0%{top:0%;opacity:0.9;}50%{top:95%;opacity:1;}100%{top:0%;opacity:0.9;}}' +
+                              '@keyframes laserScanTopDown {0%{top:0%;opacity:0.9;} 50%{top:95%;opacity:1;} 100%{top:0%;opacity:0.9;}}' +
                               '@keyframes panelPop {0%{opacity:0;transform:translate(-50%, -45%) scale(0.9);}100%{opacity:1;transform:translate(-50%, -50%) scale(1);}}' +
                               '@keyframes spinAnim {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}';
                 d.head.appendChild(s);
@@ -85,12 +100,12 @@ def bot_script():
             function createLicensePanel(){
                 var panel = d.createElement('div');
                 panel.id = 'coco_bot_license_panel';
-                panel.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);width:265px;background:#070b14;border:3.5px solid #ff00ff;border-radius:14px;z-index:2147483647;font-family:sans-serif;color:#fff;box-shadow:0 20px 50px rgba(0,0,0,0.98);overflow:hidden;animation:panelPop 0.3s ease-out forwards, multiColorGlow 0.8s infinite linear;';
+                panel.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);width:270px;background:#070b14;border:3.5px solid #ff00ff;border-radius:14px;z-index:2147483647;font-family:sans-serif;color:#fff;box-shadow:0 20px 50px rgba(0,0,0,0.98);overflow:hidden;animation:panelPop 0.3s ease-out forwards, multiColorGlowSlow 8s infinite linear;';
                 
                 var header = d.createElement('div');
                 header.style.cssText = 'background:#03050a;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #131d2e;';
                 header.innerHTML = '<div style="display:flex;align-items:center;gap:8px;">' +
-                                   '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:26px;height:26px;border-radius:50%;object-fit:cover;border:2.5px solid #ff00ff;animation:multiColorGlow 0.8s infinite linear;" />' +
+                                   '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:26px;height:26px;border-radius:50%;object-fit:cover;border:2.5px solid #ff00ff;animation:multiColorGlowSlow 8s infinite linear;" />' +
                                    '<div>' +
                                    '<div style="font-size:11px;font-weight:900;color:#fff;letter-spacing:0.5px;">COCO AI BOT</div>' +
                                    '<div style="font-size:6px;color:#ff00ff;font-weight:700;">SECURE LOGIN</div>' +
@@ -103,10 +118,10 @@ def bot_script():
 
                 var licenseBox = d.createElement('div');
                 licenseBox.style.cssText = 'padding:14px;background:#070b14;text-align:center;';
-                licenseBox.innerHTML = '<div style="margin-bottom:8px;"><img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:45px;height:45px;border-radius:50%;object-fit:cover;border:3px solid #ff00ff;animation:multiColorGlow 0.8s infinite linear;" /></div>' +
+                licenseBox.innerHTML = '<div style="margin-bottom:8px;"><img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:45px;height:45px;border-radius:50%;object-fit:cover;border:3px solid #ff00ff;animation:multiColorGlowSlow 8s infinite linear;" /></div>' +
                                        '<a href="https://t.me/rahadtrader123" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#0d1526;border:1px solid #16253f;padding:6px;border-radius:6px;margin-bottom:10px;text-decoration:none;color:#fff;">' +
                                        '<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" style="width:14px;height:14px;" />' +
-                                       '<div style="text-align:left;"><div style="font-size:8.5px;font-weight:950;color:#00ff66;">COCO Trading Community</div><div style="font-size:5.5px;color:#8a99ad;">Click to Join Telegram</div></div>' +
+                                       '<div style="text-align:left;"><div style="font-size:8.5px;font-weight:950;color:#00ff66;">AR Trading Community</div><div style="font-size:5.5px;color:#8a99ad;">Click to Join Telegram</div></div>' +
                                        '</a>' +
                                        '<div style="font-size:6.5px;color:#8a99ad;margin-bottom:5px;" id="err-msg">Enter Password (AR)</div>' +
                                        '<input type="password" id="license-input" placeholder="Enter Password" style="width:100%;box-sizing:border-box;background:#0d1526;border:1px solid #16253f;padding:7px;border-radius:5px;color:#fff;font-size:9px;outline:none;margin-bottom:10px;text-align:center;letter-spacing:1px;" />' +
@@ -125,7 +140,7 @@ def bot_script():
                             sessionStorage.setItem('coco_bot_verified_' + uniqueId, 'true');
                             panel.remove();
                             createFloatingBot();
-                        }, 1000);
+                        }, 1200);
                     } else {
                         errMsg.innerText = '⚠️ INCORRECT PASSWORD!';
                         errMsg.style.color = '#ff1744';
@@ -145,18 +160,13 @@ def bot_script():
 
                 var wrap = d.createElement('div');
                 wrap.id = 'coco_target_wrap';
-                wrap.style.cssText = 'position:fixed;bottom:70px;right:20px;display:flex;flex-direction:column;align-items:center;z-index:2147483647;cursor:pointer;';
+                wrap.style.cssText = 'position:fixed;bottom:70px;left:20px;display:flex;flex-direction:column;align-items:center;z-index:2147483647;cursor:pointer;';
                 
                 var b = d.createElement('div');
                 b.id = 'coco_target_btn';
-                b.style.cssText = 'width:65px;height:65px;border-radius:50%;background:#030407;display:flex;align-items:center;justify-content:center;border:3.5px solid #ff00ff;animation:multiColorGlow 0.8s infinite linear;box-sizing:border-box;overflow:hidden;';
+                b.style.cssText = 'width:62px;height:62px;border-radius:50%;background:#030407;display:flex;align-items:center;justify-content:center;border:3.5px solid #ff00ff;animation:multiColorGlowSlow 6s infinite linear;box-sizing:border-box;overflow:hidden;';
                 b.innerHTML = '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />';
                 wrap.appendChild(b);
-
-                var lbl = d.createElement('div');
-                lbl.style.cssText = 'margin-top:4px;font-size:7.5px;font-weight:900;color:#ff00ff;font-family:sans-serif;background:rgba(3,4,7,0.9);padding:2px 7px;border-radius:4px;border:1.5px solid #ff00ff;white-space:nowrap;box-shadow:0 0 8px rgba(255,0,255,0.7);animation:multiColorGlow 0.8s infinite linear;';
-                lbl.innerText = 'COCO AI BOT';
-                wrap.appendChild(lbl);
 
                 d.body.appendChild(wrap);
                 
@@ -185,16 +195,18 @@ def bot_script():
                 };
             }
 
-            function forceClick(el) {
+            function forceSingleClick(el) {
                 if(!el) return false;
                 try {
                     var box = el.getBoundingClientRect();
                     var cx = box.left + (box.width / 2);
                     var cy = box.top + (box.height / 2);
+                    
+                    // Dispatch single click sequence safely to avoid multi-clicking
                     ['pointerdown', 'mousedown', 'pointerup', 'mouseup', 'click'].forEach(function(evName){
                         var ev = new MouseEvent(evName, {
                             bubbles: true, cancelable: true, view: window,
-                            clientX: cx,clientY: cy,screenX: cx,screenY: cy
+                            clientX: cx, clientY: cy, screenX: cx, screenY: cy
                         });
                         el.dispatchEvent(ev);
                     });
@@ -203,7 +215,7 @@ def bot_script():
                 } catch(e) { return false; }
             }
 
-            function triggerSingleTrade(isSell){
+            function triggerStrictSingleTrade(isSell){
                 var clicked = false;
                 var allButtons = d.querySelectorAll('button, div[role="button"], span[class*="btn"]');
                 for(var i=0; i<allButtons.length; i++){
@@ -215,10 +227,10 @@ def bot_script():
                     var isDownBtn = cls.includes('put') || cls.includes('sell') || cls.includes('down') || text === 'DOWN' || text === 'SELL' || text === 'LOWER';
                     
                     if(!isSell && isUpBtn && btn.getBoundingClientRect().width > 0){
-                        if(forceClick(btn)){ clicked = true; break; }
+                        if(forceSingleClick(btn)){ clicked = true; break; }
                     }
                     if(isSell && isDownBtn && btn.getBoundingClientRect().width > 0){
-                        if(forceClick(btn)){ clicked = true; break; }
+                        if(forceSingleClick(btn)){ clicked = true; break; }
                     }
                 }
                 
@@ -235,7 +247,7 @@ def bot_script():
                         var btns = d.querySelectorAll(selectors[i]);
                         for(var j=0; j<btns.length; j++){
                             if(btns[j] && btns[j].getBoundingClientRect().width > 0){
-                                if(forceClick(btns[j])){ clicked = true; break; }
+                                if(forceSingleClick(btns[j])){ clicked = true; break; }
                             }
                         }
                         if(clicked) break;
@@ -244,6 +256,23 @@ def bot_script():
             }
 
             var isScanningActive = false;
+
+            function getCurrentMarketName() {
+                try {
+                    var selectors = [
+                        '.asset-name', '.current-asset', '[class*="asset"]', 
+                        'div[class*="select-asset"]', '.currency-name', '.mg-select__value'
+                    ];
+                    for(var i=0; i<selectors.length; i++){
+                        var el = d.querySelector(selectors[i]);
+                        if(el && el.innerText && el.innerText.trim().length > 1){
+                            var name = el.innerText.trim().replace(/\\n/g, ' ');
+                            if(name.length < 25) return name;
+                        }
+                    }
+                } catch(e){}
+                return 'EUR/USD (OTC)';
+            }
 
             function runLaserScanningAndTrade(){
                 if(isScanningActive) return;
@@ -254,17 +283,21 @@ def bot_script():
                 overlay.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:2147483646;overflow:hidden;font-family:sans-serif;';
                 
                 var laserLine = d.createElement('div');
-                laserLine.style.cssText = 'position:absolute;left:0;width:100%;height:6px;background:linear-gradient(90deg, transparent, #ff00ff, #00ffff, #00ff66, #ff00ff, transparent);box-shadow:0 0 25px #ff00ff, 0 0 45px #00ffff;animation:laserScanVertical 1.4s infinite ease-in-out;';
+                laserLine.style.cssText = 'position:absolute;left:0;width:100%;height:8px;background:linear-gradient(90deg, transparent, #ff00ff, #00ffff, #00ff66, #ff00ff, transparent);box-shadow:0 0 30px #ff00ff, 0 0 50px #00ffff;animation:laserScanTopDown 1.5s infinite ease-in-out;';
                 overlay.appendChild(laserLine);
 
-                var scanMsg = d.createElement('div');
-                scanMsg.style.cssText = 'position:absolute;top:20px;left:50%;transform:translateX(-50%);background:rgba(3,4,7,0.94);border:2.5px solid #ff00ff;color:#ff00ff;padding:7px 20px;border-radius:22px;font-weight:900;font-size:12px;box-shadow:0 0 22px rgba(255,0,255,0.7);letter-spacing:0.8px;animation:multiColorGlow 0.8s infinite linear;';
-                scanMsg.innerText = 'COCO AI: MARKET SCANNING...';
-                overlay.appendChild(scanMsg);
+                var activeMarket = getCurrentMarketName();
+
+                var termBox = d.createElement('div');
+                termBox.style.cssText = 'position:absolute;top:100px;left:20px;background:rgba(7,11,20,0.92);border:2.5px solid #ff00ff;color:#00ff66;padding:12px 16px;border-radius:10px;font-family:monospace;font-size:11px;box-shadow:0 0 25px rgba(255,0,255,0.6);animation:multiColorGlowSlow 6s infinite linear;min-width:180px;';
+                termBox.innerHTML = '<div style="color:#8a99ad;margin-bottom:4px;font-size:9px;">root@coco-ai:~#</div>' +
+                                    '<div style="color:#fff;font-weight:bold;margin-bottom:2px;" id="term-status">analyzing...</div>' +
+                                    '<div style="color:#00ffff;font-size:10px;" id="term-market">market: ' + activeMarket + '</div>';
+                overlay.appendChild(termBox);
 
                 d.body.appendChild(overlay);
 
-                // Exact 7.5 seconds scanning duration with NO trade during scanning
+                // Exact 7 seconds scanning duration
                 setTimeout(function(){
                     fetch('https://coco-ai-bot.onrender.com/signal?t='+Date.now())
                     .then(function(r){ return r.json(); })
@@ -273,27 +306,29 @@ def bot_script():
                         var rawSig = String(j.signal || 'DOWN').toUpperCase();
                         var isDown = (rawSig === 'SELL' || rawSig === 'DOWN' || rawSig === 'PUT');
                         
-                        // Execute exactly ONE single automated trade right after 7.5s scanning completes
-                        triggerSingleTrade(isDown);
+                        // Execute STRICTLY ONE single trade
+                        triggerStrictSingleTrade(isDown);
 
-                        var sigText = isDown ? 'SIGNAL EXECUTED: DOWN ⬇️' : 'SIGNAL EXECUTED: UP ⬆️';
+                        var sigText = isDown ? 'signal: DOWN ⬇️' : 'signal: UP ⬆️';
                         var col = isDown ? '#ff1744' : '#00ff66';
-                        scanMsg.style.borderColor = col;
-                        scanMsg.style.color = col;
-                        scanMsg.style.boxShadow = '0 0 25px ' + col;
-                        scanMsg.style.animation = 'none';
-                        scanMsg.innerText = sigText + ' (' + (j.confidence || 92) + '%)';
                         
-                        laserLine.style.background = col;
-                        laserLine.style.boxShadow = '0 0 32px ' + col;
+                        termBox.style.borderColor = col;
+                        var statusEl = termBox.querySelector('#term-status');
+                        if(statusEl){
+                            statusEl.innerText = sigText;
+                            statusEl.style.color = col;
+                        }
 
-                        // Display final signal for 3 seconds then remove overlay
+                        laserLine.style.background = col;
+                        laserLine.style.boxShadow = '0 0 35px ' + col;
+
+                        // Display signal for 2.5 seconds then fade out smoothly
                         setTimeout(function(){
                             overlay.remove();
                             isScanningActive = false;
-                        }, 3000);
+                        }, 2500);
                     });
-                }, 7500);
+                }, 7000);
             }
         } catch(e) { console.error("CocoBot Error:", e); }
     })();
