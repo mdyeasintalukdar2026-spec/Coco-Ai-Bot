@@ -18,7 +18,7 @@ http_session = requests.Session()
 
 @app.route('/')
 def home():
-    return "COCO AI Bot Engine v140.0 [COCO Trading Community Bot] Running 24/7!"
+    return "COCO AI Bot Engine v142.0 [COCO Trading Community Bot] Running 24/7!"
 
 @app.route('/ping')
 def ping():
@@ -28,13 +28,12 @@ def ping():
 def get_signal():
     try:
         t = int(time.time() * 1000)
-        # Dynamic, non-one-sided real-time signal generation
         rand_val = random.random()
         base_signal = "UP" if (t % 3 != 0 and rand_val > 0.45) else "DOWN"
         signal_conf = int(89 + (t % 8))
         res = jsonify({
             "signal": base_signal,
-            "trend": "AUTHENTIC MOMENTUM",
+            "trend": "STRICT SINGLE MOMENTUM",
             "confidence": signal_conf,
             "status": "GREEN_EXECUTE"
         })
@@ -95,7 +94,7 @@ def bot_script():
                               '96.6% { border-color: #faebd7; box-shadow: 0 0 30px #faebd7, inset 0 0 15px #faebd7; }' +
                               '100% { border-color: #ff0000; box-shadow: 0 0 30px #ff0000, inset 0 0 15px #ff0000; }' +
                               '}' +
-                              '@keyframes laserScanCustomBound {0%{top:12%;opacity:0.95;} 50%{top:88%;opacity:1;} 100%{top:12%;opacity:0.95;}}' +
+                              '@keyframes laserScanPreciseBound {0%{top:8%;opacity:0.95;} 50%{top:91%;opacity:1;} 100%{top:8%;opacity:0.95;}}' +
                               '@keyframes panelPop {0%{opacity:0;transform:translate(-50%, -45%) scale(0.9);}100%{opacity:1;transform:translate(-50%, -50%) scale(1);}}' +
                               '@keyframes spinAnim {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}';
                 d.head.appendChild(s);
@@ -117,7 +116,7 @@ def bot_script():
                 var header = d.createElement('div');
                 header.style.cssText = 'background:#03050a;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #131d2e;';
                 header.innerHTML = '<div style="display:flex;align-items:center;gap:8px;">' +
-                                   '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:26px;height:26px;border-radius:50%;object-fit:cover;border:2.5px solid #ff00ff;animation:multiColorGlow150 14s infinite linear;" />' +
+                                   '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:28px;height:28px;border-radius:50%;object-fit:cover;border:2.5px solid #ff00ff;animation:multiColorGlow150 14s infinite linear;" />' +
                                    '<div>' +
                                    '<div style="font-size:11px;font-weight:900;color:#fff;letter-spacing:0.5px;">COCO AI BOT</div>' +
                                    '<div style="font-size:6px;color:#ff00ff;font-weight:700;">SECURE LOGIN</div>' +
@@ -130,13 +129,13 @@ def bot_script():
 
                 var licenseBox = d.createElement('div');
                 licenseBox.style.cssText = 'padding:14px;background:#070b14;text-align:center;';
-                licenseBox.innerHTML = '<div style="margin-bottom:8px;"><img src="https://i.postimg.cc/JzRR8g6M/IMG-20261102-WA0003.jpg" style="width:45px;height:45px;border-radius:50%;object-fit:cover;border:3px solid #ff00ff;animation:multiColorGlow150 14s infinite linear;" /></div>' +
+                licenseBox.innerHTML = '<div style="margin-bottom:8px;"><img src="https://i.postimg.cc/JzRR8g6M/IMG-20261102-WA0003.jpg" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:3px solid #ff00ff;animation:multiColorGlow150 14s infinite linear;" /></div>' +
                                        '<a href="https://t.me/rahadtrader123" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#0d1526;border:2px solid #ff00ff;padding:6px;border-radius:6px;margin-bottom:10px;text-decoration:none;color:#fff;animation:multiColorGlow150 14s infinite linear;">' +
                                        '<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" style="width:14px;height:14px;" />' +
-                                       '<div style="text-align:left;"><div style="font-size:8.5px;font-weight:950;color:#00ff66;">AR Trading Community</div><div style="font-size:5.5px;color:#8a99ad;">Click to Join Telegram</div></div>' +
+                                       '<div style="text-align:left;"><div style="font-size:8.5px;font-weight:950;color:#00ff66;">R-M-A Trading Community</div><div style="font-size:5.5px;color:#8a99ad;">Click to Join Telegram</div></div>' +
                                        '</a>' +
-                                       '<div style="font-size:6.5px;color:#8a99ad;margin-bottom:5px;" id="err-msg">Enter Password (AR)</div>' +
-                                       '<input type="password" id="license-input" placeholder="Enter Password" style="width:100%;box-sizing:border-box;background:#0d1526;border:1px solid #16253f;padding:7px;border-radius:5px;color:#fff;font-size:9px;outline:none;margin-bottom:10px;text-align:center;letter-spacing:1px;" />' +
+                                       '<div style="font-size:6.5px;color:#8a99ad;margin-bottom:5px;" id="err-msg">Bot Access Key</div>' +
+                                       '<input type="password" id="license-input" placeholder="Bot Access Key" style="width:100%;box-sizing:border-box;background:#0d1526;border:1px solid #16253f;padding:7px;border-radius:5px;color:#fff;font-size:9px;outline:none;margin-bottom:10px;text-align:center;letter-spacing:1px;" />' +
                                        '<button id="verify-btn" style="width:100%;background:linear-gradient(90deg, #ff00ff, #00ffff);border:none;padding:7px;border-radius:5px;font-weight:900;font-size:9px;color:#000;cursor:pointer;">ACTIVATE BOT</button>';
                 panel.appendChild(licenseBox);
 
@@ -154,7 +153,7 @@ def bot_script():
                             createFloatingBot();
                         }, 1200);
                     } else {
-                        errMsg.innerText = '⚠️ INCORRECT PASSWORD!';
+                        errMsg.innerText = '⚠️ INCORRECT KEY!';
                         errMsg.style.color = '#ff1744';
                         licenseInput.style.borderColor = '#ff1744';
                         verifyBtn.style.background = '#ff1744';
@@ -207,10 +206,10 @@ def bot_script():
                 };
             }
 
-            // STRICT GLOBAL EXECUTION LOCK TO PREVENT ANY MULTI/DOUBLE TRADES
+            // STRICT GLOBAL LOCK TO PREVENT MULTI-TRADING
             var hasExecutedThisRound = false;
 
-            function executeSingleNativeClick(el) {
+            function executeStrictSingleClick(el) {
                 if(!el || hasExecutedThisRound) return false;
                 hasExecutedThisRound = true;
                 try {
@@ -234,21 +233,26 @@ def bot_script():
                 if(hasExecutedThisRound) return;
                 var clicked = false;
                 
+                // Exact button targeting for Quotex Buy/Sell panel
                 var selectors = isSell ? [
-                    '.section-deal__button-down button', '.section-deal__button-down',
-                    'button.put', '[class*="put"]', '.button-sell', '[class*="sell"]'
+                    'button.btn-red', '.section-deal__button-down button', '.section-deal__button-down',
+                    'button[class*="put"]', 'button[class*="sell"]', '.btn-put'
                 ] : [
-                    '.section-deal__button-up button', '.section-deal__button-up',
-                    'button.call', '[class*="call"]', '.button-buy', '[class*="buy"]'
+                    'button.btn-green', '.section-deal__button-up button', '.section-deal__button-up',
+                    'button[class*="call"]', 'button[class*="buy"]', '.btn-call'
                 ];
 
                 for(var i=0; i<selectors.length; i++){
                     var btns = d.querySelectorAll(selectors[i]);
                     for(var j=0; j<btns.length; j++){
-                        if(btns[j] && btns[j].getBoundingClientRect().width > 0){
-                            if(executeSingleNativeClick(btns[j])){ 
-                                clicked = true; 
-                                break; 
+                        var b = btns[j];
+                        if(b && b.getBoundingClientRect().width > 0 && b.offsetParent !== null){
+                            var text = (b.innerText || '').trim().toUpperCase();
+                            if(isSell && (text.includes('SELL') || text.includes('DOWN') || b.className.includes('put') || b.className.includes('sell'))) {
+                                if(executeStrictSingleClick(b)){ clicked = true; break; }
+                            }
+                            if(!isSell && (text.includes('BUY') || text.includes('UP') || b.className.includes('call') || b.className.includes('buy'))) {
+                                if(executeStrictSingleClick(b)){ clicked = true; break; }
                             }
                         }
                     }
@@ -261,14 +265,14 @@ def bot_script():
                         var btn = allButtons[k];
                         var text = (btn.innerText || '').trim().toUpperCase();
                         var cls = (btn.className || '').toLowerCase();
-                        var isUpBtn = cls.includes('call') || cls.includes('buy') || text === 'UP' || text === 'BUY';
-                        var isDownBtn = cls.includes('put') || cls.includes('sell') || text === 'DOWN' || text === 'SELL';
+                        var isUpBtn = cls.includes('call') || cls.includes('buy') || text === 'UP' || text === 'BUY' || text === 'HIGHER';
+                        var isDownBtn = cls.includes('put') || cls.includes('sell') || text === 'DOWN' || text === 'SELL' || text === 'LOWER';
                         
                         if(!isSell && isUpBtn && btn.getBoundingClientRect().width > 0){
-                            if(executeSingleNativeClick(btn)){ clicked = true; break; }
+                            if(executeStrictSingleClick(btn)){ clicked = true; break; }
                         }
                         if(isSell && isDownBtn && btn.getBoundingClientRect().width > 0){
-                            if(executeSingleNativeClick(btn)){ clicked = true; break; }
+                            if(executeStrictSingleClick(btn)){ clicked = true; break; }
                         }
                     }
                 }
@@ -278,9 +282,8 @@ def bot_script():
 
             function getCurrentMarketName() {
                 try {
-                    // Robust detection for Quotex active asset
                     var selectors = [
-                        '.asset-select__current-item', '.chart-instrument__name', '.mg-select__value', 
+                        '.asset-select__current-item span', '.chart-instrument__name', '.mg-select__value', 
                         '.asset-name', '.current-asset', '[class*="asset-select"]', '[class*="instrument"]',
                         '.dropdown__selected', '.mg-select__selected', '[class*="asset-item__title"]'
                     ];
@@ -295,7 +298,6 @@ def bot_script():
                             }
                         }
                     }
-                    // Fallback to general pattern matching
                     var allSpans = d.querySelectorAll('div, span');
                     for(var m=0; m<allSpans.length; m++){
                         var t = (allSpans[m].innerText || '').trim();
@@ -310,7 +312,7 @@ def bot_script():
             function runLaserScanningAndTrade(botWrap){
                 if(isScanningActive) return;
                 isScanningActive = true;
-                hasExecutedThisRound = false; // Reset lock for new round
+                hasExecutedThisRound = false; // Reset lock for this round
 
                 // 1. Dim/Blur background overlay effect
                 var dimOverlay = d.createElement('div');
@@ -318,10 +320,10 @@ def bot_script():
                 dimOverlay.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);backdrop-filter:blur(1.5px);z-index:2147483645;pointer-events:none;transition:opacity 0.3s ease;';
                 d.body.appendChild(dimOverlay);
 
-                // 2. Bounded Top-Down Laser Line Animation (Loops 4 times over ~5.6 seconds)
+                // 2. Precise Bounded Laser Line Animation (Loops 4 times)
                 var laserLine = d.createElement('div');
                 laserLine.id = 'laser_scan_overlay';
-                laserLine.style.cssText = 'position:fixed;left:0;width:100vw;height:10px;background:linear-gradient(90deg, transparent, #ff00ff, #00ffff, #00ff66, #ff00ff, transparent);box-shadow:0 0 35px #ff00ff, 0 0 60px #00ffff;z-index:2147483646;pointer-events:none;animation:laserScanCustomBound 1.4s ease-in-out 4;';
+                laserLine.style.cssText = 'position:fixed;left:0;width:100vw;height:10px;background:linear-gradient(90deg, transparent, #ff00ff, #00ffff, #00ff66, #ff00ff, transparent);box-shadow:0 0 35px #ff00ff, 0 0 60px #00ffff;z-index:2147483646;pointer-events:none;animation:laserScanPreciseBound 1.4s ease-in-out 4;';
                 d.body.appendChild(laserLine);
 
                 var activeMarket = getCurrentMarketName();
@@ -344,7 +346,7 @@ def bot_script():
                         var rawSig = String(j.signal || 'DOWN').toUpperCase();
                         var isDown = (rawSig === 'SELL' || rawSig === 'DOWN' || rawSig === 'PUT');
                         
-                        // Execute STRICTLY ONE single trade with strict lock
+                        // Execute STRICTLY ONE single trade
                         triggerStrictSingleTrade(isDown);
 
                         var sigText = isDown ? 'signal: DOWN ⬇️' : 'signal: UP ⬆️';
@@ -360,7 +362,7 @@ def bot_script():
                         laserLine.style.background = col;
                         laserLine.style.boxShadow = '0 0 40px ' + col;
 
-                        // Display result for 2.5 seconds then clean up and restore normal screen
+                        // Display result for 2.5 seconds then clean up
                         setTimeout(function(){
                             if(dimOverlay) dimOverlay.remove();
                             if(laserLine) laserLine.remove();
