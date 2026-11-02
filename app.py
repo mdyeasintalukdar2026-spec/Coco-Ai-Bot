@@ -18,7 +18,7 @@ http_session = requests.Session()
 
 @app.route('/')
 def home():
-    return "Quotex Sniper Bot Engine v128.0 [R-A Trading Community Bot] Running 24/7!"
+    return "COCO AI Bot Engine v128.0 [COCO Trading Community Bot] Running 24/7!"
 
 @app.route('/ping')
 def ping():
@@ -28,7 +28,6 @@ def ping():
 def get_signal():
     try:
         current_sec = int(time.time())
-        # Dynamic signal generation to avoid one-sided sticking
         base_signal = "UP" if (random.choice([True, False]) and current_sec % 3 != 0) else "DOWN"
         signal_conf = int(88 + (current_sec % 9))
         res = jsonify({
@@ -55,19 +54,19 @@ def bot_script():
     (function(){
         try {
             var d = document;
-            var uniqueId = 'scan_bot_' + Math.floor(Math.random() * 10000);
+            var uniqueId = 'coco_bot_' + Math.floor(Math.random() * 10000);
             
-            var oldS = d.getElementById('ybs_global');
+            var oldS = d.getElementById('coco_global');
             if(!oldS){
                 var s = d.createElement('style');
-                s.id = 'ybs_global';
+                s.id = 'coco_global';
                 s.innerHTML = '@keyframes multiColorGlow {' +
-                              '0% { border-color: #00ff66; box-shadow: 0 0 18px #00ff66; }' +
-                              '20% { border-color: #00ffff; box-shadow: 0 0 18px #00ffff; }' +
-                              '40% { border-color: #3333ff; box-shadow: 0 0 18px #3333ff; }' +
-                              '60% { border-color: #ff00ff; box-shadow: 0 0 18px #ff00ff; }' +
-                              '80% { border-color: #ff3300; box-shadow: 0 0 18px #ff3300; }' +
-                              '100% { border-color: #00ff66; box-shadow: 0 0 18px #00ff66; }' +
+                              '0% { border-color: #00ff66; box-shadow: 0 0 22px #00ff66, inset 0 0 10px #00ff66; }' +
+                              '20% { border-color: #00ffff; box-shadow: 0 0 22px #00ffff, inset 0 0 10px #00ffff; }' +
+                              '40% { border-color: #ff00ff; box-shadow: 0 0 22px #ff00ff, inset 0 0 10px #ff00ff; }' +
+                              '60% { border-color: #ff3300; box-shadow: 0 0 22px #ff3300, inset 0 0 10px #ff3300; }' +
+                              '80% { border-color: #ffff00; box-shadow: 0 0 22px #ffff00, inset 0 0 10px #ffff00; }' +
+                              '100% { border-color: #00ff66; box-shadow: 0 0 22px #00ff66, inset 0 0 10px #00ff66; }' +
                               '}' +
                               '@keyframes laserScanVertical {0%{top:0%;opacity:0.9;}50%{top:95%;opacity:1;}100%{top:0%;opacity:0.9;}}' +
                               '@keyframes panelPop {0%{opacity:0;transform:translate(-50%, -45%) scale(0.9);}100%{opacity:1;transform:translate(-50%, -50%) scale(1);}}' +
@@ -75,7 +74,7 @@ def bot_script():
                 d.head.appendChild(s);
             }
 
-            var isVerified = sessionStorage.getItem('scan_bot_verified_' + uniqueId) === 'true';
+            var isVerified = sessionStorage.getItem('coco_bot_verified_' + uniqueId) === 'true';
 
             if(!isVerified){
                 createLicensePanel();
@@ -85,33 +84,33 @@ def bot_script():
 
             function createLicensePanel(){
                 var panel = d.createElement('div');
-                panel.id = 'scan_bot_license_panel';
-                panel.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);width:255px;background:#070b14;border:3px solid #00ff66;border-radius:12px;z-index:2147483647;font-family:sans-serif;color:#fff;box-shadow:0 15px 40px rgba(0,0,0,0.95);overflow:hidden;animation:panelPop 0.3s ease-out forwards, multiColorGlow 6s infinite linear;';
+                panel.id = 'coco_bot_license_panel';
+                panel.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);width:265px;background:#070b14;border:3.5px solid #ff00ff;border-radius:14px;z-index:2147483647;font-family:sans-serif;color:#fff;box-shadow:0 20px 50px rgba(0,0,0,0.98);overflow:hidden;animation:panelPop 0.3s ease-out forwards, multiColorGlow 0.8s infinite linear;';
                 
                 var header = d.createElement('div');
-                header.style.cssText = 'background:#03050a;padding:8px 12px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #131d2e;';
+                header.style.cssText = 'background:#03050a;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #131d2e;';
                 header.innerHTML = '<div style="display:flex;align-items:center;gap:8px;">' +
-                                   '<img src="https://i.postimg.cc/JzRR8g6M/IMG-20261102-WA0003.jpg" style="width:22px;height:22px;border-radius:50%;object-fit:cover;border:2.5px solid #00ff66;animation:multiColorGlow 6s infinite linear;" />' +
+                                   '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:26px;height:26px;border-radius:50%;object-fit:cover;border:2.5px solid #ff00ff;animation:multiColorGlow 0.8s infinite linear;" />' +
                                    '<div>' +
-                                   '<div style="font-size:10px;font-weight:900;color:#fff;">AUTO SCAN BOT</div>' +
-                                   '<div style="font-size:5.5px;color:#8a99ad;">SECURE LOGIN</div>' +
+                                   '<div style="font-size:11px;font-weight:900;color:#fff;letter-spacing:0.5px;">COCO AI BOT</div>' +
+                                   '<div style="font-size:6px;color:#ff00ff;font-weight:700;">SECURE LOGIN</div>' +
                                    '</div>' +
                                    '</div>' +
-                                   '<button id="close-license" style="background:#101826;border:none;color:#fff;width:18px;height:18px;border-radius:3px;cursor:pointer;font-weight:bold;font-size:10px;">×</button>';
+                                   '<button id="close-license" style="background:#101826;border:none;color:#fff;width:20px;height:20px;border-radius:4px;cursor:pointer;font-weight:bold;font-size:11px;">×</button>';
                 panel.appendChild(header);
                 
                 header.querySelector('#close-license').onclick = function(){ panel.remove(); };
 
                 var licenseBox = d.createElement('div');
-                licenseBox.style.cssText = 'padding:12px;background:#070b14;text-align:center;';
-                licenseBox.innerHTML = '<div style="margin-bottom:6px;"><img src="https://i.postimg.cc/JzRR8g6M/IMG-20261102-WA0003.jpg" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:3px solid #00ff66;animation:multiColorGlow 6s infinite linear;" /></div>' +
-                                       '<a href="https://t.me/rahadtrader123" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#0d1526;border:1px solid #16253f;padding:5px;border-radius:5px;margin-bottom:8px;text-decoration:none;color:#fff;">' +
+                licenseBox.style.cssText = 'padding:14px;background:#070b14;text-align:center;';
+                licenseBox.innerHTML = '<div style="margin-bottom:8px;"><img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:45px;height:45px;border-radius:50%;object-fit:cover;border:3px solid #ff00ff;animation:multiColorGlow 0.8s infinite linear;" /></div>' +
+                                       '<a href="https://t.me/rahadtrader123" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#0d1526;border:1px solid #16253f;padding:6px;border-radius:6px;margin-bottom:10px;text-decoration:none;color:#fff;">' +
                                        '<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" style="width:14px;height:14px;" />' +
-                                       '<div style="text-align:left;"><div style="font-size:8px;font-weight:950;color:#00ff66;">R-A Trading Community</div><div style="font-size:5px;color:#8a99ad;">Click to Join Telegram</div></div>' +
+                                       '<div style="text-align:left;"><div style="font-size:8.5px;font-weight:950;color:#00ff66;">COCO Trading Community</div><div style="font-size:5.5px;color:#8a99ad;">Click to Join Telegram</div></div>' +
                                        '</a>' +
-                                       '<div style="font-size:6px;color:#8a99ad;margin-bottom:4px;" id="err-msg">Enter Password</div>' +
-                                       '<input type="password" id="license-input" placeholder="Enter Password" style="width:100%;box-sizing:border-box;background:#0d1526;border:1px solid #16253f;padding:6px;border-radius:4px;color:#fff;font-size:8px;outline:none;margin-bottom:8px;text-align:center;" />' +
-                                       '<button id="verify-btn" style="width:100%;background:#00c853;border:none;padding:6px;border-radius:4px;font-weight:900;font-size:8px;color:#000;cursor:pointer;">ACTIVATE BOT</button>';
+                                       '<div style="font-size:6.5px;color:#8a99ad;margin-bottom:5px;" id="err-msg">Enter Password (AR)</div>' +
+                                       '<input type="password" id="license-input" placeholder="Enter Password" style="width:100%;box-sizing:border-box;background:#0d1526;border:1px solid #16253f;padding:7px;border-radius:5px;color:#fff;font-size:9px;outline:none;margin-bottom:10px;text-align:center;letter-spacing:1px;" />' +
+                                       '<button id="verify-btn" style="width:100%;background:linear-gradient(90deg, #ff00ff, #00ffff);border:none;padding:7px;border-radius:5px;font-weight:900;font-size:9px;color:#000;cursor:pointer;">ACTIVATE BOT</button>';
                 panel.appendChild(licenseBox);
 
                 var verifyBtn = licenseBox.querySelector('#verify-btn');
@@ -120,10 +119,10 @@ def bot_script():
 
                 verifyBtn.onclick = function(){
                     var keyVal = licenseInput.value.trim();
-                    if(keyVal === '112233'){
-                        verifyBtn.innerHTML = '<span style="display:inline-block;width:8px;height:8px;border:1px solid #000;border-top-color:transparent;border-radius:50%;animation:spinAnim 0.8s linear infinite;"></span> Verifying...';
+                    if(keyVal === 'AR'){
+                        verifyBtn.innerHTML = '<span style="display:inline-block;width:9px;height:9px;border:2px solid #000;border-top-color:transparent;border-radius:50%;animation:spinAnim 0.8s linear infinite;"></span> Verifying...';
                         setTimeout(function(){
-                            sessionStorage.setItem('scan_bot_verified_' + uniqueId, 'true');
+                            sessionStorage.setItem('coco_bot_verified_' + uniqueId, 'true');
                             panel.remove();
                             createFloatingBot();
                         }, 1000);
@@ -141,22 +140,22 @@ def bot_script():
             }
 
             function createFloatingBot(){
-                var existingWrap = d.getElementById('sniper_target_wrap');
+                var existingWrap = d.getElementById('coco_target_wrap');
                 if(existingWrap) existingWrap.remove();
 
                 var wrap = d.createElement('div');
-                wrap.id = 'sniper_target_wrap';
+                wrap.id = 'coco_target_wrap';
                 wrap.style.cssText = 'position:fixed;bottom:70px;right:20px;display:flex;flex-direction:column;align-items:center;z-index:2147483647;cursor:pointer;';
                 
                 var b = d.createElement('div');
-                b.id = 'sniper_target_btn';
-                b.style.cssText = 'width:62px;height:62px;border-radius:50%;background:#030407;display:flex;align-items:center;justify-content:center;border:3px solid #00ff66;animation:multiColorGlow 6s infinite linear;box-sizing:border-box;overflow:hidden;';
-                b.innerHTML = '<img src="https://i.postimg.cc/JzRR8g6M/IMG-20261102-WA0003.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />';
+                b.id = 'coco_target_btn';
+                b.style.cssText = 'width:65px;height:65px;border-radius:50%;background:#030407;display:flex;align-items:center;justify-content:center;border:3.5px solid #ff00ff;animation:multiColorGlow 0.8s infinite linear;box-sizing:border-box;overflow:hidden;';
+                b.innerHTML = '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />';
                 wrap.appendChild(b);
 
                 var lbl = d.createElement('div');
-                lbl.style.cssText = 'margin-top:3px;font-size:7px;font-weight:900;color:#00ff66;font-family:sans-serif;background:rgba(3,4,7,0.85);padding:1px 6px;border-radius:3px;border:1.5px solid #00ff66;white-space:nowrap;box-shadow:0 0 5px rgba(0,0,0,0.8);animation:multiColorGlow 6s infinite linear;';
-                lbl.innerText = 'AUTO SCAN BOT';
+                lbl.style.cssText = 'margin-top:4px;font-size:7.5px;font-weight:900;color:#ff00ff;font-family:sans-serif;background:rgba(3,4,7,0.9);padding:2px 7px;border-radius:4px;border:1.5px solid #ff00ff;white-space:nowrap;box-shadow:0 0 8px rgba(255,0,255,0.7);animation:multiColorGlow 0.8s infinite linear;';
+                lbl.innerText = 'COCO AI BOT';
                 wrap.appendChild(lbl);
 
                 d.body.appendChild(wrap);
@@ -204,7 +203,7 @@ def bot_script():
                 } catch(e) { return false; }
             }
 
-            function triggerTrade(isSell){
+            function triggerSingleTrade(isSell){
                 var clicked = false;
                 var allButtons = d.querySelectorAll('button, div[role="button"], span[class*="btn"]');
                 for(var i=0; i<allButtons.length; i++){
@@ -255,48 +254,48 @@ def bot_script():
                 overlay.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:2147483646;overflow:hidden;font-family:sans-serif;';
                 
                 var laserLine = d.createElement('div');
-                laserLine.style.cssText = 'position:absolute;left:0;width:100%;height:6px;background:linear-gradient(90deg, transparent, #00ff66, #00ffff, #ff0055, #00ff66, transparent);box-shadow:0 0 25px #00ff66, 0 0 45px #00ffff;animation:laserScanVertical 1.2s infinite ease-in-out;';
+                laserLine.style.cssText = 'position:absolute;left:0;width:100%;height:6px;background:linear-gradient(90deg, transparent, #ff00ff, #00ffff, #00ff66, #ff00ff, transparent);box-shadow:0 0 25px #ff00ff, 0 0 45px #00ffff;animation:laserScanVertical 1.4s infinite ease-in-out;';
                 overlay.appendChild(laserLine);
 
                 var scanMsg = d.createElement('div');
-                scanMsg.style.cssText = 'position:absolute;top:15px;left:50%;transform:translateX(-50%);background:rgba(3,4,7,0.92);border:2.5px solid #00ff66;color:#00ff66;padding:6px 18px;border-radius:20px;font-weight:900;font-size:11.5px;box-shadow:0 0 20px rgba(0,255,102,0.6);letter-spacing:0.8px;animation:multiColorGlow 6s infinite linear;';
-                scanMsg.innerText = 'MARKET SCANNING...';
+                scanMsg.style.cssText = 'position:absolute;top:20px;left:50%;transform:translateX(-50%);background:rgba(3,4,7,0.94);border:2.5px solid #ff00ff;color:#ff00ff;padding:7px 20px;border-radius:22px;font-weight:900;font-size:12px;box-shadow:0 0 22px rgba(255,0,255,0.7);letter-spacing:0.8px;animation:multiColorGlow 0.8s infinite linear;';
+                scanMsg.innerText = 'COCO AI: MARKET SCANNING...';
                 overlay.appendChild(scanMsg);
 
                 d.body.appendChild(overlay);
 
-                // Exactly 5 seconds scanning duration with NO trade during scanning
+                // Exact 7.5 seconds scanning duration with NO trade during scanning
                 setTimeout(function(){
-                    fetch('https://ox-ai-bot.onrender.com/signal?t='+Date.now())
+                    fetch('https://coco-ai-bot.onrender.com/signal?t='+Date.now())
                     .then(function(r){ return r.json(); })
                     .catch(function(){ return {signal: "DOWN", confidence: 92}; })
                     .then(function(j){
                         var rawSig = String(j.signal || 'DOWN').toUpperCase();
                         var isDown = (rawSig === 'SELL' || rawSig === 'DOWN' || rawSig === 'PUT');
                         
-                        // Execute single automated trade right after 5s scanning completes
-                        triggerTrade(isDown);
+                        // Execute exactly ONE single automated trade right after 7.5s scanning completes
+                        triggerSingleTrade(isDown);
 
                         var sigText = isDown ? 'SIGNAL EXECUTED: DOWN ⬇️' : 'SIGNAL EXECUTED: UP ⬆️';
                         var col = isDown ? '#ff1744' : '#00ff66';
                         scanMsg.style.borderColor = col;
                         scanMsg.style.color = col;
-                        scanMsg.style.boxShadow = '0 0 22px ' + col;
+                        scanMsg.style.boxShadow = '0 0 25px ' + col;
                         scanMsg.style.animation = 'none';
                         scanMsg.innerText = sigText + ' (' + (j.confidence || 92) + '%)';
                         
                         laserLine.style.background = col;
-                        laserLine.style.boxShadow = '0 0 30px ' + col;
+                        laserLine.style.boxShadow = '0 0 32px ' + col;
 
-                        // Display signal for 3 seconds then remove overlay
+                        // Display final signal for 3 seconds then remove overlay
                         setTimeout(function(){
                             overlay.remove();
                             isScanningActive = false;
                         }, 3000);
                     });
-                }, 5000);
+                }, 7500);
             }
-        } catch(e) { console.error("ScanBot Error:", e); }
+        } catch(e) { console.error("CocoBot Error:", e); }
     })();
     """
     res = make_response(js)
