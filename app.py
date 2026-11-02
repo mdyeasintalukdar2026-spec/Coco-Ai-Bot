@@ -18,7 +18,7 @@ http_session = requests.Session()
 
 @app.route('/')
 def home():
-    return "COCO AI Bot Engine v135.0 [COCO Trading Community Bot] Running 24/7!"
+    return "COCO AI Bot Engine v138.0 [COCO Trading Community Bot] Running 24/7!"
 
 @app.route('/ping')
 def ping():
@@ -32,7 +32,7 @@ def get_signal():
         signal_conf = int(88 + (current_sec % 9))
         res = jsonify({
             "signal": base_signal,
-            "trend": "AUTHENTIC MOMENTUM",
+            "trend": "STRICT SINGLE MOMENTUM",
             "confidence": signal_conf,
             "status": "GREEN_EXECUTE"
         })
@@ -205,62 +205,70 @@ def bot_script():
                 };
             }
 
-            function forceStrictSingleClick(el) {
-                if(!el) return false;
+            // STRICT GLOBAL EXECUTION LOCK TO PREVENT MULTI/DOUBLE TRADES
+            var hasExecutedThisRound = false;
+
+            function executeSingleNativeClick(el) {
+                if(!el || hasExecutedThisRound) return false;
+                hasExecutedThisRound = true;
                 try {
                     var box = el.getBoundingClientRect();
                     var cx = box.left + (box.width / 2);
                     var cy = box.top + (box.height / 2);
                     
-                    // Strictly dispatch single click events to avoid double ordering
-                    ['pointerdown', 'mousedown', 'pointerup', 'mouseup', 'click'].forEach(function(evName){
-                        var ev = new MouseEvent(evName, {
-                            bubbles: true, cancelable: true, view: window,
-                            clientX: cx, clientY: cy, screenX: cx, screenY: cy
-                        });
-                        el.dispatchEvent(ev);
+                    // Dispatch exactly ONE standard click event
+                    var ev = new MouseEvent('click', {
+                        bubbles: true, cancelable: true, view: window,
+                        clientX: cx, clientY: cy, screenX: cx, screenY: cy
                     });
-                    if(typeof el.click === 'function') el.click();
+                    el.dispatchEvent(ev);
+                    if(typeof el.click === 'function') {
+                        el.click();
+                    }
                     return true;
                 } catch(e) { return false; }
             }
 
-            function triggerAbsoluteSingleTrade(isSell){
+            function triggerStrictSingleTrade(isSell){
+                if(hasExecutedThisRound) return;
                 var clicked = false;
-                var allButtons = d.querySelectorAll('button, div[role="button"], span[class*="btn"]');
-                for(var i=0; i<allButtons.length; i++){
-                    var btn = allButtons[i];
-                    var text = (btn.innerText || '').trim().toUpperCase();
-                    var cls = (btn.className || '').toLowerCase();
-                    
-                    var isUpBtn = cls.includes('call') || cls.includes('buy') || cls.includes('up') || text === 'UP' || text === 'BUY' || text === 'HIGHER';
-                    var isDownBtn = cls.includes('put') || cls.includes('sell') || cls.includes('down') || text === 'DOWN' || text === 'SELL' || text === 'LOWER';
-                    
-                    if(!isSell && isUpBtn && btn.getBoundingClientRect().width > 0){
-                        if(forceStrictSingleClick(btn)){ clicked = true; break; }
-                    }
-                    if(isSell && isDownBtn && btn.getBoundingClientRect().width > 0){
-                        if(forceStrictSingleClick(btn)){ clicked = true; break; }
-                    }
-                }
                 
-                if(!clicked){
-                    var selectors = isSell ? [
-                        '.section-deal__button-down button', '.section-deal__button-down',
-                        '.btn-put', 'button.put', 'button[class*="put"]', '.button-sell', '[class*="sell"]'
-                    ] : [
-                        '.section-deal__button-up button', '.section-deal__button-up',
-                        '.btn-call', 'button.call', 'button[class*="call"]', '.button-buy', '[class*="buy"]'
-                    ];
+                var selectors = isSell ? [
+                    '.section-deal__button-down button', '.section-deal__button-down',
+                    'button.put', '[class*="put"]', '.button-sell', '[class*="sell"]'
+                ] : [
+                    '.section-deal__button-up button', '.section-deal__button-up',
+                    'button.call', '[class*="call"]', '.button-buy', '[class*="buy"]'
+                ];
 
-                    for(var i=0; i<selectors.length; i++){
-                        var btns = d.querySelectorAll(selectors[i]);
-                        for(var j=0; j<btns.length; j++){
-                            if(btns[j] && btns[j].getBoundingClientRect().width > 0){
-                                if(forceStrictSingleClick(btns[j])){ clicked = true; break; }
+                for(var i=0; i<selectors.length; i++){
+                    var btns = d.querySelectorAll(selectors[i]);
+                    for(var j=0; j<btns.length; j++){
+                        if(btns[j] && btns[j].getBoundingClientRect().width > 0){
+                            if(executeSingleNativeClick(btns[j])){ 
+                                clicked = true; 
+                                break; 
                             }
                         }
-                        if(clicked) break;
+                    }
+                    if(clicked) break;
+                }
+
+                if(!clicked){
+                    var allButtons = d.querySelectorAll('button, div[role="button"]');
+                    for(var k=0; k<allButtons.length; k++){
+                        var btn = allButtons[k];
+                        var text = (btn.innerText || '').trim().toUpperCase();
+                        var cls = (btn.className || '').toLowerCase();
+                        var isUpBtn = cls.includes('call') || cls.includes('buy') || text === 'UP' || text === 'BUY';
+                        var isDownBtn = cls.includes('put') || cls.includes('sell') || text === 'DOWN' || text === 'SELL';
+                        
+                        if(!isSell && isUpBtn && btn.getBoundingClientRect().width > 0){
+                            if(executeSingleNativeClick(btn)){ clicked = true; break; }
+                        }
+                        if(isSell && isDownBtn && btn.getBoundingClientRect().width > 0){
+                            if(executeSingleNativeClick(btn)){ clicked = true; break; }
+                        }
                     }
                 }
             }
@@ -269,15 +277,19 @@ def bot_script():
 
             function getCurrentMarketName() {
                 try {
+                    // Accurate selectors for Quotex active asset / currency pair display
                     var selectors = [
-                        '.asset-name', '.current-asset', '[class*="asset"]', 
-                        'div[class*="select-asset"]', '.currency-name', '.mg-select__value', '.select-asset__name'
+                        '.asset-select__name', '.current-asset', '.asset-name', 
+                        '[class*="select-asset"]', '.currency-name', '.mg-select__value', 
+                        '.chart-type-ico + span', 'div[class*="asset-select"] span', '[class*="asset-item__title"]'
                     ];
                     for(var i=0; i<selectors.length; i++){
-                        var el = d.querySelector(selectors[i]);
-                        if(el && el.innerText && el.innerText.trim().length > 1){
-                            var name = el.innerText.trim().replace(/\\n/g, ' ');
-                            if(name.length < 30) return name;
+                        var els = d.querySelectorAll(selectors[i]);
+                        for(var k=0; k<els.length; k++){
+                            var txt = (els[k].innerText || '').trim().replace(/\\n/g, ' ');
+                            if(txt.length > 1 && txt.length < 30 && !txt.includes('Deposit') && !txt.includes('Payout')){
+                                return txt;
+                            }
                         }
                     }
                 } catch(e){}
@@ -287,6 +299,7 @@ def bot_script():
             function runLaserScanningAndTrade(botWrap){
                 if(isScanningActive) return;
                 isScanningActive = true;
+                hasExecutedThisRound = false; // Reset lock for this round
 
                 // 1. Dim/Blur background overlay effect
                 var dimOverlay = d.createElement('div');
@@ -320,8 +333,8 @@ def bot_script():
                         var rawSig = String(j.signal || 'DOWN').toUpperCase();
                         var isDown = (rawSig === 'SELL' || rawSig === 'DOWN' || rawSig === 'PUT');
                         
-                        // Execute STRICTLY ONE single trade from backend
-                        triggerAbsoluteSingleTrade(isDown);
+                        // Execute STRICTLY ONE single trade with strict lock
+                        triggerStrictSingleTrade(isDown);
 
                         var sigText = isDown ? 'signal: DOWN ⬇️' : 'signal: UP ⬆️';
                         var col = isDown ? '#ff1744' : '#00ff66';
@@ -338,9 +351,9 @@ def bot_script():
 
                         // Display result for 2.5 seconds then clean up and restore normal screen
                         setTimeout(function(){
-                            dimOverlay.remove();
-                            laserLine.remove();
-                            termBox.remove();
+                            if(dimOverlay) dimOverlay.remove();
+                            if(laserLine) laserLine.remove();
+                            if(termBox) termBox.remove();
                             isScanningActive = false;
                         }, 2500);
                     });
