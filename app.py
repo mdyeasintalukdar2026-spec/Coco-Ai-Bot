@@ -18,7 +18,7 @@ http_session = requests.Session()
 
 @app.route('/')
 def home():
-    return "COCO AI Bot Engine v145.0 [COCO Trading Community Bot] Running 24/7!"
+    return "COCO AI Bot Engine v150.0 [R-A Trading Community Bot] Running 24/7!"
 
 @app.route('/ping')
 def ping():
@@ -116,7 +116,7 @@ def bot_script():
                 var header = d.createElement('div');
                 header.style.cssText = 'background:#03050a;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #131d2e;';
                 header.innerHTML = '<div style="display:flex;align-items:center;gap:8px;">' +
-                                   '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:31px;height:31px;border-radius:50%;object-fit:cover;border:2.5px solid #ff00ff;animation:multiColorGlow150 14s infinite linear;" />' +
+                                   '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2.5px solid #ff00ff;animation:multiColorGlow150 14s infinite linear;" />' +
                                    '<div>' +
                                    '<div style="font-size:11px;font-weight:900;color:#fff;letter-spacing:0.5px;">COCO AI BOT</div>' +
                                    '<div style="font-size:6px;color:#ff00ff;font-weight:700;">SECURE LOGIN</div>' +
@@ -131,8 +131,8 @@ def bot_script():
                 licenseBox.style.cssText = 'padding:14px;background:#070b14;text-align:center;';
                 licenseBox.innerHTML = '<div style="margin-bottom:8px;"><img src="https://i.postimg.cc/JzRR8g6M/IMG-20261102-WA0003.jpg" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:3px solid #ff00ff;animation:multiColorGlow150 14s infinite linear;" /></div>' +
                                        '<a href="https://t.me/rahadtrader123" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#0d1526;border:2px solid #ff00ff;padding:6px;border-radius:6px;margin-bottom:10px;text-decoration:none;color:#fff;animation:multiColorGlow150 14s infinite linear;">' +
-                                       '<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" style="width:15px;height:15px;margin-right:2px;" />' +
-                                       '<div style="text-align:left;"><div style="font-size:8.5px;font-weight:950;color:#00ff66;">R-M-A Trading Community</div><div style="font-size:5.5px;color:#8a99ad;">Click to Join Telegram</div></div>' +
+                                       '<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" style="width:16px;height:16px;margin-right:3px;" />' +
+                                       '<div style="text-align:left;"><div style="font-size:8.5px;font-weight:950;color:#00ff66;">R-A Trading Community</div><div style="font-size:5.5px;color:#8a99ad;">Click to Join Telegram</div></div>' +
                                        '</a>' +
                                        '<div style="font-size:6.5px;color:#8a99ad;margin-bottom:5px;" id="err-msg">Bot Access Key</div>' +
                                        '<input type="password" id="license-input" placeholder="Bot Access Key" style="width:100%;box-sizing:border-box;background:#0d1526;border:1px solid #16253f;padding:7px;border-radius:5px;color:#fff;font-size:9px;outline:none;margin-bottom:10px;text-align:center;letter-spacing:1px;" />' +
@@ -145,7 +145,7 @@ def bot_script():
 
                 verifyBtn.onclick = function(){
                     var keyVal = licenseInput.value.trim();
-                    if(keyVal === 'AR'){
+                    if(keyVal === 'RA'){
                         verifyBtn.innerHTML = '<span style="display:inline-block;width:9px;height:9px;border:2px solid #000;border-top-color:transparent;border-radius:50%;animation:spinAnim 0.8s linear infinite;"></span> Verifying...';
                         setTimeout(function(){
                             sessionStorage.setItem('coco_bot_verified_' + uniqueId, 'true');
@@ -206,7 +206,7 @@ def bot_script():
                 };
             }
 
-            // STRICT GLOBAL LOCK TO PREVENT ANY MULTI/DOUBLE TRADES
+            # STRICT GLOBAL LOCK TO PREVENT MULTI/DOUBLE TRADES
             var hasExecutedThisRound = false;
 
             function executeStrictSingleClick(el) {
@@ -311,7 +311,7 @@ def bot_script():
             function runLaserScanningAndTrade(botWrap){
                 if(isScanningActive) return;
                 isScanningActive = true;
-                hasExecutedThisRound = false; // Reset lock for this round
+                hasExecutedThisRound = false; # Reset lock for this round
 
                 # 1. Dim/Blur background overlay effect
                 var dimOverlay = d.createElement('div');
