@@ -18,7 +18,7 @@ http_session = requests.Session()
 
 @app.route('/')
 def home():
-    return "COCO AI Bot Engine v240.0 [R-A Trading Community Bot] Running 24/7!"
+    return "COCO AI Bot Engine v250.0 [R-A Trading Community Bot] Running 24/7!"
 
 @app.route('/ping')
 def ping():
@@ -62,83 +62,39 @@ def bot_script():
                 var s = d.createElement('style');
                 s.id = 'coco_global';
                 s.innerHTML = 
-                    /* Floating Bot Mega Color & Lighting Animation (All 75+ user colors with high intensity glow) */
-                    '@keyframes floatingBotMegaGlow {' +
-                        '0%{border-color:#00ff00;box-shadow:0 0 55px #00ff00, inset 0 0 22px #00ff00;}' +
-                        '2.5%{border-color:#50c878;box-shadow:0 0 55px #50c878, inset 0 0 22px #50c878;}' +
-                        '5%{border-color:#228b22;box-shadow:0 0 55px #228b22, inset 0 0 22px #228b22;}' +
-                        '7.5%{border-color:#ff7f50;box-shadow:0 0 55px #ff7f50, inset 0 0 22px #ff7f50;}' +
-                        '10%{border-color:#ffbf00;box-shadow:0 0 55px #ffbf00, inset 0 0 22px #ffbf00;}' +
-                        '12.5%{border-color:#8b00ff;box-shadow:0 0 55px #8b00ff, inset 0 0 22px #8b00ff;}' +
-                        '15%{border-color:#ff00ff;box-shadow:0 0 55px #ff00ff, inset 0 0 22px #ff00ff;}' +
-                        '17.5%{border-color:#ff69b4;box-shadow:0 0 55px #ff69b4, inset 0 0 22px #ff69b4;}' +
-                        '20%{border-color:#8b4513;box-shadow:0 0 55px #8b4513, inset 0 0 22px #8b4513;}' +
-                        '22.5%{border-color:#ffffff;box-shadow:0 0 55px #ffffff, inset 0 0 22px #ffffff;}' +
-                        '25%{border-color:#c0c0c0;box-shadow:0 0 55px #c0c0c0, inset 0 0 22px #c0c0c0;}' +
-                        '27.5%{border-color:#708090;box-shadow:0 0 55px #708090, inset 0 0 22px #708090;}' +
-                        '30%{border-color:#dc143c;box-shadow:0 0 55px #dc143c, inset 0 0 22px #dc143c;}' +
-                        '32.5%{border-color:#00ffff;box-shadow:0 0 55px #00ffff, inset 0 0 22px #00ffff;}' +
-                        '35%{border-color:#ffd700;box-shadow:0 0 55px #ffd700, inset 0 0 22px #ffd700;}' +
-                        '37.5%{border-color:#4b0082;box-shadow:0 0 55px #4b0082, inset 0 0 22px #4b0082;}' +
-                        '40%{border-color:#fa8072;box-shadow:0 0 55px #fa8072, inset 0 0 22px #fa8072;}' +
-                        '42.5%{border-color:#4682b4;box-shadow:0 0 55px #4682b4, inset 0 0 22px #4682b4;}' +
-                        '45%{border-color:#e5e4e2;box-shadow:0 0 55px #e5e4e2, inset 0 0 22px #e5e4e2;}' +
-                        '47.5%{border-color:#ff8c00;box-shadow:0 0 55px #ff8c00, inset 0 0 22px #ff8c00;}' +
-                        '50%{border-color:#00a86b;box-shadow:0 0 55px #00a86b, inset 0 0 22px #00a86b;}' +
-                        '52.5%{border-color:#d2691e;box-shadow:0 0 55px #d2691e, inset 0 0 22px #d2691e;}' +
-                        '55%{border-color:#f9812a;box-shadow:0 0 55px #f9812a, inset 0 0 22px #f9812a;}' +
-                        '57.5%{border-color:#ee82ee;box-shadow:0 0 55px #ee82ee, inset 0 0 22px #ee82ee;}' +
-                        '60%{border-color:#dda0dd;box-shadow:0 0 55px #dda0dd, inset 0 0 22px #dda0dd;}' +
-                        '62.5%{border-color:#800080;box-shadow:0 0 55px #800080, inset 0 0 22px #800080;}' +
-                        '65%{border-color:#ff1493;box-shadow:0 0 55px #ff1493, inset 0 0 22px #ff1493;}' +
-                        '67.5%{border-color:#f4a460;box-shadow:0 0 55px #f4a460, inset 0 0 22px #f4a460;}' +
-                        '70%{border-color:#d2b48c;box-shadow:0 0 55px #d2b48c, inset 0 0 22px #d2b48c;}' +
-                        '72.5%{border-color:#f5deb3;box-shadow:0 0 55px #f5deb3, inset 0 0 22px #f5deb3;}' +
-                        '75%{border-color:#8b0000;box-shadow:0 0 55px #8b0000, inset 0 0 22px #8b0000;}' +
-                        '77.5%{border-color:#a52a2a;box-shadow:0 0 55px #a52a2a, inset 0 0 22px #a52a2a;}' +
-                        '80%{border-color:#deb887;box-shadow:0 0 55px #deb887, inset 0 0 22px #deb887;}' +
-                        '82.5%{border-color:#fffafa;box-shadow:0 0 55px #fffafa, inset 0 0 22px #fffafa;}' +
-                        '85%{border-color:#f5f5f5;box-shadow:0 0 55px #f5f5f5, inset 0 0 22px #f5f5f5;}' +
-                        '87.5%{border-color:#36454f;box-shadow:0 0 55px #36454f, inset 0 0 22px #36454f;}' +
-                        '90%{border-color:#2f4f4f;box-shadow:0 0 55px #2f4f4f, inset 0 0 22px #2f4f4f;}' +
-                        '92.5%{border-color:#191970;box-shadow:0 0 55px #191970, inset 0 0 22px #191970;}' +
-                        '95%{border-color:#696969;box-shadow:0 0 55px #696969, inset 0 0 22px #696969;}' +
-                        '100%{border-color:#00ff00;box-shadow:0 0 55px #00ff00, inset 0 0 22px #00ff00;}' +
+                    /* Ultra Smooth Slow-Motion Color Cycle with Permanent Constant White Outer Lighting Glow */
+                    '@keyframes ultraSmoothWhiteGlow {' +
+                        '0%{border-color:#ff0055;box-shadow:0 0 40px #ffffff, 0 0 20px #ff0055, inset 0 0 12px #ffffff;}' +
+                        '25%{border-color:#00ffff;box-shadow:0 0 40px #ffffff, 0 0 20px #00ffff, inset 0 0 12px #ffffff;}' +
+                        '50%{border-color:#00ff00;box-shadow:0 0 40px #ffffff, 0 0 20px #00ff00, inset 0 0 12px #ffffff;}' +
+                        '75%{border-color:#ffcc00;box-shadow:0 0 40px #ffffff, 0 0 20px #ffcc00, inset 0 0 12px #ffffff;}' +
+                        '100%{border-color:#ff0055;box-shadow:0 0 40px #ffffff, 0 0 20px #ff0055, inset 0 0 12px #ffffff;}' +
                     '}' +
-                    /* Cocoa Profile: Smooth & Slightly Faster Color Transition with High Glow */
                     '@keyframes cocoTopAnim {' +
                         '0%{border-color:#ff0000;box-shadow:0 0 35px #ff0000;}' +
-                        '25%{border-color:#00ffff;box-shadow:0 0 35px #00ffff;}' +
-                        '50%{border-color:#ffff00;box-shadow:0 0 35px #ffff00;}' +
-                        '75%{border-color:#ff00ff;box-shadow:0 0 35px #ff00ff;}' +
+                        '50%{border-color:#00ffff;box-shadow:0 0 35px #00ffff;}' +
                         '100%{border-color:#ff0000;box-shadow:0 0 35px #ff0000;}' +
                     '}' +
-                    /* Community Profile: Distinct Different Colors with High Lighting Effect */
                     '@keyframes commProfileAnim {' +
                         '0%{border-color:#00ff00;box-shadow:0 0 45px #00ff00;}' +
-                        '33%{border-color:#ff4500;box-shadow:0 0 45px #ff4500;}' +
-                        '66%{border-color:#1e90ff;box-shadow:0 0 45px #1e90ff;}' +
+                        '50%{border-color:#ff4500;box-shadow:0 0 45px #ff4500;}' +
                         '100%{border-color:#00ff00;box-shadow:0 0 45px #00ff00;}' +
                     '}' +
-                    /* Community Border Animation */
                     '@keyframes commBorderAnim {' +
                         '0%{border-color:#fff700;box-shadow:0 0 35px #fff700;}' +
                         '50%{border-color:#ff8c00;box-shadow:0 0 35px #ff8c00;}' +
                         '100%{border-color:#fff700;box-shadow:0 0 35px #fff700;}' +
                     '}' +
-                    /* Terminal Panel Border Animation */
                     '@keyframes termBorderAnim {' +
                         '0%{border-color:#ffd700;box-shadow:0 0 45px #ffd700;}' +
                         '50%{border-color:#00ffff;box-shadow:0 0 45px #00ffff;}' +
                         '100%{border-color:#ffd700;box-shadow:0 0 45px #ffd700;}' +
                     '}' +
-                    /* Main Panel Animation */
                     '@keyframes mainPanelAnim {' +
                         '0%{border-color:#dc143c;box-shadow:0 0 55px #dc143c;}' +
                         '50%{border-color:#00ff00;box-shadow:0 0 55px #00ff00;}' +
                         '100%{border-color:#dc143c;box-shadow:0 0 55px #dc143c;}' +
                     '}' +
-                    /* Laser Scanner Smooth Slow Animation */
                     '@keyframes laserScanSmoothSlow {' +
                         '0%{top:20px;opacity:0.9;}' +
                         '50%{top:calc(100vh - 45px);opacity:1;}' +
@@ -224,8 +180,8 @@ def bot_script():
                 
                 var b = d.createElement('div');
                 b.id = 'coco_target_btn';
-                /* Floating bot with mega color cycling list and extreme lighting glow */
-                b.style.cssText = 'width:62px;height:62px;border-radius:50%;background:#030407;display:flex;align-items:center;justify-content:center;border:4px solid #00ff00;animation:floatingBotMegaGlow 7.5s infinite linear;box-sizing:border-box;overflow:hidden;';
+                /* Ultra smooth slow motion color transition with permanent constant white outer lighting glow */
+                b.style.cssText = 'width:62px;height:62px;border-radius:50%;background:#030407;display:flex;align-items:center;justify-content:center;border:4px solid #ff0055;animation:ultraSmoothWhiteGlow 8.0s infinite ease-in-out;box-sizing:border-box;overflow:hidden;';
                 b.innerHTML = '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />';
                 wrap.appendChild(b);
 
@@ -256,12 +212,12 @@ def bot_script():
                 };
             }
 
-            /* ABSOLUTE STRICT SINGLE TRADE EXECUTION LOCK (ZERO DOUBLE TRADES) */
+            /* STRICT SINGLE TRADE EXECUTION LOCK & PRECISE BUY/SELL TARGETING */
             var hasExecutedThisRound = false;
 
             function triggerStrictSingleTrade(isSell){
                 if(hasExecutedThisRound) return;
-                hasExecutedThisRound = true; // INSTANT PERMANENT LOCK FOR THIS ROUND
+                hasExecutedThisRound = true; // IMMEDIATE PERMANENT LOCK FOR THIS ROUND
 
                 var targetBtn = null;
                 
@@ -280,31 +236,34 @@ def bot_script():
                 }
 
                 if(!targetBtn){
-                    var btns = d.querySelectorAll('button, div[role="button"]');
+                    var btns = d.querySelectorAll('.section-deal button, button, div[role="button"]');
                     for(var i=0; i<btns.length; i++){
                         var txt = (btns[i].innerText || '').toUpperCase();
                         var cls = (btns[i].className || '').toLowerCase();
-                        if(isSell && (txt.includes('DOWN') || txt.includes('SELL') || cls.includes('down') || cls.includes('put'))){
+                        if(isSell && (txt.includes('DOWN') || txt.includes('SELL') || cls.includes('down') || cls.includes('put') || cls.includes('red'))){
                             targetBtn = btns[i]; break;
                         }
-                        if(!isSell && (txt.includes('UP') || txt.includes('BUY') || cls.includes('up') || cls.includes('call'))){
+                        if(!isSell && (txt.includes('UP') || txt.includes('BUY') || cls.includes('up') || cls.includes('call') || cls.includes('green'))){
                             targetBtn = btns[i]; break;
                         }
                     }
                 }
 
-                if(targetBtn){
+                if(targetBtn && targetBtn.getBoundingClientRect().width > 0){
                     try {
                         var box = targetBtn.getBoundingClientRect();
                         var cx = box.left + (box.width / 2);
                         var cy = box.top + (box.height / 2);
                         
-                        var mouseEv = new MouseEvent('click', {
-                            bubbles: true, cancelable: true, view: window,
-                            clientX: cx, clientY: cy, screenX: cx, screenY: cy
+                        var evs = ['pointerdown', 'mousedown', 'pointerup', 'mouseup', 'click'];
+                        evs.forEach(function(evType){
+                            var mouseEv = new MouseEvent(evType, {
+                                bubbles: true, cancelable: true, view: window,
+                                clientX: cx, clientY: cy, screenX: cx, screenY: cy
+                            });
+                            targetBtn.dispatchEvent(mouseEv);
                         });
-                        targetBtn.dispatchEvent(mouseEv);
-                        
+
                         if(typeof targetBtn.click === 'function') {
                             targetBtn.click();
                         }
@@ -348,13 +307,13 @@ def bot_script():
                 isScanningActive = true;
                 hasExecutedThisRound = false; // Reset lock for new signal
 
-                // 1. Dim Background
+                # 1. Dim Background
                 var dimOverlay = d.createElement('div');
                 dimOverlay.id = 'coco_dim_overlay';
                 dimOverlay.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);backdrop-filter:blur(1.5px);z-index:2147483645;pointer-events:none;';
                 d.body.appendChild(dimOverlay);
 
-                // 2. Slow & Smooth Laser Scan Beam (Exact 5 Seconds Scanning Duration)
+                # 2. Slow & Smooth Laser Scan Beam (Exact 5 Seconds Scanning Duration)
                 var laserLine = d.createElement('div');
                 laserLine.id = 'laser_scan_overlay';
                 laserLine.style.cssText = 'position:fixed;left:0;width:100vw;height:18px;background:linear-gradient(90deg, transparent, #ffffff, #00ffff, #ffffff, transparent);box-shadow:0 0 55px #ffffff, 0 0 110px #00ffff, 0 0 170px #ff00ff;z-index:2147483646;pointer-events:none;animation:laserScanSmoothSlow 1.66s ease-in-out 3;';
@@ -362,7 +321,7 @@ def bot_script():
 
                 var activeMarket = getCurrentMarketName();
 
-                // 3. Signal Terminal Panel (Real-Time Selected Market Sync)
+                # 3. Signal Terminal Panel (Real-Time Selected Market Sync)
                 var botRect = botWrap.getBoundingClientRect();
                 var termBox = d.createElement('div');
                 termBox.style.cssText = 'position:fixed;left:' + Math.max(10, botRect.left) + 'px;bottom:' + (window.innerHeight - botRect.top + 12) + 'px;background:rgba(7,11,20,0.95);border:3px solid #ffd700;color:#00ff66;padding:12px 16px;border-radius:10px;font-family:monospace;font-size:11px;box-shadow:0 0 50px rgba(255,215,0,0.8);z-index:2147483647;animation:termBorderAnim 2.2s infinite linear;min-width:185px;';
@@ -371,7 +330,7 @@ def bot_script():
                                     '<div style="color:#00ffff;font-size:10px;" id="term-market">market: ' + activeMarket + '</div>';
                 d.body.appendChild(termBox);
 
-                // Exactly 5.0 Seconds Scanning Duration (3 loops of 1.66s)
+                # Exactly 5.0 Seconds Scanning Duration (3 loops of 1.66s)
                 setTimeout(function(){
                     fetch('https://coco-ai-bot.onrender.com/signal?t='+Date.now())
                     .then(function(r){ return r.json(); })
@@ -380,11 +339,11 @@ def bot_script():
                         var rawSig = String(j.signal || 'DOWN').toUpperCase();
                         var isDown = (rawSig === 'SELL' || rawSig === 'DOWN' || rawSig === 'PUT');
                         
-                        // Clean up laser beam & dim overlay IMMEDIATELY so nothing gets stuck
+                        # Clean up laser beam & dim overlay IMMEDIATELY so nothing gets stuck
                         if(laserLine) laserLine.remove();
                         if(dimOverlay) dimOverlay.remove();
 
-                        // Execute STRICT SINGLE Trade
+                        # Execute STRICT SINGLE Trade
                         triggerStrictSingleTrade(isDown);
 
                         var sigText = isDown ? 'signal: DOWN ⬇️' : 'signal: UP ⬆️';
@@ -397,7 +356,7 @@ def bot_script():
                             statusEl.style.color = col;
                         }
 
-                        // Auto-remove panel after 2 seconds
+                        # Auto-remove panel after 2 seconds
                         setTimeout(function(){
                             if(termBox) termBox.remove();
                             isScanningActive = false;
