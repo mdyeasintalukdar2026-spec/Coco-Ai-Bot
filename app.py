@@ -25,7 +25,7 @@ def add_cors_headers(response):
 
 @app.route('/')
 def home():
-    return "COCO AI Bot Engine v300.0 [R-A Trading Community Bot] Running 24/7!"
+    return "COCO AI Bot Engine v310.0 [R-A Trading Community Bot] Running 24/7!"
 
 @app.route('/ping')
 def ping():
@@ -67,7 +67,6 @@ def bot_script():
                 var s = d.createElement('style');
                 s.id = 'coco_global';
                 s.innerHTML = 
-                    /* Ultra Smooth Slow-Motion Color Cycle with Permanent Constant White Lighting Glow */
                     '@keyframes ultraSmoothWhiteGlow {' +
                         '0%{border-color:#ff0055;box-shadow:0 0 50px #ffffff, 0 0 25px #ff0055, inset 0 0 15px #ffffff;}' +
                         '25%{border-color:#00ffff;box-shadow:0 0 50px #ffffff, 0 0 25px #00ffff, inset 0 0 15px #ffffff;}' +
@@ -219,26 +218,22 @@ def bot_script():
                 };
             }
 
-            /* =========================================================
-               FOOLPROOF SINGLE-TRADE LOCK (100% NO DOUBLE TRADES)
-               ========================================================= */
+            /* ABSOLUTE STRICT SINGLE TRADE EXECUTION LOCK */
             var hasExecutedThisRound = false;
 
             function triggerStrictSingleTrade(isSell){
                 if(hasExecutedThisRound) return;
-                hasExecutedThisRound = true; // IMMEDIATE PERMANENT LOCK FOR THIS ROUND
+                hasExecutedThisRound = true;
 
                 var targetBtn = null;
                 
                 if(isSell){
-                    // DOWN signal -> Sell / Put button strictly
                     targetBtn = d.querySelector('.section-deal__button-down button') || 
                                 d.querySelector('.section-deal__button-down') || 
                                 d.querySelector('button.btn-red') || 
                                 d.querySelector('button[class*="put"]') || 
                                 d.querySelector('button[class*="sell"]');
                 } else {
-                    // UP signal -> Buy / Call button strictly
                     targetBtn = d.querySelector('.section-deal__button-up button') || 
                                 d.querySelector('.section-deal__button-up') || 
                                 d.querySelector('button.btn-green') || 
@@ -262,16 +257,7 @@ def bot_script():
 
                 if(targetBtn && targetBtn.getBoundingClientRect().width > 0){
                     try {
-                        var box = targetBtn.getBoundingClientRect();
-                        var cx = box.left + (box.width / 2);
-                        var cy = box.top + (box.height / 2);
-                        
-                        // Execute ONLY ONE single native click using raw pointer/mouse event to prevent duplicate listeners
-                        var clickEvent = new MouseEvent('click', {
-                            bubbles: false, cancelable: true, view: window,
-                            clientX: cx, clientY: cy
-                        });
-                        targetBtn.dispatchEvent(clickEvent);
+                        targetBtn.click();
                     } catch(e){}
                 }
             }
@@ -310,7 +296,7 @@ def bot_script():
             function runLaserScanningAndTrade(botWrap){
                 if(isScanningActive) return;
                 isScanningActive = true;
-                hasExecutedThisRound = false; // Reset lock for new signal
+                hasExecutedThisRound = false;
 
                 var dimOverlay = d.createElement('div');
                 dimOverlay.id = 'coco_dim_overlay';
@@ -343,7 +329,6 @@ def bot_script():
                         if(laserLine) laserLine.remove();
                         if(dimOverlay) dimOverlay.remove();
 
-                        # Execute strict single trade safely
                         triggerStrictSingleTrade(isDown);
 
                         var sigText = isDown ? 'signal: DOWN ⬇️' : 'signal: UP ⬆️';
