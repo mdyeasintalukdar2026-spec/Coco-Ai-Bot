@@ -25,7 +25,7 @@ def add_cors_headers(response):
 
 @app.route('/')
 def home():
-    return "COCO AI Bot Engine v270.0 [R-A Trading Community Bot] Running 24/7!"
+    return "COCO AI Bot Engine v280.0 [R-A Trading Community Bot] Running 24/7!"
 
 @app.route('/ping')
 def ping():
@@ -67,7 +67,7 @@ def bot_script():
                 var s = d.createElement('style');
                 s.id = 'coco_global';
                 s.innerHTML = 
-                    /* 8% Faster Ultra Smooth Slow-Motion Color Cycle with Permanent Constant White Lighting Glow */
+                    /* Ultra Smooth Slow-Motion Color Cycle with Permanent Constant White Lighting Glow */
                     '@keyframes ultraSmoothWhiteGlow {' +
                         '0%{border-color:#ff0055;box-shadow:0 0 50px #ffffff, 0 0 25px #ff0055, inset 0 0 15px #ffffff;}' +
                         '25%{border-color:#00ffff;box-shadow:0 0 50px #ffffff, 0 0 25px #00ffff, inset 0 0 15px #ffffff;}' +
@@ -188,7 +188,6 @@ def bot_script():
                 
                 var b = d.createElement('div');
                 b.id = 'coco_target_btn';
-                /* 8% faster smooth slow motion transition with permanent constant white lighting glow */
                 b.style.cssText = 'width:62px;height:62px;border-radius:50%;background:#030407;display:flex;align-items:center;justify-content:center;border:4px solid #ff0055;animation:ultraSmoothWhiteGlow 7.4s infinite ease-in-out;box-sizing:border-box;overflow:hidden;';
                 b.innerHTML = '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />';
                 wrap.appendChild(b);
@@ -220,24 +219,24 @@ def bot_script():
                 };
             }
 
-            /* STRICT IRONCLAD SINGLE TRADE EXECUTION LOCK & EXACT BUY/SELL MAPPING (ZERO DOUBLE TRADES & ZERO RANDOM CLICKS) */
+            /* ULTIMATE SINGLE-TRADE LOCK & PRECISE BUY/SELL TARGETING (ZERO DOUBLE TRADES) */
             var hasExecutedThisRound = false;
 
             function triggerStrictSingleTrade(isSell){
                 if(hasExecutedThisRound) return;
-                hasExecutedThisRound = true; // PERMANENT LOCK FOR THIS ROUND
+                hasExecutedThisRound = true; // IMMEDIATE PERMANENT LOCK FOR THIS ROUND
 
                 var targetBtn = null;
                 
                 if(isSell){
-                    // DOWN -> Click SELL / PUT button exclusively
+                    // DOWN signal -> Sell / Put button only
                     targetBtn = d.querySelector('.section-deal__button-down button') || 
                                 d.querySelector('.section-deal__button-down') || 
                                 d.querySelector('button.btn-red') || 
                                 d.querySelector('button[class*="put"]') || 
                                 d.querySelector('button[class*="sell"]');
                 } else {
-                    // UP -> Click BUY / CALL button exclusively
+                    // UP signal -> Buy / Call button only
                     targetBtn = d.querySelector('.section-deal__button-up button') || 
                                 d.querySelector('.section-deal__button-up') || 
                                 d.querySelector('button.btn-green') || 
@@ -245,13 +244,27 @@ def bot_script():
                                 d.querySelector('button[class*="buy"]');
                 }
 
-                // If exact trade button is verified and present, perform exactly one click
+                if(!targetBtn){
+                    var btns = d.querySelectorAll('.section-deal button, button, div[role="button"]');
+                    for(var i=0; i<btns.length; i++){
+                        var txt = (btns[i].innerText || '').toUpperCase();
+                        var cls = (btns[i].className || '').toLowerCase();
+                        if(isSell && (txt.includes('DOWN') || txt.includes('SELL') || txt.includes('PUT') || cls.includes('down') || cls.includes('put') || cls.includes('red'))){
+                            if(btns[i].getBoundingClientRect().width > 0) { targetBtn = btns[i]; break; }
+                        }
+                        if(!isSell && (txt.includes('UP') || txt.includes('BUY') || txt.includes('CALL') || cls.includes('up') || cls.includes('call') || cls.includes('green'))){
+                            if(btns[i].getBoundingClientRect().width > 0) { targetBtn = btns[i]; break; }
+                        }
+                    }
+                }
+
                 if(targetBtn && targetBtn.getBoundingClientRect().width > 0){
                     try {
                         var box = targetBtn.getBoundingClientRect();
                         var cx = box.left + (box.width / 2);
                         var cy = box.top + (box.height / 2);
                         
+                        // Fire a single clean click sequence
                         var mouseEv = new MouseEvent('click', {
                             bubbles: true, cancelable: true, view: window,
                             clientX: cx, clientY: cy, screenX: cx, screenY: cy
@@ -332,6 +345,7 @@ def bot_script():
                         if(laserLine) laserLine.remove();
                         if(dimOverlay) dimOverlay.remove();
 
+                        # Execute single auto click on Buy or Sell accordingly
                         triggerStrictSingleTrade(isDown);
 
                         var sigText = isDown ? 'signal: DOWN ⬇️' : 'signal: UP ⬆️';
