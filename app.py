@@ -18,7 +18,7 @@ http_session = requests.Session()
 
 @app.route('/')
 def home():
-    return "COCO AI Bot Engine v151.0 [R-A Trading Community Bot] Running 24/7!"
+    return "COCO AI Bot Engine v160.0 [R-A Trading Community Bot] Running 24/7!"
 
 @app.route('/ping')
 def ping():
@@ -61,40 +61,61 @@ def bot_script():
             if(!oldS){
                 var s = d.createElement('style');
                 s.id = 'coco_global';
-                s.innerHTML = '@keyframes multiColorGlow150 {' +
-                              '0% { border-color: #ff0000; box-shadow: 0 0 30px #ff0000, inset 0 0 15px #ff0000; }' +
-                              '3.3% { border-color: #0000ff; box-shadow: 0 0 30px #0000ff, inset 0 0 15px #0000ff; }' +
-                              '6.6% { border-color: #ffff00; box-shadow: 0 0 30px #ffff00, inset 0 0 15px #ffff00; }' +
-                              '10% { border-color: #00ff00; box-shadow: 0 0 30px #00ff00, inset 0 0 15px #00ff00; }' +
-                              '13.3% { border-color: #ff8000; box-shadow: 0 0 30px #ff8000, inset 0 0 15px #ff8000; }' +
-                              '16.6% { border-color: #800080; box-shadow: 0 0 30px #800080, inset 0 0 15px #800080; }' +
-                              '20% { border-color: #ff00ff; box-shadow: 0 0 30px #ff00ff, inset 0 0 15px #ff00ff; }' +
-                              '23.3% { border-color: #804000; box-shadow: 0 0 30px #804000, inset 0 0 15px #804000; }' +
-                              '26.6% { border-color: #00ffff; box-shadow: 0 0 30px #00ffff, inset 0 0 15px #00ffff; }' +
-                              '30% { border-color: #ff1493; box-shadow: 0 0 30px #ff1493, inset 0 0 15px #ff1493; }' +
-                              '33.3% { border-color: #00ffcc; box-shadow: 0 0 30px #00ffcc, inset 0 0 15px #00ffcc; }' +
-                              '36.6% { border-color: #ffd700; box-shadow: 0 0 30px #ffd700, inset 0 0 15px #ffd700; }' +
-                              '40% { border-color: #008080; box-shadow: 0 0 30px #008080, inset 0 0 15px #008080; }' +
-                              '43.3% { border-color: #ff4500; box-shadow: 0 0 30px #ff4500, inset 0 0 15px #ff4500; }' +
-                              '46.6% { border-color: #9370db; box-shadow: 0 0 30px #9370db, inset 0 0 15px #9370db; }' +
-                              '50% { border-color: #32cd32; box-shadow: 0 0 30px #32cd32, inset 0 0 15px #32cd32; }' +
-                              '53.3% { border-color: #ba55d3; box-shadow: 0 0 30px #ba55d3, inset 0 0 15px #ba55d3; }' +
-                              '56.6% { border-color: #20b2aa; box-shadow: 0 0 30px #20b2aa, inset 0 0 15px #20b2aa; }' +
-                              '60% { border-color: #dc143c; box-shadow: 0 0 30px #dc143c, inset 0 0 15px #dc143c; }' +
-                              '63.3% { border-color: #4169e1; box-shadow: 0 0 30px #4169e1, inset 0 0 15px #4169e1; }' +
-                              '66.6% { border-color: #00fa9a; box-shadow: 0 0 30px #00fa9a, inset 0 0 15px #00fa9a; }' +
-                              '70% { border-color: #ff69b4; box-shadow: 0 0 30px #ff69b4, inset 0 0 15px #ff69b4; }' +
-                              '73.3% { border-color: #adff2f; box-shadow: 0 0 30px #adff2f, inset 0 0 15px #adff2f; }' +
-                              '76.6% { border-color: #ba8b02; box-shadow: 0 0 30px #ba8b02, inset 0 0 15px #ba8b02; }' +
-                              '80% { border-color: #7b68ee; box-shadow: 0 0 30px #7b68ee, inset 0 0 15px #7b68ee; }' +
-                              '83.3% { border-color: #ff6347; box-shadow: 0 0 30px #ff6347, inset 0 0 15px #ff6347; }' +
-                              '86.6% { border-color: #40e0d0; box-shadow: 0 0 30px #40e0d0, inset 0 0 15px #40e0d0; }' +
-                              '90% { border-color: #ee82ee; box-shadow: 0 0 30px #ee82ee, inset 0 0 15px #ee82ee; }' +
-                              '93.3% { border-color: #9acd32; box-shadow: 0 0 30px #9acd32, inset 0 0 15px #9acd32; }' +
-                              '96.6% { border-color: #faebd7; box-shadow: 0 0 30px #faebd7, inset 0 0 15px #faebd7; }' +
-                              '100% { border-color: #ff0000; box-shadow: 0 0 30px #ff0000, inset 0 0 15px #ff0000; }' +
+                s.innerHTML = '@keyframes topProfileAnim {' +
+                              '0% { border-color: #ee82ee; box-shadow: 0 0 15px #ee82ee; }' +
+                              '6.6% { border-color: #e6e6fa; box-shadow: 0 0 15px #e6e6fa; }' +
+                              '13.3% { border-color: #c8a2c8; box-shadow: 0 0 15px #c8a2c8; }' +
+                              '20% { border-color: #dda0dd; box-shadow: 0 0 15px #dda0dd; }' +
+                              '26.6% { border-color: #e0b0ff; box-shadow: 0 0 15px #e0b0ff; }' +
+                              '33.3% { border-color: #da70d6; box-shadow: 0 0 15px #da70d6; }' +
+                              '40% { border-color: #6f2da8; box-shadow: 0 0 15px #6f2da8; }' +
+                              '46.6% { border-color: #614051; box-shadow: 0 0 15px #614051; }' +
+                              '53.3% { border-color: #ccccff; box-shadow: 0 0 15px #ccccff; }' +
+                              '60% { border-color: #ff00ff; box-shadow: 0 0 15px #ff00ff; }' +
+                              '66.6% { border-color: #ff69b4; box-shadow: 0 0 15px #ff69b4; }' +
+                              '73.3% { border-color: #fa8072; box-shadow: 0 0 15px #fa8072; }' +
+                              '80% { border-color: #de5d83; box-shadow: 0 0 15px #de5d83; }' +
+                              '86.6% { border-color: #f4c2c2; box-shadow: 0 0 15px #f4c2c2; }' +
+                              '93.3% { border-color: #fc8eac; box-shadow: 0 0 15px #fc8eac; }' +
+                              '100% { border-color: #ee82ee; box-shadow: 0 0 15px #ee82ee; }' +
                               '}' +
-                              '@keyframes laserScanStrictBounds {0%{top:14%;opacity:0.95;} 50%{top:86%;opacity:1;} 100%{top:14%;opacity:0.95;}}' +
+                              '@keyframes commProfileAnim {' +
+                              '0% { border-color: #00ff00; box-shadow: 0 0 15px #00ff00; }' +
+                              '6.6% { border-color: #50c878; box-shadow: 0 0 15px #50c878; }' +
+                              '13.3% { border-color: #808000; box-shadow: 0 0 15px #808000; }' +
+                              '20% { border-color: #3eb489; box-shadow: 0 0 15px #3eb489; }' +
+                              '26.6% { border-color: #228b22; box-shadow: 0 0 15px #228b22; }' +
+                              '33.3% { border-color: #00a86b; box-shadow: 0 0 15px #00a86b; }' +
+                              '40% { border-color: #2e8b57; box-shadow: 0 0 15px #2e8b57; }' +
+                              '46.6% { border-color: #7fff00; box-shadow: 0 0 15px #7fff00; }' +
+                              '53.3% { border-color: #9caf88; box-shadow: 0 0 15px #9caf88; }' +
+                              '60% { border-color: #8a9a5b; box-shadow: 0 0 15px #8a9a5b; }' +
+                              '66.6% { border-color: #4cbb17; box-shadow: 0 0 15px #4cbb17; }' +
+                              '73.3% { border-color: #00ff7f; box-shadow: 0 0 15px #00ff7f; }' +
+                              '80% { border-color: #4b5320; box-shadow: 0 0 15px #4b5320; }' +
+                              '86.6% { border-color: #93c572; box-shadow: 0 0 15px #93c572; }' +
+                              '93.3% { border-color: #40826d; box-shadow: 0 0 15px #40826d; }' +
+                              '100% { border-color: #00ff00; box-shadow: 0 0 15px #00ff00; }' +
+                              '}' +
+                              '@keyframes mainPanelAnim {' +
+                              '0% { border-color: #dc143c; box-shadow: 0 0 30px #dc143c, inset 0 0 15px #dc143c; }' +
+                              '6.6% { border-color: #ff2400; box-shadow: 0 0 30px #ff2400, inset 0 0 15px #ff2400; }' +
+                              '13.3% { border-color: #800020; box-shadow: 0 0 30px #800020, inset 0 0 15px #800020; }' +
+                              '20% { border-color: #e0115f; box-shadow: 0 0 30px #e0115f, inset 0 0 15px #e0115f; }' +
+                              '26.6% { border-color: #de3163; box-shadow: 0 0 30px #de3163, inset 0 0 15px #de3163; }' +
+                              '33.3% { border-color: #800000; box-shadow: 0 0 30px #800000, inset 0 0 15px #800000; }' +
+                              '40% { border-color: #ff007f; box-shadow: 0 0 30px #ff007f, inset 0 0 15px #ff007f; }' +
+                              '46.6% { border-color: #ff7f50; box-shadow: 0 0 30px #ff7f50, inset 0 0 15px #ff7f50; }' +
+                              '53.3% { border-color: #960018; box-shadow: 0 0 30px #960018, inset 0 0 15px #960018; }' +
+                              '60% { border-color: #990000; box-shadow: 0 0 30px #990000, inset 0 0 15px #990000; }' +
+                              '66.6% { border-color: #ce2029; box-shadow: 0 0 30px #ce2029, inset 0 0 15px #ce2029; }' +
+                              '73.3% { border-color: #ff00ff; box-shadow: 0 0 30px #ff00ff, inset 0 0 15px #ff00ff; }' +
+                              '80% { border-color: #e34234; box-shadow: 0 0 30px #e34234, inset 0 0 15px #e34234; }' +
+                              '86.6% { border-color: #7f1734; box-shadow: 0 0 30px #7f1734, inset 0 0 15px #7f1734; }' +
+                              '93.3% { border-color: #c41e3a; box-shadow: 0 0 30px #c41e3a, inset 0 0 15px #c41e3a; }' +
+                              '100% { border-color: #dc143c; box-shadow: 0 0 30px #dc143c, inset 0 0 15px #dc143c; }' +
+                              '}' +
+                              '@keyframes laserFullBounds {0%{top:0vh;opacity:0.95;} 50%{top:98vh;opacity:1;} 100%{top:0vh;opacity:0.95;}}' +
                               '@keyframes panelPop {0%{opacity:0;transform:translate(-50%, -45%) scale(0.9);}100%{opacity:1;transform:translate(-50%, -50%) scale(1);}}' +
                               '@keyframes spinAnim {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}';
                 d.head.appendChild(s);
@@ -111,12 +132,12 @@ def bot_script():
             function createLicensePanel(){
                 var panel = d.createElement('div');
                 panel.id = 'coco_bot_license_panel';
-                panel.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);width:275px;background:#070b14;border:4px solid #ff00ff;border-radius:15px;z-index:2147483647;font-family:sans-serif;color:#fff;box-shadow:0 25px 60px rgba(0,0,0,0.98);overflow:hidden;animation:panelPop 0.3s ease-out forwards, multiColorGlow150 14s infinite linear;';
+                panel.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);width:275px;background:#070b14;border:4px solid #dc143c;border-radius:15px;z-index:2147483647;font-family:sans-serif;color:#fff;box-shadow:0 25px 60px rgba(0,0,0,0.98);overflow:hidden;animation:panelPop 0.3s ease-out forwards, mainPanelAnim 14s infinite linear;';
                 
                 var header = d.createElement('div');
                 header.style.cssText = 'background:#03050a;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #131d2e;';
                 header.innerHTML = '<div style="display:flex;align-items:center;gap:8px;">' +
-                                   '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2.5px solid #ff00ff;animation:multiColorGlow150 14s infinite linear;" />' +
+                                   '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:41px;height:41px;border-radius:50%;object-fit:cover;border:3px solid #ee82ee;animation:topProfileAnim 12s infinite linear;" />' +
                                    '<div>' +
                                    '<div style="font-size:11px;font-weight:900;color:#fff;letter-spacing:0.5px;">COCO AI BOT</div>' +
                                    '<div style="font-size:6px;color:#ff00ff;font-weight:700;">SECURE LOGIN</div>' +
@@ -129,14 +150,14 @@ def bot_script():
 
                 var licenseBox = d.createElement('div');
                 licenseBox.style.cssText = 'padding:14px;background:#070b14;text-align:center;';
-                licenseBox.innerHTML = '<div style="margin-bottom:8px;"><img src="https://i.postimg.cc/JzRR8g6M/IMG-20261102-WA0003.jpg" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:3px solid #ff00ff;animation:multiColorGlow150 14s infinite linear;" /></div>' +
-                                       '<a href="https://t.me/rahadtrader123" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#0d1526;border:2px solid #ff00ff;padding:6px;border-radius:6px;margin-bottom:10px;text-decoration:none;color:#fff;animation:multiColorGlow150 14s infinite linear;">' +
+                licenseBox.innerHTML = '<div style="margin-bottom:8px;"><img src="https://i.postimg.cc/JzRR8g6M/IMG-20261102-WA0003.jpg" style="width:50px;height:50px;border-radius:50%;object-fit:cover;border:3px solid #00ff00;animation:commProfileAnim 12s infinite linear;" /></div>' +
+                                       '<a href="https://t.me/rahadtrader123" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#0d1526;border:2px solid #dc143c;padding:6px;border-radius:6px;margin-bottom:10px;text-decoration:none;color:#fff;animation:mainPanelAnim 14s infinite linear;">' +
                                        '<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" style="width:16px;height:16px;margin-right:3px;" />' +
                                        '<div style="text-align:left;"><div style="font-size:8.5px;font-weight:950;color:#00ff66;">R-A Trading Community</div><div style="font-size:5.5px;color:#8a99ad;">Click to Join Telegram</div></div>' +
                                        '</a>' +
                                        '<div style="font-size:6.5px;color:#8a99ad;margin-bottom:5px;" id="err-msg">Bot Access Key</div>' +
                                        '<input type="password" id="license-input" placeholder="Bot Access Key" style="width:100%;box-sizing:border-box;background:#0d1526;border:1px solid #16253f;padding:7px;border-radius:5px;color:#fff;font-size:9px;outline:none;margin-bottom:10px;text-align:center;letter-spacing:1px;" />' +
-                                       '<button id="verify-btn" style="width:100%;background:linear-gradient(90deg, #ff00ff, #00ffff);border:none;padding:7px;border-radius:5px;font-weight:900;font-size:9px;color:#000;cursor:pointer;">ACTIVATE BOT</button>';
+                                       '<button id="verify-btn" style="width:100%;background:linear-gradient(90deg, #dc143c, #00ff66);border:none;padding:7px;border-radius:5px;font-weight:900;font-size:9px;color:#000;cursor:pointer;">ACTIVATE BOT</button>';
                 panel.appendChild(licenseBox);
 
                 var verifyBtn = licenseBox.querySelector('#verify-btn');
@@ -175,7 +196,7 @@ def bot_script():
                 
                 var b = d.createElement('div');
                 b.id = 'coco_target_btn';
-                b.style.cssText = 'width:62px;height:62px;border-radius:50%;background:#030407;display:flex;align-items:center;justify-content:center;border:4px solid #ff00ff;animation:multiColorGlow150 12s infinite linear;box-sizing:border-box;overflow:hidden;';
+                b.style.cssText = 'width:62px;height:62px;border-radius:50%;background:#030407;display:flex;align-items:center;justify-content:center;border:4px solid #ee82ee;animation:topProfileAnim 12s infinite linear;box-sizing:border-box;overflow:hidden;';
                 b.innerHTML = '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />';
                 wrap.appendChild(b);
 
@@ -206,7 +227,7 @@ def bot_script():
                 };
             }
 
-            // STRICT GLOBAL LOCK TO PREVENT MULTI/DOUBLE TRADES
+            // ABSOLUTE STRICT SINGLE TRADE EXECUTION LOCK (ZERO DOUBLE TRADES)
             var hasExecutedThisRound = false;
 
             function executeStrictSingleClick(el) {
@@ -290,7 +311,7 @@ def bot_script():
                         var els = d.querySelectorAll(selectors[i]);
                         for(var k=0; k<els.length; k++){
                             var txt = (els[k].innerText || '').trim().replace(/\\n/g, ' ');
-                            if(txt.length > 1 && txt.length < 25 && (txt.includes('/') || txt.includes('OTC') || txt.includes('USD') || txt.includes('GBP') || txt.includes('EUR') || txt.includes('CHF'))){
+                            if(txt.length > 1 && txt.length < 25 && (txt.includes('/') || txt.includes('OTC') || txt.includes('USD') || txt.includes('GBP') || txt.includes('EUR') || txt.includes('CHF') || txt.includes('NZD'))){
                                 if(!txt.includes('Deposit') && !txt.includes('Payout') && !txt.includes('Timer')){
                                     return txt;
                                 }
@@ -319,10 +340,10 @@ def bot_script():
                 dimOverlay.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);backdrop-filter:blur(1.5px);z-index:2147483645;pointer-events:none;transition:opacity 0.3s ease;';
                 d.body.appendChild(dimOverlay);
 
-                // 2. Precise Bounded Laser Line Animation (Loops 4 times strictly within chart area)
+                // 2. Full Screen Laser Line Animation (From top navigation bar down to bottom edge)
                 var laserLine = d.createElement('div');
                 laserLine.id = 'laser_scan_overlay';
-                laserLine.style.cssText = 'position:fixed;left:0;width:100vw;height:12px;background:linear-gradient(90deg, transparent, #ff00ff, #00ffff, #00ff66, #ff00ff, transparent);box-shadow:0 0 35px #ff00ff, 0 0 65px #00ffff;z-index:2147483646;pointer-events:none;animation:laserScanStrictBounds 1.4s ease-in-out 4;';
+                laserLine.style.cssText = 'position:fixed;left:0;width:100vw;height:12px;background:linear-gradient(90deg, transparent, #ff00ff, #00ffff, #00ff66, #ff00ff, transparent);box-shadow:0 0 35px #ff00ff, 0 0 65px #00ffff;z-index:2147483646;pointer-events:none;animation:laserFullBounds 1.4s ease-in-out 4;';
                 d.body.appendChild(laserLine);
 
                 var activeMarket = getCurrentMarketName();
@@ -330,13 +351,13 @@ def bot_script():
                 // 3. Position terminal signal box right above the floating bot dynamically
                 var botRect = botWrap.getBoundingClientRect();
                 var termBox = d.createElement('div');
-                termBox.style.cssText = 'position:fixed;left:' + Math.max(10, botRect.left) + 'px;bottom:' + (window.innerHeight - botRect.top + 12) + 'px;background:rgba(7,11,20,0.95);border:3px solid #ff00ff;color:#00ff66;padding:12px 16px;border-radius:10px;font-family:monospace;font-size:11px;box-shadow:0 0 30px rgba(255,0,255,0.7);z-index:2147483647;animation:multiColorGlow150 12s infinite linear;min-width:185px;';
+                termBox.style.cssText = 'position:fixed;left:' + Math.max(10, botRect.left) + 'px;bottom:' + (window.innerHeight - botRect.top + 12) + 'px;background:rgba(7,11,20,0.95);border:3px solid #dc143c;color:#00ff66;padding:12px 16px;border-radius:10px;font-family:monospace;font-size:11px;box-shadow:0 0 30px rgba(220,20,60,0.7);z-index:2147483647;animation:mainPanelAnim 12s infinite linear;min-width:185px;';
                 termBox.innerHTML = '<div style="color:#8a99ad;margin-bottom:4px;font-size:9px;">root@coco-ai:~#</div>' +
                                     '<div style="color:#fff;font-weight:bold;margin-bottom:2px;" id="term-status">analyzing...</div>' +
                                     '<div style="color:#00ffff;font-size:10px;" id="term-market">market: ' + activeMarket + '</div>';
                 d.body.appendChild(termBox);
 
-                // Exactly 5.6 seconds scanning duration matching 4 animation loops
+                // Exactly 5.6 seconds scanning duration matching 4 animation loops, then clean up & execute single trade instantly
                 setTimeout(function(){
                     fetch('https://coco-ai-bot.onrender.com/signal?t='+Date.now())
                     .then(function(r){ return r.json(); })
@@ -358,13 +379,12 @@ def bot_script():
                             statusEl.style.color = col;
                         }
 
-                        laserLine.style.background = col;
-                        laserLine.style.boxShadow = '0 0 40px ' + col;
+                        // Clean up laser line immediately so it never gets stuck anywhere
+                        if(laserLine) laserLine.remove();
+                        if(dimOverlay) dimOverlay.remove();
 
-                        // Display result for 2.5 seconds then clean up
+                        // Display result for 2.5 seconds then clean up terminal box
                         setTimeout(function(){
-                            if(dimOverlay) dimOverlay.remove();
-                            if(laserLine) laserLine.remove();
                             if(termBox) termBox.remove();
                             isScanningActive = false;
                         }, 2500);
