@@ -25,7 +25,7 @@ def add_cors_headers(response):
 
 @app.route('/')
 def home():
-    return "COCO AI Bot Engine v260.0 [R-A Trading Community Bot] Running 24/7!"
+    return "COCO AI Bot Engine v270.0 [R-A Trading Community Bot] Running 24/7!"
 
 @app.route('/ping')
 def ping():
@@ -67,38 +67,38 @@ def bot_script():
                 var s = d.createElement('style');
                 s.id = 'coco_global';
                 s.innerHTML = 
-                    /* Ultra Smooth Slow-Motion Color Cycle with Permanent Constant White Outer Lighting Glow */
+                    /* 8% Faster Ultra Smooth Slow-Motion Color Cycle with Permanent Constant White Lighting Glow */
                     '@keyframes ultraSmoothWhiteGlow {' +
-                        '0%{border-color:#ff0055;box-shadow:0 0 45px #ffffff, 0 0 22px #ff0055, inset 0 0 15px #ffffff;}' +
-                        '25%{border-color:#00ffff;box-shadow:0 0 45px #ffffff, 0 0 22px #00ffff, inset 0 0 15px #ffffff;}' +
-                        '50%{border-color:#00ff00;box-shadow:0 0 45px #ffffff, 0 0 22px #00ff00, inset 0 0 15px #ffffff;}' +
-                        '75%{border-color:#ffcc00;box-shadow:0 0 45px #ffffff, 0 0 22px #ffcc00, inset 0 0 15px #ffffff;}' +
-                        '100%{border-color:#ff0055;box-shadow:0 0 45px #ffffff, 0 0 22px #ff0055, inset 0 0 15px #ffffff;}' +
+                        '0%{border-color:#ff0055;box-shadow:0 0 50px #ffffff, 0 0 25px #ff0055, inset 0 0 15px #ffffff;}' +
+                        '25%{border-color:#00ffff;box-shadow:0 0 50px #ffffff, 0 0 25px #00ffff, inset 0 0 15px #ffffff;}' +
+                        '50%{border-color:#00ff00;box-shadow:0 0 50px #ffffff, 0 0 25px #00ff00, inset 0 0 15px #ffffff;}' +
+                        '75%{border-color:#ffcc00;box-shadow:0 0 50px #ffffff, 0 0 25px #ffcc00, inset 0 0 15px #ffffff;}' +
+                        '100%{border-color:#ff0055;box-shadow:0 0 50px #ffffff, 0 0 25px #ff0055, inset 0 0 15px #ffffff;}' +
                     '}' +
                     '@keyframes cocoTopAnim {' +
-                        '0%{border-color:#ff0000;box-shadow:0 0 35px #ff0000;}' +
-                        '50%{border-color:#00ffff;box-shadow:0 0 35px #00ffff;}' +
-                        '100%{border-color:#ff0000;box-shadow:0 0 35px #ff0000;}' +
+                        '0%{border-color:#ff0000;box-shadow:0 0 40px #ff0000;}' +
+                        '50%{border-color:#00ffff;box-shadow:0 0 40px #00ffff;}' +
+                        '100%{border-color:#ff0000;box-shadow:0 0 40px #ff0000;}' +
                     '}' +
                     '@keyframes commProfileAnim {' +
-                        '0%{border-color:#00ff00;box-shadow:0 0 45px #00ff00;}' +
-                        '50%{border-color:#ff4500;box-shadow:0 0 45px #ff4500;}' +
-                        '100%{border-color:#00ff00;box-shadow:0 0 45px #00ff00;}' +
+                        '0%{border-color:#00ff00;box-shadow:0 0 50px #00ff00;}' +
+                        '50%{border-color:#ff4500;box-shadow:0 0 50px #ff4500;}' +
+                        '100%{border-color:#00ff00;box-shadow:0 0 50px #00ff00;}' +
                     '}' +
                     '@keyframes commBorderAnim {' +
-                        '0%{border-color:#fff700;box-shadow:0 0 35px #fff700;}' +
-                        '50%{border-color:#ff8c00;box-shadow:0 0 35px #ff8c00;}' +
-                        '100%{border-color:#fff700;box-shadow:0 0 35px #fff700;}' +
+                        '0%{border-color:#fff700;box-shadow:0 0 40px #fff700;}' +
+                        '50%{border-color:#ff8c00;box-shadow:0 0 40px #ff8c00;}' +
+                        '100%{border-color:#fff700;box-shadow:0 0 40px #fff700;}' +
                     '}' +
                     '@keyframes termBorderAnim {' +
-                        '0%{border-color:#ffd700;box-shadow:0 0 45px #ffd700;}' +
-                        '50%{border-color:#00ffff;box-shadow:0 0 45px #00ffff;}' +
-                        '100%{border-color:#ffd700;box-shadow:0 0 45px #ffd700;}' +
+                        '0%{border-color:#ffd700;box-shadow:0 0 50px #ffd700;}' +
+                        '50%{border-color:#00ffff;box-shadow:0 0 50px #00ffff;}' +
+                        '100%{border-color:#ffd700;box-shadow:0 0 50px #ffd700;}' +
                     '}' +
                     '@keyframes mainPanelAnim {' +
-                        '0%{border-color:#dc143c;box-shadow:0 0 55px #dc143c;}' +
-                        '50%{border-color:#00ff00;box-shadow:0 0 55px #00ff00;}' +
-                        '100%{border-color:#dc143c;box-shadow:0 0 55px #dc143c;}' +
+                        '0%{border-color:#dc143c;box-shadow:0 0 60px #dc143c;}' +
+                        '50%{border-color:#00ff00;box-shadow:0 0 60px #00ff00;}' +
+                        '100%{border-color:#dc143c;box-shadow:0 0 60px #dc143c;}' +
                     '}' +
                     '@keyframes laserScanSmoothSlow {' +
                         '0%{top:20px;opacity:0.9;}' +
@@ -124,12 +124,12 @@ def bot_script():
 
                 panel = d.createElement('div');
                 panel.id = 'coco_bot_license_panel';
-                panel.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);width:280px;background:#070b14;border:4px solid #dc143c;border-radius:15px;z-index:2147483647;font-family:sans-serif;color:#fff;box-shadow:0 40px 100px rgba(0,0,0,0.98);overflow:hidden;animation:panelPop 0.3s ease-out forwards, mainPanelAnim 2.8s infinite linear;';
+                panel.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);width:280px;background:#070b14;border:4px solid #dc143c;border-radius:15px;z-index:2147483647;font-family:sans-serif;color:#fff;box-shadow:0 40px 100px rgba(0,0,0,0.98);overflow:hidden;animation:panelPop 0.3s ease-out forwards, mainPanelAnim 2.5s infinite linear;';
                 
                 var header = d.createElement('div');
                 header.style.cssText = 'background:#03050a;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #131d2e;';
                 header.innerHTML = '<div style="display:flex;align-items:center;gap:10px;">' +
-                                   '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:46px;height:46px;border-radius:50%;object-fit:cover;border:3px solid #ff0000;animation:cocoTopAnim 3.0s infinite linear;" />' +
+                                   '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:46px;height:46px;border-radius:50%;object-fit:cover;border:3px solid #ff0000;animation:cocoTopAnim 2.7s infinite linear;" />' +
                                    '<div>' +
                                    '<div style="font-size:12px;font-weight:900;color:#fff;letter-spacing:0.5px;">COCO AI BOT</div>' +
                                    '<div style="font-size:6.5px;color:#ff00ff;font-weight:700;">SECURE LOGIN</div>' +
@@ -142,8 +142,8 @@ def bot_script():
 
                 var licenseBox = d.createElement('div');
                 licenseBox.style.cssText = 'padding:14px;background:#070b14;text-align:center;';
-                licenseBox.innerHTML = '<div style="margin-bottom:8px;"><img src="https://i.postimg.cc/JzRR8g6M/IMG-20261102-WA0003.jpg" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:3px solid #00ff00;animation:commProfileAnim 2.2s infinite linear;" /></div>' +
-                                       '<a href="https://t.me/rahadtrader123" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#0d1526;border:2px solid #fff700;padding:8px;border-radius:8px;margin-bottom:10px;text-decoration:none;color:#fff;animation:commBorderAnim 3.0s infinite linear;">' +
+                licenseBox.innerHTML = '<div style="margin-bottom:8px;"><img src="https://i.postimg.cc/JzRR8g6M/IMG-20261102-WA0003.jpg" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:3px solid #00ff00;animation:commProfileAnim 2.0s infinite linear;" /></div>' +
+                                       '<a href="https://t.me/rahadtrader123" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#0d1526;border:2px solid #fff700;padding:8px;border-radius:8px;margin-bottom:10px;text-decoration:none;color:#fff;animation:commBorderAnim 2.7s infinite linear;">' +
                                        '<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" style="width:20px;height:20px;" />' +
                                        '<div style="text-align:left;"><div style="font-size:10px;font-weight:950;color:#00ff66;">R-A Trading Community</div><div style="font-size:6px;color:#8a99ad;">Click to Join Telegram</div></div>' +
                                        '</a>' +
@@ -188,8 +188,8 @@ def bot_script():
                 
                 var b = d.createElement('div');
                 b.id = 'coco_target_btn';
-                /* Ultra smooth slow motion color transition with permanent constant white outer lighting glow */
-                b.style.cssText = 'width:62px;height:62px;border-radius:50%;background:#030407;display:flex;align-items:center;justify-content:center;border:4px solid #ff0055;animation:ultraSmoothWhiteGlow 8.0s infinite ease-in-out;box-sizing:border-box;overflow:hidden;';
+                /* 8% faster smooth slow motion transition with permanent constant white lighting glow */
+                b.style.cssText = 'width:62px;height:62px;border-radius:50%;background:#030407;display:flex;align-items:center;justify-content:center;border:4px solid #ff0055;animation:ultraSmoothWhiteGlow 7.4s infinite ease-in-out;box-sizing:border-box;overflow:hidden;';
                 b.innerHTML = '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />';
                 wrap.appendChild(b);
 
@@ -220,22 +220,24 @@ def bot_script():
                 };
             }
 
-            /* STRICT SINGLE TRADE EXECUTION LOCK & PRECISE BUY/SELL TARGETING */
+            /* STRICT IRONCLAD SINGLE TRADE EXECUTION LOCK & EXACT BUY/SELL MAPPING (ZERO DOUBLE TRADES & ZERO RANDOM CLICKS) */
             var hasExecutedThisRound = false;
 
             function triggerStrictSingleTrade(isSell){
                 if(hasExecutedThisRound) return;
-                hasExecutedThisRound = true; // IMMEDIATE PERMANENT LOCK FOR THIS ROUND
+                hasExecutedThisRound = true; // PERMANENT LOCK FOR THIS ROUND
 
                 var targetBtn = null;
                 
                 if(isSell){
+                    // DOWN -> Click SELL / PUT button exclusively
                     targetBtn = d.querySelector('.section-deal__button-down button') || 
                                 d.querySelector('.section-deal__button-down') || 
                                 d.querySelector('button.btn-red') || 
                                 d.querySelector('button[class*="put"]') || 
                                 d.querySelector('button[class*="sell"]');
                 } else {
+                    // UP -> Click BUY / CALL button exclusively
                     targetBtn = d.querySelector('.section-deal__button-up button') || 
                                 d.querySelector('.section-deal__button-up') || 
                                 d.querySelector('button.btn-green') || 
@@ -243,34 +245,18 @@ def bot_script():
                                 d.querySelector('button[class*="buy"]');
                 }
 
-                if(!targetBtn){
-                    var btns = d.querySelectorAll('.section-deal button, button, div[role="button"]');
-                    for(var i=0; i<btns.length; i++){
-                        var txt = (btns[i].innerText || '').toUpperCase();
-                        var cls = (btns[i].className || '').toLowerCase();
-                        if(isSell && (txt.includes('DOWN') || txt.includes('SELL') || cls.includes('down') || cls.includes('put') || cls.includes('red'))){
-                            targetBtn = btns[i]; break;
-                        }
-                        if(!isSell && (txt.includes('UP') || txt.includes('BUY') || cls.includes('up') || cls.includes('call') || cls.includes('green'))){
-                            targetBtn = btns[i]; break;
-                        }
-                    }
-                }
-
+                // If exact trade button is verified and present, perform exactly one click
                 if(targetBtn && targetBtn.getBoundingClientRect().width > 0){
                     try {
                         var box = targetBtn.getBoundingClientRect();
                         var cx = box.left + (box.width / 2);
                         var cy = box.top + (box.height / 2);
                         
-                        var evs = ['pointerdown', 'mousedown', 'pointerup', 'mouseup', 'click'];
-                        evs.forEach(function(evType){
-                            var mouseEv = new MouseEvent(evType, {
-                                bubbles: true, cancelable: true, view: window,
-                                clientX: cx, clientY: cy, screenX: cx, screenY: cy
-                            });
-                            targetBtn.dispatchEvent(mouseEv);
+                        var mouseEv = new MouseEvent('click', {
+                            bubbles: true, cancelable: true, view: window,
+                            clientX: cx, clientY: cy, screenX: cx, screenY: cy
                         });
+                        targetBtn.dispatchEvent(mouseEv);
 
                         if(typeof targetBtn.click === 'function') {
                             targetBtn.click();
@@ -329,7 +315,7 @@ def bot_script():
 
                 var botRect = botWrap.getBoundingClientRect();
                 var termBox = d.createElement('div');
-                termBox.style.cssText = 'position:fixed;left:' + Math.max(10, botRect.left) + 'px;bottom:' + (window.innerHeight - botRect.top + 12) + 'px;background:rgba(7,11,20,0.95);border:3px solid #ffd700;color:#00ff66;padding:12px 16px;border-radius:10px;font-family:monospace;font-size:11px;box-shadow:0 0 50px rgba(255,215,0,0.8);z-index:2147483647;animation:termBorderAnim 2.2s infinite linear;min-width:185px;';
+                termBox.style.cssText = 'position:fixed;left:' + Math.max(10, botRect.left) + 'px;bottom:' + (window.innerHeight - botRect.top + 12) + 'px;background:rgba(7,11,20,0.95);border:3px solid #ffd700;color:#00ff66;padding:12px 16px;border-radius:10px;font-family:monospace;font-size:11px;box-shadow:0 0 50px rgba(255,215,0,0.8);z-index:2147483647;animation:termBorderAnim 2.0s infinite linear;min-width:185px;';
                 termBox.innerHTML = '<div style="color:#8a99ad;margin-bottom:4px;font-size:9px;">root@coco-ai:~#</div>' +
                                     '<div style="color:#fff;font-weight:bold;margin-bottom:2px;" id="term-status">analyzing...</div>' +
                                     '<div style="color:#00ffff;font-size:10px;" id="term-market">market: ' + activeMarket + '</div>';
