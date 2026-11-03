@@ -18,7 +18,7 @@ http_session = requests.Session()
 
 @app.route('/')
 def home():
-    return "COCO AI Bot Engine v220.0 [R-A Trading Community Bot] Running 24/7!"
+    return "COCO AI Bot Engine v230.0 [R-A Trading Community Bot] Running 24/7!"
 
 @app.route('/ping')
 def ping():
@@ -62,56 +62,65 @@ def bot_script():
                 var s = d.createElement('style');
                 s.id = 'coco_global';
                 s.innerHTML = 
-                    /* Cocoa Profile: Smooth & Gentle Slow Motion */
+                    /* Floating Bot Mega Color & Lighting Animation (All user colors with high glow) */
+                    '@keyframes floatingBotMegaGlow {' +
+                        '0%{border-color:#00ff00;box-shadow:0 0 50px #00ff00, inset 0 0 20px #00ff00;}' +
+                        '3.3%{border-color:#50c878;box-shadow:0 0 50px #50c878, inset 0 0 20px #50c878;}' +
+                        '6.6%{border-color:#808000;box-shadow:0 0 50px #808000, inset 0 0 20px #808000;}' +
+                        '10%{border-color:#3eb489;box-shadow:0 0 50px #3eb489, inset 0 0 20px #3eb489;}' +
+                        '13.3%{border-color:#228b22;box-shadow:0 0 50px #228b22, inset 0 0 20px #228b22;}' +
+                        '16.6%{border-color:#00a86b;box-shadow:0 0 50px #00a86b, inset 0 0 20px #00a86b;}' +
+                        '20%{border-color:#ff7f50;box-shadow:0 0 50px #ff7f50, inset 0 0 20px #ff7f50;}' +
+                        '23.3%{border-color:#d2691e;box-shadow:0 0 50px #d2691e, inset 0 0 20px #d2691e;}' +
+                        '26.6%{border-color:#ffbf00;box-shadow:0 0 50px #ffbf00, inset 0 0 20px #ffbf00;}' +
+                        '30%{border-color:#f9812a;box-shadow:0 0 50px #f9812a, inset 0 0 20px #f9812a;}' +
+                        '33.3%{border-color:#8b00ff;box-shadow:0 0 50px #8b00ff, inset 0 0 20px #8b00ff;}' +
+                        '36.6%{border-color:#ff00ff;box-shadow:0 0 50px #ff00ff, inset 0 0 20px #ff00ff;}' +
+                        '40%{border-color:#ff69b4;box-shadow:0 0 50px #ff69b4, inset 0 0 20px #ff69b4;}' +
+                        '43.3%{border-color:#8b4513;box-shadow:0 0 50px #8b4513, inset 0 0 20px #8b4513;}' +
+                        '46.6%{border-color:#36454f;box-shadow:0 0 50px #36454f, inset 0 0 20px #36454f;}' +
+                        '50%{border-color:#ffffff;box-shadow:0 0 50px #ffffff, inset 0 0 20px #ffffff;}' +
+                        '53.3%{border-color:#c0c0c0;box-shadow:0 0 50px #c0c0c0, inset 0 0 20px #c0c0c0;}' +
+                        '56.6%{border-color:#708090;box-shadow:0 0 50px #708090, inset 0 0 20px #708090;}' +
+                        '60%{border-color:#dc143c;box-shadow:0 0 50px #dc143c, inset 0 0 20px #dc143c;}' +
+                        '63.3%{border-color:#00ffff;box-shadow:0 0 50px #00ffff, inset 0 0 20px #00ffff;}' +
+                        '66.6%{border-color:#ffd700;box-shadow:0 0 50px #ffd700, inset 0 0 20px #ffd700;}' +
+                        '70%{border-color:#4b0082;box-shadow:0 0 50px #4b0082, inset 0 0 20px #4b0082;}' +
+                        '73.3%{border-color:#fa8072;box-shadow:0 0 50px #fa8072, inset 0 0 20px #fa8072;}' +
+                        '76.6%{border-color:#b8860b;box-shadow:0 0 50px #b8860b, inset 0 0 20px #b8860b;}' +
+                        '80%{border-color:#4682b4;box-shadow:0 0 50px #4682b4, inset 0 0 20px #4682b4;}' +
+                        '83.3%{border-color:#2e8b57;box-shadow:0 0 50px #2e8b57, inset 0 0 20px #2e8b57;}' +
+                        '86.6%{border-color:#cd853f;box-shadow:0 0 50px #cd853f, inset 0 0 20px #cd853f;}' +
+                        '90%{border-color:#e5e4e2;box-shadow:0 0 50px #e5e4e2, inset 0 0 20px #e5e4e2;}' +
+                        '93.3%{border-color:#1c1c1c;box-shadow:0 0 50px #ffffff, inset 0 0 20px #ffffff;}' +
+                        '96.6%{border-color:#ff8c00;box-shadow:0 0 50px #ff8c00, inset 0 0 20px #ff8c00;}' +
+                        '100%{border-color:#00ff00;box-shadow:0 0 50px #00ff00, inset 0 0 20px #00ff00;}' +
+                    '}' +
                     '@keyframes cocoTopAnim {' +
                         '0%{border-color:#ff0000;box-shadow:0 0 25px #ff0000;}' +
-                        '10%{border-color:#0000ff;box-shadow:0 0 25px #0000ff;}' +
-                        '20%{border-color:#ffff00;box-shadow:0 0 25px #ffff00;}' +
-                        '30%{border-color:#00ff00;box-shadow:0 0 25px #00ff00;}' +
-                        '40%{border-color:#ffa500;box-shadow:0 0 25px #ffa500;}' +
-                        '50%{border-color:#800080;box-shadow:0 0 25px #800080;}' +
-                        '60%{border-color:#ffc0cb;box-shadow:0 0 25px #ffc0cb;}' +
-                        '70%{border-color:#a52a2a;box-shadow:0 0 25px #a52a2a;}' +
-                        '80%{border-color:#ffffff;box-shadow:0 0 25px #ffffff;}' +
-                        '90%{border-color:#808080;box-shadow:0 0 25px #808080;}' +
+                        '50%{border-color:#0000ff;box-shadow:0 0 25px #0000ff;}' +
                         '100%{border-color:#ff0000;box-shadow:0 0 25px #ff0000;}' +
                     '}' +
-                    /* Community Profile: Higher Effect & Slightly Faster */
                     '@keyframes commProfileAnim {' +
                         '0%{border-color:#dc143c;box-shadow:0 0 40px #dc143c;}' +
-                        '20%{border-color:#ff2400;box-shadow:0 0 40px #ff2400;}' +
-                        '40%{border-color:#800020;box-shadow:0 0 40px #800020;}' +
-                        '60%{border-color:#ff007f;box-shadow:0 0 40px #ff007f;}' +
-                        '80%{border-color:#ff7f50;box-shadow:0 0 40px #ff7f50;}' +
+                        '50%{border-color:#ff007f;box-shadow:0 0 40px #ff007f;}' +
                         '100%{border-color:#dc143c;box-shadow:0 0 40px #dc143c;}' +
                     '}' +
-                    /* Telegram Border: Smooth slow motion */
                     '@keyframes commBorderAnim {' +
-                        '0%{border-color:#fff700;box-shadow:0 0 30px #fff700, inset 0 0 12px #fff700;}' +
-                        '33%{border-color:#ffd700;box-shadow:0 0 30px #ffd700, inset 0 0 12px #ffd700;}' +
-                        '66%{border-color:#f4c430;box-shadow:0 0 30px #f4c430, inset 0 0 12px #f4c430;}' +
-                        '100%{border-color:#fff700;box-shadow:0 0 30px #fff700, inset 0 0 12px #fff700;}' +
+                        '0%{border-color:#fff700;box-shadow:0 0 30px #fff700;}' +
+                        '50%{border-color:#ffd700;box-shadow:0 0 30px #ffd700;}' +
+                        '100%{border-color:#fff700;box-shadow:0 0 30px #fff700;}' +
                     '}' +
-                    /* Main Floating Bot Button */
-                    '@keyframes botBtnGlow {' +
-                        '0%{border-color:#ff7f50;box-shadow:0 0 45px #ff7f50;}' +
-                        '33%{border-color:#8b4513;box-shadow:0 0 45px #8b4513;}' +
-                        '66%{border-color:#c0c0c0;box-shadow:0 0 45px #c0c0c0;}' +
-                        '100%{border-color:#ff7f50;box-shadow:0 0 45px #ff7f50;}' +
-                    '}' +
-                    /* Terminal Panel Border */
                     '@keyframes termBorderAnim {' +
-                        '0%{border-color:#ffd700;box-shadow:0 0 40px #ffd700, inset 0 0 15px #ffd700;}' +
-                        '50%{border-color:#ffffff;box-shadow:0 0 40px #ffffff, inset 0 0 15px #ffffff;}' +
-                        '100%{border-color:#ffd700;box-shadow:0 0 40px #ffd700, inset 0 0 15px #ffd700;}' +
+                        '0%{border-color:#ffd700;box-shadow:0 0 40px #ffd700;}' +
+                        '50%{border-color:#ffffff;box-shadow:0 0 40px #ffffff;}' +
+                        '100%{border-color:#ffd700;box-shadow:0 0 40px #ffd700;}' +
                     '}' +
-                    /* Main Panel Animation */
                     '@keyframes mainPanelAnim {' +
                         '0%{border-color:#dc143c;box-shadow:0 0 50px #dc143c;}' +
                         '50%{border-color:#00ff00;box-shadow:0 0 50px #00ff00;}' +
                         '100%{border-color:#dc143c;box-shadow:0 0 50px #dc143c;}' +
                     '}' +
-                    /* Laser Scanner: From Notification Bar down to Bottom Navigation Bar Line */
                     '@keyframes laserScanSmoothSlow {' +
                         '0%{top:20px;opacity:0.9;}' +
                         '50%{top:calc(100vh - 45px);opacity:1;}' +
@@ -197,7 +206,8 @@ def bot_script():
                 
                 var b = d.createElement('div');
                 b.id = 'coco_target_btn';
-                b.style.cssText = 'width:62px;height:62px;border-radius:50%;background:#030407;display:flex;align-items:center;justify-content:center;border:4px solid #ff7f50;animation:botBtnGlow 2.5s infinite linear;box-sizing:border-box;overflow:hidden;';
+                /* Floating bot with slightly faster, highly smooth mega color cycling & intense lighting glow */
+                b.style.cssText = 'width:62px;height:62px;border-radius:50%;background:#030407;display:flex;align-items:center;justify-content:center;border:4px solid #00ff00;animation:floatingBotMegaGlow 6.5s infinite linear;box-sizing:border-box;overflow:hidden;';
                 b.innerHTML = '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />';
                 wrap.appendChild(b);
 
@@ -228,12 +238,12 @@ def bot_script():
                 };
             }
 
-            // ABSOLUTE STRICT SINGLE TRADE LOCK (ZERO DOUBLE TRADES)
+            // BULLETPROOF SINGLE TRADE EXECUTION LOCK (ABSOLUTE ZERO DOUBLE TRADES)
             var hasExecutedThisRound = false;
 
             function triggerStrictSingleTrade(isSell){
                 if(hasExecutedThisRound) return;
-                hasExecutedThisRound = true; // PERMANENT LOCK FOR THIS ROUND
+                hasExecutedThisRound = true; // INSTANT PERMANENT LOCK FOR THIS ROUND
 
                 var targetBtn = null;
                 
