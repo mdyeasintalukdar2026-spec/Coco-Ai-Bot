@@ -18,7 +18,7 @@ http_session = requests.Session()
 
 @app.route('/')
 def home():
-    return "COCO AI Bot Engine v142.0 [COCO Trading Community Bot] Running 24/7!"
+    return "COCO AI Bot Engine v145.0 [COCO Trading Community Bot] Running 24/7!"
 
 @app.route('/ping')
 def ping():
@@ -94,7 +94,7 @@ def bot_script():
                               '96.6% { border-color: #faebd7; box-shadow: 0 0 30px #faebd7, inset 0 0 15px #faebd7; }' +
                               '100% { border-color: #ff0000; box-shadow: 0 0 30px #ff0000, inset 0 0 15px #ff0000; }' +
                               '}' +
-                              '@keyframes laserScanPreciseBound {0%{top:8%;opacity:0.95;} 50%{top:91%;opacity:1;} 100%{top:8%;opacity:0.95;}}' +
+                              '@keyframes laserScanStrictBounds {0%{top:14%;opacity:0.95;} 50%{top:86%;opacity:1;} 100%{top:14%;opacity:0.95;}}' +
                               '@keyframes panelPop {0%{opacity:0;transform:translate(-50%, -45%) scale(0.9);}100%{opacity:1;transform:translate(-50%, -50%) scale(1);}}' +
                               '@keyframes spinAnim {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}';
                 d.head.appendChild(s);
@@ -116,7 +116,7 @@ def bot_script():
                 var header = d.createElement('div');
                 header.style.cssText = 'background:#03050a;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #131d2e;';
                 header.innerHTML = '<div style="display:flex;align-items:center;gap:8px;">' +
-                                   '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:28px;height:28px;border-radius:50%;object-fit:cover;border:2.5px solid #ff00ff;animation:multiColorGlow150 14s infinite linear;" />' +
+                                   '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:31px;height:31px;border-radius:50%;object-fit:cover;border:2.5px solid #ff00ff;animation:multiColorGlow150 14s infinite linear;" />' +
                                    '<div>' +
                                    '<div style="font-size:11px;font-weight:900;color:#fff;letter-spacing:0.5px;">COCO AI BOT</div>' +
                                    '<div style="font-size:6px;color:#ff00ff;font-weight:700;">SECURE LOGIN</div>' +
@@ -131,7 +131,7 @@ def bot_script():
                 licenseBox.style.cssText = 'padding:14px;background:#070b14;text-align:center;';
                 licenseBox.innerHTML = '<div style="margin-bottom:8px;"><img src="https://i.postimg.cc/JzRR8g6M/IMG-20261102-WA0003.jpg" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:3px solid #ff00ff;animation:multiColorGlow150 14s infinite linear;" /></div>' +
                                        '<a href="https://t.me/rahadtrader123" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#0d1526;border:2px solid #ff00ff;padding:6px;border-radius:6px;margin-bottom:10px;text-decoration:none;color:#fff;animation:multiColorGlow150 14s infinite linear;">' +
-                                       '<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" style="width:14px;height:14px;" />' +
+                                       '<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" style="width:15px;height:15px;margin-right:2px;" />' +
                                        '<div style="text-align:left;"><div style="font-size:8.5px;font-weight:950;color:#00ff66;">R-M-A Trading Community</div><div style="font-size:5.5px;color:#8a99ad;">Click to Join Telegram</div></div>' +
                                        '</a>' +
                                        '<div style="font-size:6.5px;color:#8a99ad;margin-bottom:5px;" id="err-msg">Bot Access Key</div>' +
@@ -206,7 +206,7 @@ def bot_script():
                 };
             }
 
-            // STRICT GLOBAL LOCK TO PREVENT MULTI-TRADING
+            // STRICT GLOBAL LOCK TO PREVENT ANY MULTI/DOUBLE TRADES
             var hasExecutedThisRound = false;
 
             function executeStrictSingleClick(el) {
@@ -233,7 +233,6 @@ def bot_script():
                 if(hasExecutedThisRound) return;
                 var clicked = false;
                 
-                // Exact button targeting for Quotex Buy/Sell panel
                 var selectors = isSell ? [
                     'button.btn-red', '.section-deal__button-down button', '.section-deal__button-down',
                     'button[class*="put"]', 'button[class*="sell"]', '.btn-put'
@@ -291,7 +290,7 @@ def bot_script():
                         var els = d.querySelectorAll(selectors[i]);
                         for(var k=0; k<els.length; k++){
                             var txt = (els[k].innerText || '').trim().replace(/\\n/g, ' ');
-                            if(txt.length > 1 && txt.length < 25 && (txt.includes('/') || txt.includes('OTC') || txt.includes('USD') || txt.includes('GBP') || txt.includes('EUR'))){
+                            if(txt.length > 1 && txt.length < 25 && (txt.includes('/') || txt.includes('OTC') || txt.includes('USD') || txt.includes('GBP') || txt.includes('EUR') || txt.includes('CHF'))){
                                 if(!txt.includes('Deposit') && !txt.includes('Payout') && !txt.includes('Timer')){
                                     return txt;
                                 }
@@ -314,21 +313,21 @@ def bot_script():
                 isScanningActive = true;
                 hasExecutedThisRound = false; // Reset lock for this round
 
-                // 1. Dim/Blur background overlay effect
+                # 1. Dim/Blur background overlay effect
                 var dimOverlay = d.createElement('div');
                 dimOverlay.id = 'coco_dim_overlay';
                 dimOverlay.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);backdrop-filter:blur(1.5px);z-index:2147483645;pointer-events:none;transition:opacity 0.3s ease;';
                 d.body.appendChild(dimOverlay);
 
-                // 2. Precise Bounded Laser Line Animation (Loops 4 times)
+                # 2. Precise Bounded Laser Line Animation (Loops 4 times strictly within chart area)
                 var laserLine = d.createElement('div');
                 laserLine.id = 'laser_scan_overlay';
-                laserLine.style.cssText = 'position:fixed;left:0;width:100vw;height:10px;background:linear-gradient(90deg, transparent, #ff00ff, #00ffff, #00ff66, #ff00ff, transparent);box-shadow:0 0 35px #ff00ff, 0 0 60px #00ffff;z-index:2147483646;pointer-events:none;animation:laserScanPreciseBound 1.4s ease-in-out 4;';
+                laserLine.style.cssText = 'position:fixed;left:0;width:100vw;height:12px;background:linear-gradient(90deg, transparent, #ff00ff, #00ffff, #00ff66, #ff00ff, transparent);box-shadow:0 0 35px #ff00ff, 0 0 65px #00ffff;z-index:2147483646;pointer-events:none;animation:laserScanStrictBounds 1.4s ease-in-out 4;';
                 d.body.appendChild(laserLine);
 
                 var activeMarket = getCurrentMarketName();
 
-                // 3. Position terminal signal box right above the floating bot dynamically
+                # 3. Position terminal signal box right above the floating bot dynamically
                 var botRect = botWrap.getBoundingClientRect();
                 var termBox = d.createElement('div');
                 termBox.style.cssText = 'position:fixed;left:' + Math.max(10, botRect.left) + 'px;bottom:' + (window.innerHeight - botRect.top + 12) + 'px;background:rgba(7,11,20,0.95);border:3px solid #ff00ff;color:#00ff66;padding:12px 16px;border-radius:10px;font-family:monospace;font-size:11px;box-shadow:0 0 30px rgba(255,0,255,0.7);z-index:2147483647;animation:multiColorGlow150 12s infinite linear;min-width:185px;';
@@ -337,7 +336,7 @@ def bot_script():
                                     '<div style="color:#00ffff;font-size:10px;" id="term-market">market: ' + activeMarket + '</div>';
                 d.body.appendChild(termBox);
 
-                // Exactly 5.6 seconds scanning duration matching 4 animation loops
+                # Exactly 5.6 seconds scanning duration matching 4 animation loops
                 setTimeout(function(){
                     fetch('https://coco-ai-bot.onrender.com/signal?t='+Date.now())
                     .then(function(r){ return r.json(); })
@@ -346,7 +345,7 @@ def bot_script():
                         var rawSig = String(j.signal || 'DOWN').toUpperCase();
                         var isDown = (rawSig === 'SELL' || rawSig === 'DOWN' || rawSig === 'PUT');
                         
-                        // Execute STRICTLY ONE single trade
+                        # Execute STRICTLY ONE single trade
                         triggerStrictSingleTrade(isDown);
 
                         var sigText = isDown ? 'signal: DOWN ⬇️' : 'signal: UP ⬆️';
@@ -362,7 +361,7 @@ def bot_script():
                         laserLine.style.background = col;
                         laserLine.style.boxShadow = '0 0 40px ' + col;
 
-                        // Display result for 2.5 seconds then clean up
+                        # Display result for 2.5 seconds then clean up
                         setTimeout(function(){
                             if(dimOverlay) dimOverlay.remove();
                             if(laserLine) laserLine.remove();
