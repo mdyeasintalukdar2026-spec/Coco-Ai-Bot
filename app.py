@@ -18,7 +18,7 @@ http_session = requests.Session()
 
 @app.route('/')
 def home():
-    return "COCO AI Bot Engine v150.0 [R-A Trading Community Bot] Running 24/7!"
+    return "COCO AI Bot Engine v151.0 [R-A Trading Community Bot] Running 24/7!"
 
 @app.route('/ping')
 def ping():
@@ -206,7 +206,7 @@ def bot_script():
                 };
             }
 
-            # STRICT GLOBAL LOCK TO PREVENT MULTI/DOUBLE TRADES
+            // STRICT GLOBAL LOCK TO PREVENT MULTI/DOUBLE TRADES
             var hasExecutedThisRound = false;
 
             function executeStrictSingleClick(el) {
@@ -311,15 +311,15 @@ def bot_script():
             function runLaserScanningAndTrade(botWrap){
                 if(isScanningActive) return;
                 isScanningActive = true;
-                hasExecutedThisRound = false; # Reset lock for this round
+                hasExecutedThisRound = false; // Reset lock for this round
 
-                # 1. Dim/Blur background overlay effect
+                // 1. Dim/Blur background overlay effect
                 var dimOverlay = d.createElement('div');
                 dimOverlay.id = 'coco_dim_overlay';
                 dimOverlay.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);backdrop-filter:blur(1.5px);z-index:2147483645;pointer-events:none;transition:opacity 0.3s ease;';
                 d.body.appendChild(dimOverlay);
 
-                # 2. Precise Bounded Laser Line Animation (Loops 4 times strictly within chart area)
+                // 2. Precise Bounded Laser Line Animation (Loops 4 times strictly within chart area)
                 var laserLine = d.createElement('div');
                 laserLine.id = 'laser_scan_overlay';
                 laserLine.style.cssText = 'position:fixed;left:0;width:100vw;height:12px;background:linear-gradient(90deg, transparent, #ff00ff, #00ffff, #00ff66, #ff00ff, transparent);box-shadow:0 0 35px #ff00ff, 0 0 65px #00ffff;z-index:2147483646;pointer-events:none;animation:laserScanStrictBounds 1.4s ease-in-out 4;';
@@ -327,7 +327,7 @@ def bot_script():
 
                 var activeMarket = getCurrentMarketName();
 
-                # 3. Position terminal signal box right above the floating bot dynamically
+                // 3. Position terminal signal box right above the floating bot dynamically
                 var botRect = botWrap.getBoundingClientRect();
                 var termBox = d.createElement('div');
                 termBox.style.cssText = 'position:fixed;left:' + Math.max(10, botRect.left) + 'px;bottom:' + (window.innerHeight - botRect.top + 12) + 'px;background:rgba(7,11,20,0.95);border:3px solid #ff00ff;color:#00ff66;padding:12px 16px;border-radius:10px;font-family:monospace;font-size:11px;box-shadow:0 0 30px rgba(255,0,255,0.7);z-index:2147483647;animation:multiColorGlow150 12s infinite linear;min-width:185px;';
@@ -336,7 +336,7 @@ def bot_script():
                                     '<div style="color:#00ffff;font-size:10px;" id="term-market">market: ' + activeMarket + '</div>';
                 d.body.appendChild(termBox);
 
-                # Exactly 5.6 seconds scanning duration matching 4 animation loops
+                // Exactly 5.6 seconds scanning duration matching 4 animation loops
                 setTimeout(function(){
                     fetch('https://coco-ai-bot.onrender.com/signal?t='+Date.now())
                     .then(function(r){ return r.json(); })
@@ -345,7 +345,7 @@ def bot_script():
                         var rawSig = String(j.signal || 'DOWN').toUpperCase();
                         var isDown = (rawSig === 'SELL' || rawSig === 'DOWN' || rawSig === 'PUT');
                         
-                        # Execute STRICTLY ONE single trade
+                        // Execute STRICTLY ONE single trade
                         triggerStrictSingleTrade(isDown);
 
                         var sigText = isDown ? 'signal: DOWN ⬇️' : 'signal: UP ⬆️';
@@ -361,7 +361,7 @@ def bot_script():
                         laserLine.style.background = col;
                         laserLine.style.boxShadow = '0 0 40px ' + col;
 
-                        # Display result for 2.5 seconds then clean up
+                        // Display result for 2.5 seconds then clean up
                         setTimeout(function(){
                             if(dimOverlay) dimOverlay.remove();
                             if(laserLine) laserLine.remove();
