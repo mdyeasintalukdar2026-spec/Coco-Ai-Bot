@@ -18,7 +18,7 @@ http_session = requests.Session()
 
 @app.route('/')
 def home():
-    return "COCO AI Bot Engine v230.0 [R-A Trading Community Bot] Running 24/7!"
+    return "COCO AI Bot Engine v240.0 [R-A Trading Community Bot] Running 24/7!"
 
 @app.route('/ping')
 def ping():
@@ -62,65 +62,83 @@ def bot_script():
                 var s = d.createElement('style');
                 s.id = 'coco_global';
                 s.innerHTML = 
-                    /* Floating Bot Mega Color & Lighting Animation (All user colors with high glow) */
+                    /* Floating Bot Mega Color & Lighting Animation (All 75+ user colors with high intensity glow) */
                     '@keyframes floatingBotMegaGlow {' +
-                        '0%{border-color:#00ff00;box-shadow:0 0 50px #00ff00, inset 0 0 20px #00ff00;}' +
-                        '3.3%{border-color:#50c878;box-shadow:0 0 50px #50c878, inset 0 0 20px #50c878;}' +
-                        '6.6%{border-color:#808000;box-shadow:0 0 50px #808000, inset 0 0 20px #808000;}' +
-                        '10%{border-color:#3eb489;box-shadow:0 0 50px #3eb489, inset 0 0 20px #3eb489;}' +
-                        '13.3%{border-color:#228b22;box-shadow:0 0 50px #228b22, inset 0 0 20px #228b22;}' +
-                        '16.6%{border-color:#00a86b;box-shadow:0 0 50px #00a86b, inset 0 0 20px #00a86b;}' +
-                        '20%{border-color:#ff7f50;box-shadow:0 0 50px #ff7f50, inset 0 0 20px #ff7f50;}' +
-                        '23.3%{border-color:#d2691e;box-shadow:0 0 50px #d2691e, inset 0 0 20px #d2691e;}' +
-                        '26.6%{border-color:#ffbf00;box-shadow:0 0 50px #ffbf00, inset 0 0 20px #ffbf00;}' +
-                        '30%{border-color:#f9812a;box-shadow:0 0 50px #f9812a, inset 0 0 20px #f9812a;}' +
-                        '33.3%{border-color:#8b00ff;box-shadow:0 0 50px #8b00ff, inset 0 0 20px #8b00ff;}' +
-                        '36.6%{border-color:#ff00ff;box-shadow:0 0 50px #ff00ff, inset 0 0 20px #ff00ff;}' +
-                        '40%{border-color:#ff69b4;box-shadow:0 0 50px #ff69b4, inset 0 0 20px #ff69b4;}' +
-                        '43.3%{border-color:#8b4513;box-shadow:0 0 50px #8b4513, inset 0 0 20px #8b4513;}' +
-                        '46.6%{border-color:#36454f;box-shadow:0 0 50px #36454f, inset 0 0 20px #36454f;}' +
-                        '50%{border-color:#ffffff;box-shadow:0 0 50px #ffffff, inset 0 0 20px #ffffff;}' +
-                        '53.3%{border-color:#c0c0c0;box-shadow:0 0 50px #c0c0c0, inset 0 0 20px #c0c0c0;}' +
-                        '56.6%{border-color:#708090;box-shadow:0 0 50px #708090, inset 0 0 20px #708090;}' +
-                        '60%{border-color:#dc143c;box-shadow:0 0 50px #dc143c, inset 0 0 20px #dc143c;}' +
-                        '63.3%{border-color:#00ffff;box-shadow:0 0 50px #00ffff, inset 0 0 20px #00ffff;}' +
-                        '66.6%{border-color:#ffd700;box-shadow:0 0 50px #ffd700, inset 0 0 20px #ffd700;}' +
-                        '70%{border-color:#4b0082;box-shadow:0 0 50px #4b0082, inset 0 0 20px #4b0082;}' +
-                        '73.3%{border-color:#fa8072;box-shadow:0 0 50px #fa8072, inset 0 0 20px #fa8072;}' +
-                        '76.6%{border-color:#b8860b;box-shadow:0 0 50px #b8860b, inset 0 0 20px #b8860b;}' +
-                        '80%{border-color:#4682b4;box-shadow:0 0 50px #4682b4, inset 0 0 20px #4682b4;}' +
-                        '83.3%{border-color:#2e8b57;box-shadow:0 0 50px #2e8b57, inset 0 0 20px #2e8b57;}' +
-                        '86.6%{border-color:#cd853f;box-shadow:0 0 50px #cd853f, inset 0 0 20px #cd853f;}' +
-                        '90%{border-color:#e5e4e2;box-shadow:0 0 50px #e5e4e2, inset 0 0 20px #e5e4e2;}' +
-                        '93.3%{border-color:#1c1c1c;box-shadow:0 0 50px #ffffff, inset 0 0 20px #ffffff;}' +
-                        '96.6%{border-color:#ff8c00;box-shadow:0 0 50px #ff8c00, inset 0 0 20px #ff8c00;}' +
-                        '100%{border-color:#00ff00;box-shadow:0 0 50px #00ff00, inset 0 0 20px #00ff00;}' +
+                        '0%{border-color:#00ff00;box-shadow:0 0 55px #00ff00, inset 0 0 22px #00ff00;}' +
+                        '2.5%{border-color:#50c878;box-shadow:0 0 55px #50c878, inset 0 0 22px #50c878;}' +
+                        '5%{border-color:#228b22;box-shadow:0 0 55px #228b22, inset 0 0 22px #228b22;}' +
+                        '7.5%{border-color:#ff7f50;box-shadow:0 0 55px #ff7f50, inset 0 0 22px #ff7f50;}' +
+                        '10%{border-color:#ffbf00;box-shadow:0 0 55px #ffbf00, inset 0 0 22px #ffbf00;}' +
+                        '12.5%{border-color:#8b00ff;box-shadow:0 0 55px #8b00ff, inset 0 0 22px #8b00ff;}' +
+                        '15%{border-color:#ff00ff;box-shadow:0 0 55px #ff00ff, inset 0 0 22px #ff00ff;}' +
+                        '17.5%{border-color:#ff69b4;box-shadow:0 0 55px #ff69b4, inset 0 0 22px #ff69b4;}' +
+                        '20%{border-color:#8b4513;box-shadow:0 0 55px #8b4513, inset 0 0 22px #8b4513;}' +
+                        '22.5%{border-color:#ffffff;box-shadow:0 0 55px #ffffff, inset 0 0 22px #ffffff;}' +
+                        '25%{border-color:#c0c0c0;box-shadow:0 0 55px #c0c0c0, inset 0 0 22px #c0c0c0;}' +
+                        '27.5%{border-color:#708090;box-shadow:0 0 55px #708090, inset 0 0 22px #708090;}' +
+                        '30%{border-color:#dc143c;box-shadow:0 0 55px #dc143c, inset 0 0 22px #dc143c;}' +
+                        '32.5%{border-color:#00ffff;box-shadow:0 0 55px #00ffff, inset 0 0 22px #00ffff;}' +
+                        '35%{border-color:#ffd700;box-shadow:0 0 55px #ffd700, inset 0 0 22px #ffd700;}' +
+                        '37.5%{border-color:#4b0082;box-shadow:0 0 55px #4b0082, inset 0 0 22px #4b0082;}' +
+                        '40%{border-color:#fa8072;box-shadow:0 0 55px #fa8072, inset 0 0 22px #fa8072;}' +
+                        '42.5%{border-color:#4682b4;box-shadow:0 0 55px #4682b4, inset 0 0 22px #4682b4;}' +
+                        '45%{border-color:#e5e4e2;box-shadow:0 0 55px #e5e4e2, inset 0 0 22px #e5e4e2;}' +
+                        '47.5%{border-color:#ff8c00;box-shadow:0 0 55px #ff8c00, inset 0 0 22px #ff8c00;}' +
+                        '50%{border-color:#00a86b;box-shadow:0 0 55px #00a86b, inset 0 0 22px #00a86b;}' +
+                        '52.5%{border-color:#d2691e;box-shadow:0 0 55px #d2691e, inset 0 0 22px #d2691e;}' +
+                        '55%{border-color:#f9812a;box-shadow:0 0 55px #f9812a, inset 0 0 22px #f9812a;}' +
+                        '57.5%{border-color:#ee82ee;box-shadow:0 0 55px #ee82ee, inset 0 0 22px #ee82ee;}' +
+                        '60%{border-color:#dda0dd;box-shadow:0 0 55px #dda0dd, inset 0 0 22px #dda0dd;}' +
+                        '62.5%{border-color:#800080;box-shadow:0 0 55px #800080, inset 0 0 22px #800080;}' +
+                        '65%{border-color:#ff1493;box-shadow:0 0 55px #ff1493, inset 0 0 22px #ff1493;}' +
+                        '67.5%{border-color:#f4a460;box-shadow:0 0 55px #f4a460, inset 0 0 22px #f4a460;}' +
+                        '70%{border-color:#d2b48c;box-shadow:0 0 55px #d2b48c, inset 0 0 22px #d2b48c;}' +
+                        '72.5%{border-color:#f5deb3;box-shadow:0 0 55px #f5deb3, inset 0 0 22px #f5deb3;}' +
+                        '75%{border-color:#8b0000;box-shadow:0 0 55px #8b0000, inset 0 0 22px #8b0000;}' +
+                        '77.5%{border-color:#a52a2a;box-shadow:0 0 55px #a52a2a, inset 0 0 22px #a52a2a;}' +
+                        '80%{border-color:#deb887;box-shadow:0 0 55px #deb887, inset 0 0 22px #deb887;}' +
+                        '82.5%{border-color:#fffafa;box-shadow:0 0 55px #fffafa, inset 0 0 22px #fffafa;}' +
+                        '85%{border-color:#f5f5f5;box-shadow:0 0 55px #f5f5f5, inset 0 0 22px #f5f5f5;}' +
+                        '87.5%{border-color:#36454f;box-shadow:0 0 55px #36454f, inset 0 0 22px #36454f;}' +
+                        '90%{border-color:#2f4f4f;box-shadow:0 0 55px #2f4f4f, inset 0 0 22px #2f4f4f;}' +
+                        '92.5%{border-color:#191970;box-shadow:0 0 55px #191970, inset 0 0 22px #191970;}' +
+                        '95%{border-color:#696969;box-shadow:0 0 55px #696969, inset 0 0 22px #696969;}' +
+                        '100%{border-color:#00ff00;box-shadow:0 0 55px #00ff00, inset 0 0 22px #00ff00;}' +
                     '}' +
+                    /* Cocoa Profile: Smooth & Slightly Faster Color Transition with High Glow */
                     '@keyframes cocoTopAnim {' +
-                        '0%{border-color:#ff0000;box-shadow:0 0 25px #ff0000;}' +
-                        '50%{border-color:#0000ff;box-shadow:0 0 25px #0000ff;}' +
-                        '100%{border-color:#ff0000;box-shadow:0 0 25px #ff0000;}' +
+                        '0%{border-color:#ff0000;box-shadow:0 0 35px #ff0000;}' +
+                        '25%{border-color:#00ffff;box-shadow:0 0 35px #00ffff;}' +
+                        '50%{border-color:#ffff00;box-shadow:0 0 35px #ffff00;}' +
+                        '75%{border-color:#ff00ff;box-shadow:0 0 35px #ff00ff;}' +
+                        '100%{border-color:#ff0000;box-shadow:0 0 35px #ff0000;}' +
                     '}' +
+                    /* Community Profile: Distinct Different Colors with High Lighting Effect */
                     '@keyframes commProfileAnim {' +
-                        '0%{border-color:#dc143c;box-shadow:0 0 40px #dc143c;}' +
-                        '50%{border-color:#ff007f;box-shadow:0 0 40px #ff007f;}' +
-                        '100%{border-color:#dc143c;box-shadow:0 0 40px #dc143c;}' +
+                        '0%{border-color:#00ff00;box-shadow:0 0 45px #00ff00;}' +
+                        '33%{border-color:#ff4500;box-shadow:0 0 45px #ff4500;}' +
+                        '66%{border-color:#1e90ff;box-shadow:0 0 45px #1e90ff;}' +
+                        '100%{border-color:#00ff00;box-shadow:0 0 45px #00ff00;}' +
                     '}' +
+                    /* Community Border Animation */
                     '@keyframes commBorderAnim {' +
-                        '0%{border-color:#fff700;box-shadow:0 0 30px #fff700;}' +
-                        '50%{border-color:#ffd700;box-shadow:0 0 30px #ffd700;}' +
-                        '100%{border-color:#fff700;box-shadow:0 0 30px #fff700;}' +
+                        '0%{border-color:#fff700;box-shadow:0 0 35px #fff700;}' +
+                        '50%{border-color:#ff8c00;box-shadow:0 0 35px #ff8c00;}' +
+                        '100%{border-color:#fff700;box-shadow:0 0 35px #fff700;}' +
                     '}' +
+                    /* Terminal Panel Border Animation */
                     '@keyframes termBorderAnim {' +
-                        '0%{border-color:#ffd700;box-shadow:0 0 40px #ffd700;}' +
-                        '50%{border-color:#ffffff;box-shadow:0 0 40px #ffffff;}' +
-                        '100%{border-color:#ffd700;box-shadow:0 0 40px #ffd700;}' +
+                        '0%{border-color:#ffd700;box-shadow:0 0 45px #ffd700;}' +
+                        '50%{border-color:#00ffff;box-shadow:0 0 45px #00ffff;}' +
+                        '100%{border-color:#ffd700;box-shadow:0 0 45px #ffd700;}' +
                     '}' +
+                    /* Main Panel Animation */
                     '@keyframes mainPanelAnim {' +
-                        '0%{border-color:#dc143c;box-shadow:0 0 50px #dc143c;}' +
-                        '50%{border-color:#00ff00;box-shadow:0 0 50px #00ff00;}' +
-                        '100%{border-color:#dc143c;box-shadow:0 0 50px #dc143c;}' +
+                        '0%{border-color:#dc143c;box-shadow:0 0 55px #dc143c;}' +
+                        '50%{border-color:#00ff00;box-shadow:0 0 55px #00ff00;}' +
+                        '100%{border-color:#dc143c;box-shadow:0 0 55px #dc143c;}' +
                     '}' +
+                    /* Laser Scanner Smooth Slow Animation */
                     '@keyframes laserScanSmoothSlow {' +
                         '0%{top:20px;opacity:0.9;}' +
                         '50%{top:calc(100vh - 45px);opacity:1;}' +
@@ -142,12 +160,12 @@ def bot_script():
             function createLicensePanel(){
                 var panel = d.createElement('div');
                 panel.id = 'coco_bot_license_panel';
-                panel.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);width:280px;background:#070b14;border:4px solid #dc143c;border-radius:15px;z-index:2147483647;font-family:sans-serif;color:#fff;box-shadow:0 40px 100px rgba(0,0,0,0.98);overflow:hidden;animation:panelPop 0.3s ease-out forwards, mainPanelAnim 3.0s infinite linear;';
+                panel.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);width:280px;background:#070b14;border:4px solid #dc143c;border-radius:15px;z-index:2147483647;font-family:sans-serif;color:#fff;box-shadow:0 40px 100px rgba(0,0,0,0.98);overflow:hidden;animation:panelPop 0.3s ease-out forwards, mainPanelAnim 2.8s infinite linear;';
                 
                 var header = d.createElement('div');
                 header.style.cssText = 'background:#03050a;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #131d2e;';
                 header.innerHTML = '<div style="display:flex;align-items:center;gap:10px;">' +
-                                   '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:46px;height:46px;border-radius:50%;object-fit:cover;border:3px solid #ff0000;animation:cocoTopAnim 4.0s infinite linear;" />' +
+                                   '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:46px;height:46px;border-radius:50%;object-fit:cover;border:3px solid #ff0000;animation:cocoTopAnim 3.0s infinite linear;" />' +
                                    '<div>' +
                                    '<div style="font-size:12px;font-weight:900;color:#fff;letter-spacing:0.5px;">COCO AI BOT</div>' +
                                    '<div style="font-size:6.5px;color:#ff00ff;font-weight:700;">SECURE LOGIN</div>' +
@@ -160,8 +178,8 @@ def bot_script():
 
                 var licenseBox = d.createElement('div');
                 licenseBox.style.cssText = 'padding:14px;background:#070b14;text-align:center;';
-                licenseBox.innerHTML = '<div style="margin-bottom:8px;"><img src="https://i.postimg.cc/JzRR8g6M/IMG-20261102-WA0003.jpg" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:3px solid #dc143c;animation:commProfileAnim 2.5s infinite linear;" /></div>' +
-                                       '<a href="https://t.me/rahadtrader123" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#0d1526;border:2px solid #fff700;padding:8px;border-radius:8px;margin-bottom:10px;text-decoration:none;color:#fff;animation:commBorderAnim 3.5s infinite linear;">' +
+                licenseBox.innerHTML = '<div style="margin-bottom:8px;"><img src="https://i.postimg.cc/JzRR8g6M/IMG-20261102-WA0003.jpg" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:3px solid #00ff00;animation:commProfileAnim 2.2s infinite linear;" /></div>' +
+                                       '<a href="https://t.me/rahadtrader123" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#0d1526;border:2px solid #fff700;padding:8px;border-radius:8px;margin-bottom:10px;text-decoration:none;color:#fff;animation:commBorderAnim 3.0s infinite linear;">' +
                                        '<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" style="width:20px;height:20px;" />' +
                                        '<div style="text-align:left;"><div style="font-size:10px;font-weight:950;color:#00ff66;">R-A Trading Community</div><div style="font-size:6px;color:#8a99ad;">Click to Join Telegram</div></div>' +
                                        '</a>' +
@@ -206,8 +224,8 @@ def bot_script():
                 
                 var b = d.createElement('div');
                 b.id = 'coco_target_btn';
-                /* Floating bot with slightly faster, highly smooth mega color cycling & intense lighting glow */
-                b.style.cssText = 'width:62px;height:62px;border-radius:50%;background:#030407;display:flex;align-items:center;justify-content:center;border:4px solid #00ff00;animation:floatingBotMegaGlow 6.5s infinite linear;box-sizing:border-box;overflow:hidden;';
+                /* Floating bot with mega color cycling list and extreme lighting glow */
+                b.style.cssText = 'width:62px;height:62px;border-radius:50%;background:#030407;display:flex;align-items:center;justify-content:center;border:4px solid #00ff00;animation:floatingBotMegaGlow 7.5s infinite linear;box-sizing:border-box;overflow:hidden;';
                 b.innerHTML = '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />';
                 wrap.appendChild(b);
 
@@ -238,7 +256,7 @@ def bot_script():
                 };
             }
 
-            // BULLETPROOF SINGLE TRADE EXECUTION LOCK (ABSOLUTE ZERO DOUBLE TRADES)
+            /* ABSOLUTE STRICT SINGLE TRADE EXECUTION LOCK (ZERO DOUBLE TRADES) */
             var hasExecutedThisRound = false;
 
             function triggerStrictSingleTrade(isSell){
@@ -300,17 +318,25 @@ def bot_script():
                 try {
                     var selectors = [
                         '.asset-select__current-item span', '.chart-instrument__name', '.mg-select__value', 
-                        '.asset-name', '.current-asset', '[class*="asset-select"]', '[class*="instrument"]'
+                        '.asset-name', '.current-asset', '[class*="asset-select"]', '[class*="instrument"]',
+                        '.dropdown__selected', '.mg-select__selected', '[class*="asset-item__title"]'
                     ];
                     for(var i=0; i<selectors.length; i++){
                         var els = d.querySelectorAll(selectors[i]);
                         for(var k=0; k<els.length; k++){
                             var txt = (els[k].innerText || '').trim().replace(/\\n/g, ' ');
-                            if(txt.length > 1 && txt.length < 25 && (txt.includes('/') || txt.includes('OTC') || txt.includes('USD') || txt.includes('EUR'))){
-                                if(!txt.includes('Deposit') && !txt.includes('Payout')){
+                            if(txt.length > 1 && txt.length < 25 && (txt.includes('/') || txt.includes('OTC') || txt.includes('USD') || txt.includes('EUR') || txt.includes('GBP') || txt.includes('CHF') || txt.includes('NZD'))){
+                                if(!txt.includes('Deposit') && !txt.includes('Payout') && !txt.includes('Timer')){
                                     return txt;
                                 }
                             }
+                        }
+                    }
+                    var allSpans = d.querySelectorAll('div, span');
+                    for(var m=0; m<allSpans.length; m++){
+                        var t = (allSpans[m].innerText || '').trim();
+                        if(t.match(/^[A-Z]{3}\/[A-Z]{3}(\s*\(OTC\))?$/)){
+                            return t;
                         }
                     }
                 } catch(e){}
@@ -336,7 +362,7 @@ def bot_script():
 
                 var activeMarket = getCurrentMarketName();
 
-                // 3. Signal Terminal Panel
+                // 3. Signal Terminal Panel (Real-Time Selected Market Sync)
                 var botRect = botWrap.getBoundingClientRect();
                 var termBox = d.createElement('div');
                 termBox.style.cssText = 'position:fixed;left:' + Math.max(10, botRect.left) + 'px;bottom:' + (window.innerHeight - botRect.top + 12) + 'px;background:rgba(7,11,20,0.95);border:3px solid #ffd700;color:#00ff66;padding:12px 16px;border-radius:10px;font-family:monospace;font-size:11px;box-shadow:0 0 50px rgba(255,215,0,0.8);z-index:2147483647;animation:termBorderAnim 2.2s infinite linear;min-width:185px;';
