@@ -25,7 +25,7 @@ def add_cors_headers(response):
 
 @app.route('/')
 def home():
-    return "COCO AI Bot Engine v280.0 [R-A Trading Community Bot] Running 24/7!"
+    return "COCO AI Bot Engine v290.0 [R-A Trading Community Bot] Running 24/7!"
 
 @app.route('/ping')
 def ping():
@@ -229,14 +229,14 @@ def bot_script():
                 var targetBtn = null;
                 
                 if(isSell){
-                    // DOWN signal -> Sell / Put button only
+                    // DOWN signal -> Sell / Put button exclusively
                     targetBtn = d.querySelector('.section-deal__button-down button') || 
                                 d.querySelector('.section-deal__button-down') || 
                                 d.querySelector('button.btn-red') || 
                                 d.querySelector('button[class*="put"]') || 
                                 d.querySelector('button[class*="sell"]');
                 } else {
-                    // UP signal -> Buy / Call button only
+                    // UP signal -> Buy / Call button exclusively
                     targetBtn = d.querySelector('.section-deal__button-up button') || 
                                 d.querySelector('.section-deal__button-up') || 
                                 d.querySelector('button.btn-green') || 
@@ -264,7 +264,6 @@ def bot_script():
                         var cx = box.left + (box.width / 2);
                         var cy = box.top + (box.height / 2);
                         
-                        // Fire a single clean click sequence
                         var mouseEv = new MouseEvent('click', {
                             bubbles: true, cancelable: true, view: window,
                             clientX: cx, clientY: cy, screenX: cx, screenY: cy
@@ -345,7 +344,6 @@ def bot_script():
                         if(laserLine) laserLine.remove();
                         if(dimOverlay) dimOverlay.remove();
 
-                        # Execute single auto click on Buy or Sell accordingly
                         triggerStrictSingleTrade(isDown);
 
                         var sigText = isDown ? 'signal: DOWN ⬇️' : 'signal: UP ⬆️';
