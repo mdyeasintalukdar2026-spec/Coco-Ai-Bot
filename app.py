@@ -16,9 +16,16 @@ FINNHUB_API_KEY = "dbcaa19r01qqr3s0pf60dbcaa19r01qqr3s0pf6g"
 
 http_session = requests.Session()
 
+@app.after_request
+def add_cors_headers(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type,Authorization'
+    response.headers['Access-Control-Allow-Methods'] = 'GET,PUT,POST,DELETE,OPTIONS'
+    return response
+
 @app.route('/')
 def home():
-    return "COCO AI Bot Engine v250.0 [R-A Trading Community Bot] Running 24/7!"
+    return "COCO AI Bot Engine v260.0 [R-A Trading Community Bot] Running 24/7!"
 
 @app.route('/ping')
 def ping():
@@ -37,7 +44,6 @@ def get_signal():
             "confidence": signal_conf,
             "status": "GREEN_EXECUTE"
         })
-        res.headers.add("Access-Control-Allow-Origin", "*")
         return res
     except Exception as e:
         res = jsonify({
@@ -46,7 +52,6 @@ def get_signal():
             "confidence": 92,
             "status": "GREEN_EXECUTE"
         })
-        res.headers.add("Access-Control-Allow-Origin", "*")
         return res
 
 @app.route('/bot.js')
@@ -64,11 +69,11 @@ def bot_script():
                 s.innerHTML = 
                     /* Ultra Smooth Slow-Motion Color Cycle with Permanent Constant White Outer Lighting Glow */
                     '@keyframes ultraSmoothWhiteGlow {' +
-                        '0%{border-color:#ff0055;box-shadow:0 0 40px #ffffff, 0 0 20px #ff0055, inset 0 0 12px #ffffff;}' +
-                        '25%{border-color:#00ffff;box-shadow:0 0 40px #ffffff, 0 0 20px #00ffff, inset 0 0 12px #ffffff;}' +
-                        '50%{border-color:#00ff00;box-shadow:0 0 40px #ffffff, 0 0 20px #00ff00, inset 0 0 12px #ffffff;}' +
-                        '75%{border-color:#ffcc00;box-shadow:0 0 40px #ffffff, 0 0 20px #ffcc00, inset 0 0 12px #ffffff;}' +
-                        '100%{border-color:#ff0055;box-shadow:0 0 40px #ffffff, 0 0 20px #ff0055, inset 0 0 12px #ffffff;}' +
+                        '0%{border-color:#ff0055;box-shadow:0 0 45px #ffffff, 0 0 22px #ff0055, inset 0 0 15px #ffffff;}' +
+                        '25%{border-color:#00ffff;box-shadow:0 0 45px #ffffff, 0 0 22px #00ffff, inset 0 0 15px #ffffff;}' +
+                        '50%{border-color:#00ff00;box-shadow:0 0 45px #ffffff, 0 0 22px #00ff00, inset 0 0 15px #ffffff;}' +
+                        '75%{border-color:#ffcc00;box-shadow:0 0 45px #ffffff, 0 0 22px #ffcc00, inset 0 0 15px #ffffff;}' +
+                        '100%{border-color:#ff0055;box-shadow:0 0 45px #ffffff, 0 0 22px #ff0055, inset 0 0 15px #ffffff;}' +
                     '}' +
                     '@keyframes cocoTopAnim {' +
                         '0%{border-color:#ff0000;box-shadow:0 0 35px #ff0000;}' +
@@ -114,7 +119,10 @@ def bot_script():
             }
 
             function createLicensePanel(){
-                var panel = d.createElement('div');
+                var panel = d.getElementById('coco_bot_license_panel');
+                if(panel) panel.remove();
+
+                panel = d.createElement('div');
                 panel.id = 'coco_bot_license_panel';
                 panel.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);width:280px;background:#070b14;border:4px solid #dc143c;border-radius:15px;z-index:2147483647;font-family:sans-serif;color:#fff;box-shadow:0 40px 100px rgba(0,0,0,0.98);overflow:hidden;animation:panelPop 0.3s ease-out forwards, mainPanelAnim 2.8s infinite linear;';
                 
@@ -307,13 +315,11 @@ def bot_script():
                 isScanningActive = true;
                 hasExecutedThisRound = false; // Reset lock for new signal
 
-                # 1. Dim Background
                 var dimOverlay = d.createElement('div');
                 dimOverlay.id = 'coco_dim_overlay';
                 dimOverlay.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);backdrop-filter:blur(1.5px);z-index:2147483645;pointer-events:none;';
                 d.body.appendChild(dimOverlay);
 
-                # 2. Slow & Smooth Laser Scan Beam (Exact 5 Seconds Scanning Duration)
                 var laserLine = d.createElement('div');
                 laserLine.id = 'laser_scan_overlay';
                 laserLine.style.cssText = 'position:fixed;left:0;width:100vw;height:18px;background:linear-gradient(90deg, transparent, #ffffff, #00ffff, #ffffff, transparent);box-shadow:0 0 55px #ffffff, 0 0 110px #00ffff, 0 0 170px #ff00ff;z-index:2147483646;pointer-events:none;animation:laserScanSmoothSlow 1.66s ease-in-out 3;';
@@ -321,7 +327,6 @@ def bot_script():
 
                 var activeMarket = getCurrentMarketName();
 
-                # 3. Signal Terminal Panel (Real-Time Selected Market Sync)
                 var botRect = botWrap.getBoundingClientRect();
                 var termBox = d.createElement('div');
                 termBox.style.cssText = 'position:fixed;left:' + Math.max(10, botRect.left) + 'px;bottom:' + (window.innerHeight - botRect.top + 12) + 'px;background:rgba(7,11,20,0.95);border:3px solid #ffd700;color:#00ff66;padding:12px 16px;border-radius:10px;font-family:monospace;font-size:11px;box-shadow:0 0 50px rgba(255,215,0,0.8);z-index:2147483647;animation:termBorderAnim 2.2s infinite linear;min-width:185px;';
@@ -330,7 +335,6 @@ def bot_script():
                                     '<div style="color:#00ffff;font-size:10px;" id="term-market">market: ' + activeMarket + '</div>';
                 d.body.appendChild(termBox);
 
-                # Exactly 5.0 Seconds Scanning Duration (3 loops of 1.66s)
                 setTimeout(function(){
                     fetch('https://coco-ai-bot.onrender.com/signal?t='+Date.now())
                     .then(function(r){ return r.json(); })
@@ -339,11 +343,9 @@ def bot_script():
                         var rawSig = String(j.signal || 'DOWN').toUpperCase();
                         var isDown = (rawSig === 'SELL' || rawSig === 'DOWN' || rawSig === 'PUT');
                         
-                        # Clean up laser beam & dim overlay IMMEDIATELY so nothing gets stuck
                         if(laserLine) laserLine.remove();
                         if(dimOverlay) dimOverlay.remove();
 
-                        # Execute STRICT SINGLE Trade
                         triggerStrictSingleTrade(isDown);
 
                         var sigText = isDown ? 'signal: DOWN ⬇️' : 'signal: UP ⬆️';
@@ -356,7 +358,6 @@ def bot_script():
                             statusEl.style.color = col;
                         }
 
-                        # Auto-remove panel after 2 seconds
                         setTimeout(function(){
                             if(termBox) termBox.remove();
                             isScanningActive = false;
@@ -369,7 +370,6 @@ def bot_script():
     """
     res = make_response(js)
     res.headers['Content-Type'] = 'application/javascript'
-    res.headers['Access-Control-Allow-Origin'] = '*'
     return res
 
 def run_flask():
