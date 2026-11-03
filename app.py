@@ -18,7 +18,7 @@ def add_cors(response):
 
 @app.route('/')
 def index():
-    return "COCO AI - 2M KNOWLEDGE NODES & 67 APIS ULTRA PRO MAX ENGINE ONLINE"
+    return "COCO AI BOT - ORIGINAL DESIGN ACTIVE ONLINE"
 
 @app.route('/ping')
 def ping():
@@ -47,7 +47,7 @@ def get_coco_signal():
             txt = resp.json()["choices"][0]["message"]["content"].strip().upper()
             if "PUT" in txt or "DOWN" in txt:
                 sig = "DOWN"
-        return jsonify({"signal": sig, "status": "GREEN_EXECUTE", "engine": "Coco AI 2M Nodes"})
+        return jsonify({"signal": sig, "status": "GREEN_EXECUTE", "engine": "Coco AI Original"})
     except Exception:
         t = int(time.time())
         return jsonify({"signal": "UP" if t % 2 == 0 else "DOWN", "status": "GREEN_EXECUTE"})
@@ -93,12 +93,12 @@ def bot_script():
                 panel.innerHTML = '<div style="background:#040d1a;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #131d2e;">' +
                                   '<div style="display:flex;align-items:center;gap:10px;">' +
                                   '<div style="width:36px;height:36px;border-radius:50%;background:#eab308;display:flex;align-items:center;justify-content:center;font-weight:900;color:#000;font-size:14px;">CC</div>' +
-                                  '<div><div style="font-size:12px;font-weight:900;color:#fff;">COCO AI BOT</div><div style="font-size:7px;color:#00ff66;font-weight:700;">2M NODES ACTIVE</div></div>' +
+                                  '<div><div style="font-size:12px;font-weight:900;color:#fff;">COCO AI</div><div style="font-size:7px;color:#00ff66;font-weight:700;">ORIGINAL DESIGN</div></div>' +
                                   '</div><button id="coco-close" style="background:#101826;border:none;color:#fff;width:22px;height:22px;border-radius:4px;cursor:pointer;">×</button></div>' +
                                   '<div style="padding:14px;text-align:center;">' +
                                   '<div style="font-size:8px;color:#eab308;margin-bottom:8px;font-weight:bold;">ENTER COCO ACCESS KEY</div>' +
                                   '<input type="password" id="coco-key" placeholder="Access Key" style="width:100%;box-sizing:border-box;background:#040d1a;border:1px solid #16253f;padding:8px;border-radius:6px;color:#fff;font-size:10px;text-align:center;margin-bottom:10px;letter-spacing:1px;" />' +
-                                  '<button id="coco-v-btn" style="width:100%;background:linear-gradient(90deg, #eab308, #00ff66);border:none;padding:9px;border-radius:6px;font-weight:900;font-size:10px;color:#000;cursor:pointer;">ACTIVATE COCO AI</button></div>';
+                                  '<button id="coco-v-btn" style="width:100%;background:linear-gradient(90deg, #eab308, #00ff66);border:none;padding:9px;border-radius:6px;font-weight:900;font-size:10px;color:#000;cursor:pointer;">ACTIVATE COCO</button></div>';
                 
                 d.body.appendChild(panel);
                 panel.querySelector('#coco-close').onclick = function(){ panel.remove(); };
