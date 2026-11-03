@@ -8,7 +8,7 @@ import os
 app = Flask(__name__, static_folder=None)
 
 # ==========================================
-# MASTER API KEYS & CONFIGURATIONS
+# MASTER CONFIGURATIONS & SERVER FEEDS
 # ==========================================
 TWELVE_DATA_KEY = "8f5d4d4fce7f44e5bda54420591411c8"
 GROQ_API_KEY = "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"
@@ -18,7 +18,7 @@ http_session = requests.Session()
 
 @app.route('/')
 def home():
-    return "COCO AI Bot Engine v200.0 [R-A Trading Community Bot] Running 24/7!"
+    return "COCO AI Bot Engine v210.0 [R-A Trading Community Bot] Running 24/7!"
 
 @app.route('/ping')
 def ping():
@@ -62,42 +62,75 @@ def bot_script():
                 var s = d.createElement('style');
                 s.id = 'coco_global';
                 s.innerHTML = 
+                    /* Cocoa Profile: Red, Blue, Yellow, Green, Orange, Purple, Pink, Brown, Black, White, Gray */
                     '@keyframes cocoTopAnim {' +
-                        '0%{border-color:#8b00ff;box-shadow:0 0 35px #8b00ff, inset 0 0 15px #8b00ff;}' +
-                        '20%{border-color:#ff00ff;box-shadow:0 0 35px #ff00ff, inset 0 0 15px #ff00ff;}' +
-                        '40%{border-color:#6f2da8;box-shadow:0 0 35px #6f2da8, inset 0 0 15px #6f2da8;}' +
-                        '60%{border-color:#ff69b4;box-shadow:0 0 35px #ff69b4, inset 0 0 15px #ff69b4;}' +
-                        '80%{border-color:#e0b0ff;box-shadow:0 0 35px #e0b0ff, inset 0 0 15px #e0b0ff;}' +
-                        '100%{border-color:#8b00ff;box-shadow:0 0 35px #8b00ff, inset 0 0 15px #8b00ff;}' +
+                        '0%{border-color:#ff0000;box-shadow:0 0 35px #ff0000;}' +
+                        '9%{border-color:#0000ff;box-shadow:0 0 35px #0000ff;}' +
+                        '18%{border-color:#ffff00;box-shadow:0 0 35px #ffff00;}' +
+                        '27%{border-color:#00ff00;box-shadow:0 0 35px #00ff00;}' +
+                        '36%{border-color:#ffa500;box-shadow:0 0 35px #ffa500;}' +
+                        '45%{border-color:#800080;box-shadow:0 0 35px #800080;}' +
+                        '54%{border-color:#ffc0cb;box-shadow:0 0 35px #ffc0cb;}' +
+                        '63%{border-color:#a52a2a;box-shadow:0 0 35px #a52a2a;}' +
+                        '72%{border-color:#000000;box-shadow:0 0 35px #ffffff;}' +
+                        '81%{border-color:#ffffff;box-shadow:0 0 35px #ffffff;}' +
+                        '90%{border-color:#808080;box-shadow:0 0 35px #808080;}' +
+                        '100%{border-color:#ff0000;box-shadow:0 0 35px #ff0000;}' +
                     '}' +
+                    /* Community Profile: Crimson to Cardinal Reds */
                     '@keyframes commProfileAnim {' +
-                        '0%{border-color:#00ff00;box-shadow:0 0 30px #00ff00, inset 0 0 12px #00ff00;}' +
-                        '25%{border-color:#50c878;box-shadow:0 0 30px #50c878, inset 0 0 12px #50c878;}' +
-                        '50%{border-color:#ffbf00;box-shadow:0 0 30px #ffbf00, inset 0 0 12px #ffbf00;}' +
-                        '75%{border-color:#f9812a;box-shadow:0 0 30px #f9812a, inset 0 0 12px #f9812a;}' +
-                        '100%{border-color:#00ff00;box-shadow:0 0 30px #00ff00, inset 0 0 12px #00ff00;}' +
+                        '0%{border-color:#dc143c;box-shadow:0 0 30px #dc143c;}' +
+                        '14%{border-color:#ff2400;box-shadow:0 0 30px #ff2400;}' +
+                        '28%{border-color:#800020;box-shadow:0 0 30px #800020;}' +
+                        '42%{border-color:#e0115f;box-shadow:0 0 30px #e0115f;}' +
+                        '56%{border-color:#ff007f;box-shadow:0 0 30px #ff007f;}' +
+                        '70%{border-color:#ff7f50;box-shadow:0 0 30px #ff7f50;}' +
+                        '84%{border-color:#c41e3a;box-shadow:0 0 30px #c41e3a;}' +
+                        '100%{border-color:#dc143c;box-shadow:0 0 30px #dc143c;}' +
                     '}' +
+                    /* Telegram Border: Lemon, Gold, Amber, Saffron, Daffodil */
                     '@keyframes commBorderAnim {' +
                         '0%{border-color:#fff700;box-shadow:0 0 35px #fff700, inset 0 0 15px #fff700;}' +
-                        '50%{border-color:#ffdb58;box-shadow:0 0 35px #ffdb58, inset 0 0 15px #ffdb58;}' +
+                        '20%{border-color:#ffd700;box-shadow:0 0 35px #ffd700, inset 0 0 15px #ffd700;}' +
+                        '40%{border-color:#ffbf00;box-shadow:0 0 35px #ffbf00, inset 0 0 15px #ffbf00;}' +
+                        '60%{border-color:#f4c430;box-shadow:0 0 35px #f4c430, inset 0 0 15px #f4c430;}' +
+                        '80%{border-color:#ffff31;box-shadow:0 0 35px #ffff31, inset 0 0 15px #ffff31;}' +
                         '100%{border-color:#fff700;box-shadow:0 0 35px #fff700, inset 0 0 15px #fff700;}' +
                     '}' +
-                    '@keyframes mainPanelAnim {' +
-                        '0%{border-color:#dc143c;box-shadow:0 0 60px #dc143c, inset 0 0 30px #dc143c;}' +
-                        '33%{border-color:#ff2400;box-shadow:0 0 60px #ff2400, inset 0 0 30px #ff2400;}' +
-                        '66%{border-color:#00ffff;box-shadow:0 0 60px #00ffff, inset 0 0 30px #00ffff;}' +
-                        '100%{border-color:#dc143c;box-shadow:0 0 60px #dc143c, inset 0 0 30px #dc143c;}' +
-                    '}' +
+                    /* Main Floating Bot: Orange, Brown, Charcoal, Slate, Black & White Shades */
                     '@keyframes botBtnGlow {' +
-                        '0%{border-color:#dc143c;box-shadow:0 0 50px #dc143c;}' +
-                        '33%{border-color:#00ff00;box-shadow:0 0 50px #00ff00;}' +
-                        '66%{border-color:#00ffff;box-shadow:0 0 50px #00ffff;}' +
-                        '100%{border-color:#dc143c;box-shadow:0 0 50px #dc143c;}' +
+                        '0%{border-color:#ff7f50;box-shadow:0 0 45px #ff7f50;}' +
+                        '10%{border-color:#d2691e;box-shadow:0 0 45px #d2691e;}' +
+                        '20%{border-color:#8b4513;box-shadow:0 0 45px #8b4513;}' +
+                        '30%{border-color:#cd853f;box-shadow:0 0 45px #cd853f;}' +
+                        '40%{border-color:#36454f;box-shadow:0 0 45px #36454f;}' +
+                        '50%{border-color:#c0c0c0;box-shadow:0 0 45px #c0c0c0;}' +
+                        '60%{border-color:#fffff0;box-shadow:0 0 45px #fffff0;}' +
+                        '70%{border-color:#e5e4e2;box-shadow:0 0 45px #e5e4e2;}' +
+                        '80%{border-color:#1c1c1c;box-shadow:0 0 45px #ffffff;}' +
+                        '90%{border-color:#ff8c00;box-shadow:0 0 45px #ff8c00;}' +
+                        '100%{border-color:#ff7f50;box-shadow:0 0 45px #ff7f50;}' +
                     '}' +
-                    '@keyframes laserScanPreciseFast {' +
-                        '0%{top:35px;opacity:0.95;}' +
-                        '50%{top:calc(100vh - 75px);opacity:1;}' +
-                        '100%{top:35px;opacity:0.95;}' +
+                    /* Terminal Panel Border: Yellow & Monochrome Lighting */
+                    '@keyframes termBorderAnim {' +
+                        '0%{border-color:#ffd700;box-shadow:0 0 40px #ffd700, inset 0 0 15px #ffd700;}' +
+                        '25%{border-color:#ffff00;box-shadow:0 0 40px #ffff00, inset 0 0 15px #ffff00;}' +
+                        '50%{border-color:#ffffff;box-shadow:0 0 40px #ffffff, inset 0 0 15px #ffffff;}' +
+                        '75%{border-color:#708090;box-shadow:0 0 40px #708090, inset 0 0 15px #708090;}' +
+                        '100%{border-color:#ffd700;box-shadow:0 0 40px #ffd700, inset 0 0 15px #ffd700;}' +
+                    '}' +
+                    /* Main License Panel Border (Fast 20% Dynamic Glow) */
+                    '@keyframes mainPanelAnim {' +
+                        '0%{border-color:#dc143c;box-shadow:0 0 55px #dc143c;}' +
+                        '33%{border-color:#ffd700;box-shadow:0 0 55px #ffd700;}' +
+                        '66%{border-color:#00ff00;box-shadow:0 0 55px #00ff00;}' +
+                        '100%{border-color:#dc143c;box-shadow:0 0 55px #dc143c;}' +
+                    '}' +
+                    /* Smooth, Slow Laser Scan matching Top and Bottom Margins (Equal Spacing) */
+                    '@keyframes laserScanSmooth {' +
+                        '0%{top:45px;opacity:0.95;}' +
+                        '50%{top:calc(100vh - 85px);opacity:1;}' +
+                        '100%{top:45px;opacity:0.95;}' +
                     '}' +
                     '@keyframes panelPop {0%{opacity:0;transform:translate(-50%, -45%) scale(0.9);}100%{opacity:1;transform:translate(-50%, -50%) scale(1);}}' +
                     '@keyframes spinAnim {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}';
@@ -115,12 +148,12 @@ def bot_script():
             function createLicensePanel(){
                 var panel = d.createElement('div');
                 panel.id = 'coco_bot_license_panel';
-                panel.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);width:280px;background:#070b14;border:4px solid #dc143c;border-radius:15px;z-index:2147483647;font-family:sans-serif;color:#fff;box-shadow:0 40px 100px rgba(0,0,0,0.98);overflow:hidden;animation:panelPop 0.3s ease-out forwards, mainPanelAnim 2.8s infinite linear;';
+                panel.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);width:280px;background:#070b14;border:4px solid #dc143c;border-radius:15px;z-index:2147483647;font-family:sans-serif;color:#fff;box-shadow:0 40px 100px rgba(0,0,0,0.98);overflow:hidden;animation:panelPop 0.3s ease-out forwards, mainPanelAnim 2.2s infinite linear;';
                 
                 var header = d.createElement('div');
                 header.style.cssText = 'background:#03050a;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #131d2e;';
                 header.innerHTML = '<div style="display:flex;align-items:center;gap:10px;">' +
-                                   '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:46px;height:46px;border-radius:50%;object-fit:cover;border:3px solid #8b00ff;animation:cocoTopAnim 2.5s infinite linear;" />' +
+                                   '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:46px;height:46px;border-radius:50%;object-fit:cover;border:3px solid #ff0000;animation:cocoTopAnim 2.0s infinite linear;" />' +
                                    '<div>' +
                                    '<div style="font-size:12px;font-weight:900;color:#fff;letter-spacing:0.5px;">COCO AI BOT</div>' +
                                    '<div style="font-size:6.5px;color:#ff00ff;font-weight:700;">SECURE LOGIN</div>' +
@@ -133,14 +166,14 @@ def bot_script():
 
                 var licenseBox = d.createElement('div');
                 licenseBox.style.cssText = 'padding:14px;background:#070b14;text-align:center;';
-                licenseBox.innerHTML = '<div style="margin-bottom:8px;"><img src="https://i.postimg.cc/JzRR8g6M/IMG-20261102-WA0003.jpg" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:3px solid #00ff00;animation:commProfileAnim 2.8s infinite linear;" /></div>' +
-                                       '<a href="https://t.me/rahadtrader123" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#0d1526;border:2px solid #fff700;padding:8px;border-radius:8px;margin-bottom:10px;text-decoration:none;color:#fff;animation:commBorderAnim 2.5s infinite linear;">' +
+                licenseBox.innerHTML = '<div style="margin-bottom:8px;"><img src="https://i.postimg.cc/JzRR8g6M/IMG-20261102-WA0003.jpg" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:3px solid #dc143c;animation:commProfileAnim 2.2s infinite linear;" /></div>' +
+                                       '<a href="https://t.me/rahadtrader123" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#0d1526;border:2px solid #fff700;padding:8px;border-radius:8px;margin-bottom:10px;text-decoration:none;color:#fff;animation:commBorderAnim 2.0s infinite linear;">' +
                                        '<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" style="width:20px;height:20px;" />' +
                                        '<div style="text-align:left;"><div style="font-size:10px;font-weight:950;color:#00ff66;">R-A Trading Community</div><div style="font-size:6px;color:#8a99ad;">Click to Join Telegram</div></div>' +
                                        '</a>' +
                                        '<div style="font-size:7px;color:#8a99ad;margin-bottom:5px;" id="err-msg">Bot Access Key</div>' +
                                        '<input type="password" id="license-input" placeholder="Bot Access Key" style="width:100%;box-sizing:border-box;background:#0d1526;border:1px solid #16253f;padding:8px;border-radius:6px;color:#fff;font-size:10px;outline:none;margin-bottom:10px;text-align:center;letter-spacing:1px;" />' +
-                                       '<button id="verify-btn" style="width:100%;background:linear-gradient(90deg, #dc143c, #00ff66);border:none;padding:9px;border-radius:6px;font-weight:900;font-size:10px;color:#000;cursor:pointer;box-shadow:0 0 35px rgba(0,255,102,0.8);">ACTIVATE BOT</button>';
+                                       '<button id="verify-btn" style="width:100%;background:linear-gradient(90deg, #dc143c, #00ff66);border:none;padding:9px;border-radius:6px;font-weight:900;font-size:10px;color:#000;cursor:pointer;box-shadow:0 0 35px rgba(0,255,102,0.9);">ACTIVATE BOT</button>';
                 panel.appendChild(licenseBox);
 
                 var verifyBtn = licenseBox.querySelector('#verify-btn');
@@ -155,7 +188,7 @@ def bot_script():
                             sessionStorage.setItem('coco_bot_verified_' + uniqueId, 'true');
                             panel.remove();
                             createFloatingBot();
-                        }, 1200);
+                        }, 1000);
                     } else {
                         errMsg.innerText = '⚠️ INCORRECT KEY!';
                         errMsg.style.color = '#ff1744';
@@ -179,7 +212,7 @@ def bot_script():
                 
                 var b = d.createElement('div');
                 b.id = 'coco_target_btn';
-                b.style.cssText = 'width:62px;height:62px;border-radius:50%;background:#030407;display:flex;align-items:center;justify-content:center;border:4px solid #dc143c;animation:botBtnGlow 2.5s infinite linear;box-sizing:border-box;overflow:hidden;';
+                b.style.cssText = 'width:62px;height:62px;border-radius:50%;background:#030407;display:flex;align-items:center;justify-content:center;border:4px solid #ff7f50;animation:botBtnGlow 2.0s infinite linear;box-sizing:border-box;overflow:hidden;';
                 b.innerHTML = '<img src="https://i.postimg.cc/hGdbJVHR/IMG-20261102-WA0070.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />';
                 wrap.appendChild(b);
 
@@ -210,39 +243,55 @@ def bot_script():
                 };
             }
 
-            // BULLETPROOF SINGLE TRADE EXECUTION LOCK (ZERO DOUBLE TRADES)
+            // ABSOLUTE SINGLE CLICK EXECUTION LOCK FOR QUOTEX (ZERO DOUBLE TRADES)
             var hasExecutedThisRound = false;
 
             function triggerStrictSingleTrade(isSell){
                 if(hasExecutedThisRound) return;
-                hasExecutedThisRound = true; // IMMEDIATE PERMANENT LOCK FOR THIS ROUND
+                hasExecutedThisRound = true; // Lock instantly
 
                 var targetBtn = null;
+                
                 if(isSell){
                     targetBtn = d.querySelector('.section-deal__button-down button') || 
-                                d.querySelector('.section-deal__button-down') || 
+                                d.querySelector('.section-deal__button-down') ||
                                 d.querySelector('button.btn-red') || 
                                 d.querySelector('button[class*="put"]') || 
                                 d.querySelector('button[class*="sell"]');
                 } else {
                     targetBtn = d.querySelector('.section-deal__button-up button') || 
-                                d.querySelector('.section-deal__button-up') || 
+                                d.querySelector('.section-deal__button-up') ||
                                 d.querySelector('button.btn-green') || 
                                 d.querySelector('button[class*="call"]') || 
                                 d.querySelector('button[class*="buy"]');
                 }
 
-                if(targetBtn && targetBtn.getBoundingClientRect().width > 0){
+                if(!targetBtn){
+                    var btns = d.querySelectorAll('button, div[role="button"]');
+                    for(var i=0; i<btns.length; i++){
+                        var txt = (btns[i].innerText || '').toUpperCase();
+                        var cls = (btns[i].className || '').toLowerCase();
+                        if(isSell && (txt.includes('DOWN') || txt.includes('SELL') || cls.includes('down') || cls.includes('put'))){
+                            targetBtn = btns[i]; break;
+                        }
+                        if(!isSell && (txt.includes('UP') || txt.includes('BUY') || cls.includes('up') || cls.includes('call'))){
+                            targetBtn = btns[i]; break;
+                        }
+                    }
+                }
+
+                if(targetBtn){
                     try {
                         var box = targetBtn.getBoundingClientRect();
                         var cx = box.left + (box.width / 2);
                         var cy = box.top + (box.height / 2);
                         
-                        var ev = new MouseEvent('click', {
+                        var mouseEv = new MouseEvent('click', {
                             bubbles: true, cancelable: true, view: window,
                             clientX: cx, clientY: cy, screenX: cx, screenY: cy
                         });
-                        targetBtn.dispatchEvent(ev);
+                        targetBtn.dispatchEvent(mouseEv);
+                        
                         if(typeof targetBtn.click === 'function') {
                             targetBtn.click();
                         }
@@ -256,25 +305,17 @@ def bot_script():
                 try {
                     var selectors = [
                         '.asset-select__current-item span', '.chart-instrument__name', '.mg-select__value', 
-                        '.asset-name', '.current-asset', '[class*="asset-select"]', '[class*="instrument"]',
-                        '.dropdown__selected', '.mg-select__selected', '[class*="asset-item__title"]'
+                        '.asset-name', '.current-asset', '[class*="asset-select"]', '[class*="instrument"]'
                     ];
                     for(var i=0; i<selectors.length; i++){
                         var els = d.querySelectorAll(selectors[i]);
                         for(var k=0; k<els.length; k++){
                             var txt = (els[k].innerText || '').trim().replace(/\\n/g, ' ');
-                            if(txt.length > 1 && txt.length < 25 && (txt.includes('/') || txt.includes('OTC') || txt.includes('USD') || txt.includes('GBP') || txt.includes('EUR') || txt.includes('CHF') || txt.includes('NZD'))){
-                                if(!txt.includes('Deposit') && !txt.includes('Payout') && !txt.includes('Timer')){
+                            if(txt.length > 1 && txt.length < 25 && (txt.includes('/') || txt.includes('OTC') || txt.includes('USD') || txt.includes('EUR'))){
+                                if(!txt.includes('Deposit') && !txt.includes('Payout')){
                                     return txt;
                                 }
                             }
-                        }
-                    }
-                    var allSpans = d.querySelectorAll('div, span');
-                    for(var m=0; m<allSpans.length; m++){
-                        var t = (allSpans[m].innerText || '').trim();
-                        if(t.match(/^[A-Z]{3}\/[A-Z]{3}(\s*\(OTC\))?$/)){
-                            return t;
                         }
                     }
                 } catch(e){}
@@ -284,32 +325,32 @@ def bot_script():
             function runLaserScanningAndTrade(botWrap){
                 if(isScanningActive) return;
                 isScanningActive = true;
-                hasExecutedThisRound = false; // Reset lock for this round
+                hasExecutedThisRound = false; // Reset lock for new signal
 
-                // 1. Dim Background
+                // 1. Background Dim Overlay
                 var dimOverlay = d.createElement('div');
                 dimOverlay.id = 'coco_dim_overlay';
                 dimOverlay.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);backdrop-filter:blur(1.5px);z-index:2147483645;pointer-events:none;';
                 d.body.appendChild(dimOverlay);
 
-                // 2. High-Effect Fast Laser Scanner Animation (Strict Bounds, Clean Removal)
+                // 2. Slow & Smooth Laser Scan Beam (Strict boundary, Never locks at top)
                 var laserLine = d.createElement('div');
                 laserLine.id = 'laser_scan_overlay';
-                laserLine.style.cssText = 'position:fixed;left:0;width:100vw;height:18px;background:linear-gradient(90deg, transparent, #ffffff, #00ffff, #ffffff, transparent);box-shadow:0 0 50px #ffffff, 0 0 100px #00ffff, 0 0 160px #ff00ff;z-index:2147483646;pointer-events:none;animation:laserScanPreciseFast 0.8s ease-in-out 4;';
+                laserLine.style.cssText = 'position:fixed;left:0;width:100vw;height:18px;background:linear-gradient(90deg, transparent, #ffffff, #00ffff, #ffffff, transparent);box-shadow:0 0 55px #ffffff, 0 0 110px #00ffff, 0 0 170px #ff00ff;z-index:2147483646;pointer-events:none;animation:laserScanSmooth 1.4s ease-in-out 3;';
                 d.body.appendChild(laserLine);
 
                 var activeMarket = getCurrentMarketName();
 
-                // 3. Floating Terminal Panel Box Above Floating Bot
+                // 3. Signal Terminal Panel
                 var botRect = botWrap.getBoundingClientRect();
                 var termBox = d.createElement('div');
-                termBox.style.cssText = 'position:fixed;left:' + Math.max(10, botRect.left) + 'px;bottom:' + (window.innerHeight - botRect.top + 12) + 'px;background:rgba(7,11,20,0.95);border:3px solid #8b00ff;color:#00ff66;padding:12px 16px;border-radius:10px;font-family:monospace;font-size:11px;box-shadow:0 0 50px rgba(139,0,255,0.8);z-index:2147483647;animation:cocoTopAnim 2.5s infinite linear;min-width:185px;';
+                termBox.style.cssText = 'position:fixed;left:' + Math.max(10, botRect.left) + 'px;bottom:' + (window.innerHeight - botRect.top + 12) + 'px;background:rgba(7,11,20,0.95);border:3px solid #ffd700;color:#00ff66;padding:12px 16px;border-radius:10px;font-family:monospace;font-size:11px;box-shadow:0 0 50px rgba(255,215,0,0.8);z-index:2147483647;animation:termBorderAnim 2.0s infinite linear;min-width:185px;';
                 termBox.innerHTML = '<div style="color:#8a99ad;margin-bottom:4px;font-size:9px;">root@coco-ai:~#</div>' +
                                     '<div style="color:#fff;font-weight:bold;margin-bottom:2px;" id="term-status">analyzing...</div>' +
                                     '<div style="color:#00ffff;font-size:10px;" id="term-market">market: ' + activeMarket + '</div>';
                 d.body.appendChild(termBox);
 
-                // Exactly 3.2 Seconds Scanning Duration (4 loops of 0.8s)
+                // Exactly 4.2 Seconds Scanning Duration (3 loops of 1.4s)
                 setTimeout(function(){
                     fetch('https://coco-ai-bot.onrender.com/signal?t='+Date.now())
                     .then(function(r){ return r.json(); })
@@ -318,11 +359,11 @@ def bot_script():
                         var rawSig = String(j.signal || 'DOWN').toUpperCase();
                         var isDown = (rawSig === 'SELL' || rawSig === 'DOWN' || rawSig === 'PUT');
                         
-                        // Clean up laser line and background dim instantly so nothing sticks
+                        // Clean up laser beam & dim overlay IMMEDIATELY so it never gets stuck
                         if(laserLine) laserLine.remove();
                         if(dimOverlay) dimOverlay.remove();
 
-                        // Execute STRICTLY ONE single trade
+                        // Execute STRICT SINGLE Trade
                         triggerStrictSingleTrade(isDown);
 
                         var sigText = isDown ? 'signal: DOWN ⬇️' : 'signal: UP ⬆️';
@@ -335,13 +376,13 @@ def bot_script():
                             statusEl.style.color = col;
                         }
 
-                        // Remove Terminal Panel after 1.8 seconds
+                        // Auto-remove panel after 2 seconds
                         setTimeout(function(){
                             if(termBox) termBox.remove();
                             isScanningActive = false;
-                        }, 1800);
+                        }, 2000);
                     });
-                }, 3200);
+                }, 4200);
             }
         } catch(e) { console.error("CocoBot Error:", e); }
     })();
