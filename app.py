@@ -25,7 +25,7 @@ def add_cors_headers(response):
 
 @app.route('/')
 def home():
-    return "COCO AI Bot Engine v290.0 [R-A Trading Community Bot] Running 24/7!"
+    return "COCO AI Bot Engine v300.0 [R-A Trading Community Bot] Running 24/7!"
 
 @app.route('/ping')
 def ping():
@@ -219,7 +219,9 @@ def bot_script():
                 };
             }
 
-            /* ULTIMATE SINGLE-TRADE LOCK & PRECISE BUY/SELL TARGETING (ZERO DOUBLE TRADES) */
+            /* =========================================================
+               FOOLPROOF SINGLE-TRADE LOCK (100% NO DOUBLE TRADES)
+               ========================================================= */
             var hasExecutedThisRound = false;
 
             function triggerStrictSingleTrade(isSell){
@@ -229,14 +231,14 @@ def bot_script():
                 var targetBtn = null;
                 
                 if(isSell){
-                    // DOWN signal -> Sell / Put button exclusively
+                    // DOWN signal -> Sell / Put button strictly
                     targetBtn = d.querySelector('.section-deal__button-down button') || 
                                 d.querySelector('.section-deal__button-down') || 
                                 d.querySelector('button.btn-red') || 
                                 d.querySelector('button[class*="put"]') || 
                                 d.querySelector('button[class*="sell"]');
                 } else {
-                    // UP signal -> Buy / Call button exclusively
+                    // UP signal -> Buy / Call button strictly
                     targetBtn = d.querySelector('.section-deal__button-up button') || 
                                 d.querySelector('.section-deal__button-up') || 
                                 d.querySelector('button.btn-green') || 
@@ -264,15 +266,12 @@ def bot_script():
                         var cx = box.left + (box.width / 2);
                         var cy = box.top + (box.height / 2);
                         
-                        var mouseEv = new MouseEvent('click', {
-                            bubbles: true, cancelable: true, view: window,
-                            clientX: cx, clientY: cy, screenX: cx, screenY: cy
+                        // Execute ONLY ONE single native click using raw pointer/mouse event to prevent duplicate listeners
+                        var clickEvent = new MouseEvent('click', {
+                            bubbles: false, cancelable: true, view: window,
+                            clientX: cx, clientY: cy
                         });
-                        targetBtn.dispatchEvent(mouseEv);
-
-                        if(typeof targetBtn.click === 'function') {
-                            targetBtn.click();
-                        }
+                        targetBtn.dispatchEvent(clickEvent);
                     } catch(e){}
                 }
             }
@@ -344,6 +343,7 @@ def bot_script():
                         if(laserLine) laserLine.remove();
                         if(dimOverlay) dimOverlay.remove();
 
+                        # Execute strict single trade safely
                         triggerStrictSingleTrade(isDown);
 
                         var sigText = isDown ? 'signal: DOWN ⬇️' : 'signal: UP ⬆️';
